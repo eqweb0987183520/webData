@@ -87,22 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5.1 組長真心話展開閱讀 (Leader Story Collapsible)
-    const leaderToggle = document.getElementById('leader-story-toggle');
-    const leaderFull = document.getElementById('leader-story-full');
-    if (leaderToggle && leaderFull) {
-        leaderToggle.addEventListener('click', () => {
-            const isOpen = leaderFull.classList.contains('open');
-            if (isOpen) {
-                leaderFull.classList.remove('open');
-                leaderToggle.textContent = '📖 展開閱讀小新爸爸完整分享';
-            } else {
-                leaderFull.classList.add('open');
-                leaderToggle.textContent = '收起分享 ▲';
-            }
-        });
-    }
-
     // 6. 真實教養情境互動切換 (Interactive Scenario Switcher)
     const scenarioData = {
         rebel: {
@@ -195,55 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 8. FAQ 手風琴 (Accordion)
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question?.addEventListener('click', () => {
-            const isOpen = item.classList.contains('open');
-            faqItems.forEach(f => f.classList.remove('open'));
-            if (!isOpen) {
-                item.classList.add('open');
-            }
-        });
-    });
-
-    // 9. 報名與諮詢彈窗 (Modal Logic)
-    const modalOverlay = document.getElementById('signup-modal');
-    const openModalBtns = document.querySelectorAll('.open-signup-modal');
-    const closeModalBtn = document.getElementById('modal-close-btn');
-    const signupForm = document.getElementById('signup-form');
-
-    openModalBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modalOverlay?.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    closeModalBtn?.addEventListener('click', () => {
-        modalOverlay?.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-
-    modalOverlay?.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-            modalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-
-    signupForm?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('form-name')?.value;
-        showToast(`🎉 感謝 ${name} 家長的熱情報名！我們將盡速與您聯繫 邀請您加入樂利 EQ 志工大家庭！`);
-        modalOverlay?.classList.remove('active');
-        document.body.style.overflow = '';
-        signupForm.reset();
-    });
-
-    // 10. 複製與互動 Toast 通知
+    // 8. 複製與互動 Toast 通知
     window.showToast = function(msg) {
         let toast = document.getElementById('global-toast');
         if (!toast) {
