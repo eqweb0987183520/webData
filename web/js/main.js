@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
@@ -75,54 +75,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. 真實教養情境互動切換 (Interactive Scenario Switcher)
+    // 5. 三大好處卡片點擊展開/收合 (Collapsible Pillars)
+    const pillarCards = document.querySelectorAll('.pillar-card.collapsible');
+    pillarCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const isOpen = card.classList.contains('open');
+            pillarCards.forEach(c => c.classList.remove('open'));
+            if (!isOpen) {
+                card.classList.add('open');
+            }
+        });
+    });
+
+    // 5.1 組長真心話展開閱讀 (Leader Story Collapsible)
+    const leaderToggle = document.getElementById('leader-story-toggle');
+    const leaderFull = document.getElementById('leader-story-full');
+    if (leaderToggle && leaderFull) {
+        leaderToggle.addEventListener('click', () => {
+            const isOpen = leaderFull.classList.contains('open');
+            if (isOpen) {
+                leaderFull.classList.remove('open');
+                leaderToggle.textContent = '📖 展開閱讀小新爸爸完整分享';
+            } else {
+                leaderFull.classList.add('open');
+                leaderToggle.textContent = '收起分享 ▲';
+            }
+        });
+    }
+
+    // 6. 真實教養情境互動切換 (Interactive Scenario Switcher)
     const scenarioData = {
         rebel: {
             tag: '日常困擾 #1',
-            title: '【唱反調的孩子】你叫他往東，他偏偏往西？',
-            context: '當孩子因為誤解而被責備時，第一反應常是頂嘴、摔門或怒罵。很多家長會誤以為孩子在挑釁。',
-            solutionTitle: 'EQ 實戰引導心法：',
+            title: '【唱反調的孩子】你叫他往東 他偏偏往西？',
+            context: '當孩子因為誤解而被責備時 第一反應常是頂嘴 摔門或怒罵 很多家長會誤以為孩子在挑釁',
+            solutionTitle: '💡 EQ 實戰引導心法：',
             solutions: [
-                '不站在孩子對立面：先放下指責，給予情緒冷靜空間。',
-                '幽默點出答案：用溫和語氣「我看你其實知道標準答案喔～」。',
-                '認同孩子的思考難度：「能講出反向答案代表你腦筋動得很快！」。',
-                '看懂底層情緒：孩子表面是生氣，底層其實是「委屈」，引導他把委屈說出口。'
+                '不站在孩子對立面：先放下指責 給予情緒冷靜空間',
+                '幽默點出答案：「我看你其實知道標準答案喔～」',
+                '認同孩子的思考難度：「能講出反向答案代表你腦筋動得很快」',
+                '看懂底層情緒：表面是生氣 底層其實是「委屈」 引導他把委屈說出口'
             ]
         },
         focus: {
             tag: '日常困擾 #2',
-            title: '【專注力不夠的孩子】上課容易分心、坐不住？',
-            context: '低年級孩子大腦發育仍在進行中，傳統的「單向說教」很容易讓孩子失去耐心與注意力。',
-            solutionTitle: 'EQ 實戰引導心法：',
+            title: '【專注力不夠的孩子】上課容易分心 坐不住？',
+            context: '低年級孩子大腦發育仍在進行中 單向說教容易讓孩子失去耐心與注意力',
+            solutionTitle: '💡 EQ 實戰引導心法：',
             solutions: [
-                '調整心態：他不是不認真，而是「需要更有趣的互動刺激」。',
-                '動態式互動教學：改為快問快答、角色扮演、尋寶任務。',
-                '微小成就激勵：設立「看誰能撐到最後」趣味競賽，參與感瞬間飆升。',
-                '分段專注練習：從 10 分鐘小目標開始，逐步建立學習耐力。'
+                '調整心態：不是不認真 而是「需要更有趣的互動刺激」',
+                '動態互動教學：改為快問快答 角色扮演 趣味挑戰',
+                '微小成就激勵：設立「看誰能撐到最後」 參與感瞬間提升',
+                '分段專注練習：從 10 分鐘小目標開始 逐步建立學習耐力'
             ]
         },
         bullying: {
             tag: '人際困擾 #3',
-            title: '【開玩笑？惡作劇？還是校園霸凌？】',
-            context: '如果過度防衛把所有碰撞都當霸凌，會失去朋友；但若一味忍讓逃避，孩子容易身陷險境。',
-            solutionTitle: 'EQ 實戰引導心法：',
+            title: '【開玩笑？還是霸凌？】如何精準分辨人際分際？',
+            context: '過度防衛會失去朋友 一味隱忍又容易陷入危險 唯有掌握清楚定義 才能保護自己',
+            solutionTitle: '💡 EQ 實戰引導心法：',
             solutions: [
-                '掌握霸凌 3 大要件：1. 長期且持續、2. 故意且惡意、3. 造成身心傷害。',
-                '透析 5 大校園角色：加害者、受害者、起鬨者、旁觀者、逃避者。',
-                '情境演練學會說「不」：透過戲劇活動練習堅定表達界線。',
-                '親師生共同掌握常識：唯有擁有共同語言，才能真正將霸凌杜絕於校園外！'
+                '掌握霸凌 3 大要件：1. 長期且持續 2. 故意且惡意 3. 造成身心傷害',
+                '透析 5 大校園角色：加害者 受害者 起鬨者 旁觀者 逃避者',
+                '情境演練學會說「不」：透過戲劇活動練習堅定表達界線',
+                '掌握親師生常識：擁有共同語言 杜絕校園霸凌'
             ]
         },
         tech: {
             tag: '現代挑戰 #4',
-            title: '【手機 3C 沉迷與拖拖拉拉】叫不動怎麼辦？',
-            context: '現代孩子面對高刺激數位科技，常因時間感模糊與自制力未成熟而引發家庭風暴。',
-            solutionTitle: 'EQ 實戰引導心法：',
+            title: '【手機 3C 與拖延難題】叫不動令人心力交瘁？',
+            context: '數位時代孩子面對高刺激屏幕 常因時間感模糊與自制力未成熟引發衝突',
+            solutionTitle: '💡 EQ 實戰引導心法：',
             solutions: [
-                '無痛約定法：不突襲沒收，提前 5 分鐘、1 分鐘給予緩衝倒數。',
-                '情緒共感取代怒吼：理解放下手機時的失落感（「我知道遊戲很好玩，結束很可惜」）。',
-                '實體替代方案：用桌遊、戶外運動或親子共讀 EQ 故事書轉移注意力。',
-                '父母以身作則：全家設立「無 3C 親子晚餐時光」，營造良好家庭氣氛。'
+                '無痛約定法：不突襲沒收 提前 5 分鐘 1 分鐘給予緩衝倒數',
+                '同理情緒取代怒吼：「我知道遊戲很好玩 放下很不捨」',
+                '實體替代方案：用桌遊 運動 親子共讀轉移注意力',
+                '全家共同約定：設立「無 3C 親子時光」 營造溫馨家庭氛圍'
             ]
         }
     };
@@ -151,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. 新生家長入學焦慮小測驗 (Interactive Anxiety & EQ Quiz)
+    // 7. 新生家長入學焦慮小測驗 (Interactive Anxiety & EQ Quiz)
     const quizOptions = document.querySelectorAll('.quiz-option-btn');
     const quizResult = document.getElementById('quiz-result');
     const quizResultText = document.getElementById('quiz-result-text');
@@ -167,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. FAQ 手風琴 (Accordion)
+    // 8. FAQ 手風琴 (Accordion)
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
@@ -180,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 8. 報名與諮詢彈窗 (Modal Logic)
+    // 9. 報名與諮詢彈窗 (Modal Logic)
     const modalOverlay = document.getElementById('signup-modal');
     const openModalBtns = document.querySelectorAll('.open-signup-modal');
     const closeModalBtn = document.getElementById('modal-close-btn');
@@ -209,16 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm?.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = document.getElementById('form-name')?.value;
-        const phone = document.getElementById('form-phone')?.value;
-        const childClass = document.getElementById('form-child-class')?.value;
-
-        showToast(`🎉 感謝 ${name} 家長的熱情報名！我們將盡速與您聯繫，邀請您加入樂利 EQ 志工大家庭！`);
+        showToast(`🎉 感謝 ${name} 家長的熱情報名！我們將盡速與您聯繫 邀請您加入樂利 EQ 志工大家庭！`);
         modalOverlay?.classList.remove('active');
         document.body.style.overflow = '';
         signupForm.reset();
     });
 
-    // 9. 複製與互動 Toast 通知
+    // 10. 複製與互動 Toast 通知
     window.showToast = function(msg) {
         let toast = document.getElementById('global-toast');
         if (!toast) {
@@ -236,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.copyLineInvite = function() {
         navigator.clipboard.writeText('https://line.me/ti/g2/leli_eq_volunteer').then(() => {
-            showToast('📋 已複製 LINE 群組邀請連結！歡迎在手機或 LINE 中開啟加入！');
+            showToast('📋 已複製 LINE 群組邀請連結 歡迎在手機或 LINE 中開啟加入！');
         }).catch(() => {
             showToast('已為您開啟加入 LINE 群組！');
         });
