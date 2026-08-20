@@ -6,6 +6,17 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌐 [v1.01] - GitHub Pages 自動化發布與官方網址設定
+- **快照時間**：2026-08-20 21:28
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **主要變更與建置內容**：
+  1. **公開倉庫設定與 Pages 啟用**：完成 GitHub Pages 啟用並切換為自動化 Workflow 構建模式。
+  2. **自動化 CI/CD 流程**：建立 `.github/workflows/deploy.yml`，凡推送至 `main` 自動將 `web/` 目錄部署至 GitHub Pages。
+  3. **網址與 Meta 更新**：更新 `index.html` 內的 OpenGraph 及 JSON-LD 官方網址。
+
+---
+
 ### 🚀 [v1.00] - 樂利國小 EQ 志工組官方網站初版建置完成 (Initial Release)
 - **快照時間**：2026-08-20 21:25
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
@@ -19,3 +30,4 @@
 - **規則提純**：首次建立 Checkpoint 制度，主規則與架構已就緒。
 
 ---
+
