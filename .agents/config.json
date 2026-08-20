@@ -1,0 +1,12 @@
+{
+  "projectName": "樂利國小 EQ 志工組官方網站",
+  "mainRepository": {
+    "account": "eqweb0987183520",
+    "remoteName": "origin",
+    "branch": "main",
+    "url": "https://github.com/eqweb0987183520/webData.git"
+  },
+  "checkpointLogPath": "Checkpoints.md",
+  "archiveRulesPath": ".agents/archive_rules/",
+  "versionFormat": "vX.XX"
+}
