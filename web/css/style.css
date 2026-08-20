@@ -19,6 +19,11 @@
     --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     --font-sans: 'Outfit', 'Noto Sans TC', sans-serif;
     --line-green: #06c755;
+
+    /* UI/UX 統一字級階層規範 (清晰、舒適、不傷眼，嚴格收斂至 3 大字級) */
+    --text-lead: 1.15rem;      /* 18.4px - 核心引言 / 強調段落 / Hero Slogan */
+    --text-body: 1.02rem;      /* 16.3px - 全站主要閱讀正文 (卡片內文/說明/清單/選項) */
+    --text-sub: 0.92rem;       /* 14.7px - 次要輔助資訊 / 標籤 / 導覽 / 按鈕 (無過小字) */
 }
 
 [data-theme="light"] {
@@ -55,7 +60,8 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    line-height: 1.7;
+    font-size: var(--text-body);
+    line-height: 1.75;
     overflow-x: hidden;
     transition: background-color 0.4s ease, color 0.4s ease;
     word-break: normal;
@@ -137,9 +143,9 @@ h1, h2, h3, h4 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.35rem 0.9rem;
+    padding: 0.4rem 1rem;
     border-radius: 9999px;
-    font-size: 0.85rem;
+    font-size: var(--text-sub);
     font-weight: 600;
     background: var(--accent-primary-glow);
     color: var(--accent-primary);
@@ -150,6 +156,22 @@ h1, h2, h3, h4 {
     background: var(--accent-secondary-glow);
     color: var(--accent-secondary);
     border-color: rgba(16, 185, 129, 0.25);
+}
+
+/* 核心引言醒目橫幅 (字體放大、清晰易讀、溫暖高質感) */
+.hero-quote-badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 0.65rem 1.35rem;
+    border-radius: 16px;
+    font-size: var(--text-lead);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-secondary-glow) 0%, rgba(251, 191, 36, 0.08) 100%);
+    color: var(--accent-secondary);
+    border: 1.5px solid rgba(16, 185, 129, 0.35);
+    box-shadow: 0 4px 16px var(--accent-secondary-glow);
+    line-height: 1.5;
 }
 
 /* Scroll Reveal Animations */
@@ -196,7 +218,7 @@ nav {
     cursor: pointer;
 }
 
-/* Expanded Colorful Button Logo (No extra text beside it) */
+/* Expanded Colorful Button Logo */
 .logo-badge {
     padding: 0.45rem 1.1rem;
     border-radius: 14px;
@@ -206,7 +228,7 @@ nav {
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 1.05rem;
+    font-size: var(--text-body);
     letter-spacing: 0.02em;
     box-shadow: 0 4px 14px var(--accent-primary-glow);
     white-space: nowrap;
@@ -228,7 +250,7 @@ nav {
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: var(--text-sub);
     font-weight: 500;
     transition: var(--transition-smooth);
     position: relative;
@@ -268,7 +290,7 @@ nav {
     background: linear-gradient(135deg, var(--accent-primary) 0%, #f59e0b 100%);
     color: #060b09;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: var(--text-sub);
     padding: 0.65rem 1.3rem;
     border-radius: 9999px;
     border: none;
@@ -291,7 +313,7 @@ nav {
     background: var(--line-green);
     color: #ffffff;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: var(--text-sub);
     padding: 0.8rem 1.6rem;
     border-radius: 9999px;
     text-decoration: none;
@@ -342,7 +364,7 @@ nav {
 .mobile-drawer a {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.05rem;
+    font-size: var(--text-body);
     font-weight: 600;
     padding: 0.4rem 0;
 }
@@ -378,19 +400,20 @@ nav {
 .hero-content {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.25rem;
 }
 
 .hero-title {
-    font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+    font-size: clamp(2rem, 4.8vw, 2.9rem);
     font-weight: 900;
-    line-height: 1.3;
+    line-height: 1.35;
 }
 
 .hero-desc {
-    font-size: clamp(1rem, 2.2vw, 1.12rem);
+    font-size: var(--text-lead);
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: 1.9;
+    font-weight: 500;
 }
 
 /* Standalone Stats Banner */
@@ -407,14 +430,14 @@ nav {
 }
 
 .stat-item h4 {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-size: clamp(1.8rem, 3.8vw, 2.3rem);
     color: var(--accent-primary);
     font-weight: 900;
     margin-bottom: 0.2rem;
 }
 
 .stat-item p {
-    font-size: 0.92rem;
+    font-size: var(--text-sub);
     color: var(--text-secondary);
     font-weight: 500;
 }
@@ -462,13 +485,13 @@ nav {
 }
 
 .floating-text h5 {
-    font-size: 0.92rem;
+    font-size: var(--text-body);
     font-weight: 700;
     color: var(--accent-primary);
 }
 
 .floating-text p {
-    font-size: 0.8rem;
+    font-size: var(--text-sub);
     color: var(--text-secondary);
 }
 
@@ -493,12 +516,12 @@ nav {
 }
 
 .section-header h2 {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-size: clamp(1.65rem, 3.5vw, 2.2rem);
     margin-bottom: 0.6rem;
 }
 
 .section-header p {
-    font-size: 1rem;
+    font-size: var(--text-body);
     color: var(--text-secondary);
 }
 
@@ -575,7 +598,7 @@ nav {
 
 .pillar-card h3,
 .scenario-card h3 {
-    font-size: 1.12rem;
+    font-size: 1.15rem;
     line-height: 1.4;
     margin: 0;
 }
@@ -605,7 +628,7 @@ nav {
 
 .pillar-teaser,
 .scenario-teaser {
-    font-size: 0.88rem;
+    font-size: var(--text-sub);
     color: var(--text-muted);
     line-height: 1.5;
     margin-top: 0.2rem;
@@ -618,8 +641,8 @@ nav {
     margin-top: 0.6rem;
     border-top: 1px dashed var(--card-border);
     color: var(--text-secondary);
-    font-size: 0.92rem;
-    line-height: 1.75;
+    font-size: var(--text-body);
+    line-height: 1.8;
     animation: fadeInSlide 0.35s ease;
 }
 
@@ -633,14 +656,15 @@ nav {
     margin-top: 0.6rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 
 .scenario-solution-list li {
     position: relative;
-    padding-left: 1.4rem;
-    font-size: 0.9rem;
+    padding-left: 1.5rem;
+    font-size: var(--text-body);
     color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .scenario-solution-list li::before {
@@ -680,15 +704,15 @@ nav {
 }
 
 .bullying-item h4 {
-    font-size: 1.1rem;
+    font-size: 1.12rem;
     color: var(--accent-primary);
     margin-bottom: 0.4rem;
 }
 
 .bullying-item p {
-    font-size: 0.88rem;
+    font-size: var(--text-body);
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* Interactive Quiz / Self Assessment */
@@ -712,10 +736,10 @@ nav {
     border: 1px solid var(--card-border);
     color: var(--text-primary);
     cursor: pointer;
-    font-size: 0.92rem;
+    font-size: var(--text-body);
     text-align: left;
     transition: var(--transition-smooth);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .quiz-option-btn:hover {
@@ -730,7 +754,8 @@ nav {
     background: rgba(251, 191, 36, 0.1);
     border: 1px solid rgba(251, 191, 36, 0.3);
     display: none;
-    line-height: 1.7;
+    font-size: var(--text-body);
+    line-height: 1.8;
 }
 
 /* Training Roadmap */
@@ -762,7 +787,7 @@ nav {
     background: var(--accent-primary);
     color: #060b09;
     font-weight: 900;
-    font-size: 0.9rem;
+    font-size: var(--text-sub);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -776,21 +801,21 @@ nav {
 }
 
 .roadmap-card p {
-    font-size: 0.86rem;
+    font-size: var(--text-body);
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .roadmap-meta {
     margin-top: 0.8rem;
     padding-top: 0.6rem;
     border-top: 1px dashed var(--card-border);
-    font-size: 0.8rem;
+    font-size: var(--text-sub);
     color: var(--accent-primary);
     font-weight: 600;
 }
 
-/* Vertical Co-learning Banner (上下結構，手機不再被壓扁) */
+/* Vertical Co-learning Banner (上下結構，排版開闊不壓扁) */
 .colearning-banner-vertical {
     margin-top: 3rem;
     border-radius: 24px;
@@ -802,6 +827,17 @@ nav {
 
 .colearning-text-box {
     padding: 2.2rem 2.5rem;
+}
+
+.colearning-text-box h3 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 0.8rem;
+}
+
+.colearning-text-box p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.8;
 }
 
 .colearning-img-box {
@@ -854,13 +890,19 @@ nav {
     align-items: flex-start;
 }
 
+.guarantee-step p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
 .g-badge {
     width: 26px;
     height: 26px;
     border-radius: 50%;
     background: var(--accent-secondary);
     color: white;
-    font-size: 0.82rem;
+    font-size: var(--text-sub);
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -903,7 +945,7 @@ nav {
 }
 
 .price-title {
-    font-size: 0.9rem;
+    font-size: var(--text-sub);
     color: var(--text-secondary);
     font-weight: 600;
     margin-bottom: 0.3rem;
@@ -933,7 +975,7 @@ nav {
 }
 
 .price-net-note {
-    font-size: 0.88rem;
+    font-size: var(--text-sub);
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 1.2rem;
@@ -960,12 +1002,12 @@ nav {
 }
 
 .cta-box h2 {
-    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+    font-size: clamp(1.65rem, 3.5vw, 2.3rem);
     margin-bottom: 0.8rem;
 }
 
 .cta-box p {
-    font-size: 1.05rem;
+    font-size: var(--text-lead);
     color: var(--text-secondary);
     max-width: 660px;
     margin: 0 auto 2rem auto;
@@ -988,7 +1030,7 @@ nav {
     background: rgba(6, 199, 85, 0.12);
     border: 1px solid rgba(6, 199, 85, 0.3);
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: var(--text-sub);
     margin-top: 1rem;
 }
 
@@ -1009,7 +1051,7 @@ nav {
     padding: 0.75rem 1.3rem;
     border-radius: 999px;
     font-weight: 700;
-    font-size: 0.92rem;
+    font-size: var(--text-sub);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -1038,7 +1080,7 @@ nav {
     z-index: 3000;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     font-weight: 600;
-    font-size: 0.92rem;
+    font-size: var(--text-sub);
     pointer-events: none;
     text-align: center;
     max-width: 90vw;
@@ -1064,13 +1106,13 @@ footer {
 
 .footer-info p {
     color: var(--text-secondary);
-    font-size: 0.92rem;
+    font-size: var(--text-sub);
     margin-top: 0.75rem;
     line-height: 1.7;
 }
 
 .footer-links h4 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     margin-bottom: 0.8rem;
     color: var(--accent-primary);
 }
@@ -1085,7 +1127,7 @@ footer {
 .footer-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.88rem;
+    font-size: var(--text-sub);
     transition: var(--transition-smooth);
 }
 
@@ -1098,7 +1140,7 @@ footer {
     padding-top: 1.5rem;
     border-top: 1px solid var(--card-border);
     color: var(--text-muted);
-    font-size: 0.82rem;
+    font-size: var(--text-sub);
 }
 
 /* Mobile & Tablet Responsive Queries */
@@ -1110,6 +1152,10 @@ footer {
     }
     .hero-content {
         align-items: center;
+    }
+    .hero-quote-badge {
+        align-self: center;
+        text-align: center;
     }
     .hero-stats-banner {
         grid-template-columns: repeat(3, 1fr);
@@ -1142,6 +1188,10 @@ footer {
 }
 
 @media (max-width: 640px) {
+    .hero-quote-badge {
+        font-size: 1.02rem;
+        padding: 0.55rem 1rem;
+    }
     .hero-stats-banner {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1159,6 +1209,6 @@ footer {
         bottom: 16px;
         right: 16px;
         padding: 0.65rem 1.1rem;
-        font-size: 0.88rem;
+        font-size: var(--text-sub);
     }
 }
