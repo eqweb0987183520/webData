@@ -2,7 +2,18 @@
 <html lang="zh-Hant" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="375">
+    <script>
+        // 確保從短網址跳轉或各類 In-App 瀏覽器載入時強制套用手機最佳 Viewport
+        (function() {
+            var vp = document.querySelector('meta[name="viewport"]');
+            if (vp) {
+                vp.setAttribute('content', 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover');
+            }
+        })();
+    </script>
     <title>樂利 EQ 志工官方網站｜懂孩子，是我們給孩子最好的禮物</title>
     <meta name="description" content="樂利 EQ 志工招募中：各位家長並不缺少愛，而是缺少一個「懂孩子」的方法。攜手芯福里情緒教育協會深耕 12 年，每學期僅需 8 小時，邀您為孩子走進一次校園！">
     <meta name="keywords" content="樂利EQ志工, 樂利國小EQ志工, 樂利國小, 芯福里, 芯福里情緒教育協會, 小一新生, 開學適應, EQ教育, 親子共學, 反霸凌, 懂孩子">
