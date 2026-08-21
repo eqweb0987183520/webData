@@ -107,6 +107,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (registrationForm) {
         const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfSos9SzhP0PsOiHEQKmRzOjoO_N6sKKj7iIXrstmwETB-b7A/formResponse';
+        const NOTIFY_EMAIL = 'b0987183520@gmail.com';
+
+        // 非同步寄送通知 Email 至指定信箱
+        async function sendEmailNotification(data) {
+            try {
+                const emailPayload = {
+                    _subject: `【樂利 EQ 志工官網】新報名通知：${data.name}（${data.phone}）`,
+                    '報名家長姓名': data.name,
+                    '聯絡手機': data.phone,
+                    'LINE ID': data.line || '（未提供）',
+                    '參與項目': data.options.join('、'),
+                    '登記時間': new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
+                    _template: 'table',
+                    _captcha: 'false'
+                };
+
+                await fetch(`https://formsubmit.co/ajax/${NOTIFY_EMAIL}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(emailPayload)
+                });
+            } catch (err) {
+                console.warn('Email notification fetch warning (silent):', err);
+            }
+        }
         
         const nameInput = document.getElementById('form-name');
         const phoneInput = document.getElementById('form-phone');
@@ -189,6 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+            // 非同步寄送 Email 通知至 b0987183520@gmail.com (背景執行不阻礙流程)
+            sendEmailNotification({
+                name: nameVal,
+                phone: phoneVal,
+                line: lineVal,
+                options: formOptionsToSubmit
+            });
+
             try {
                 // 使用 fetch no-cors 模式直接背景寫入 Google Form
                 await fetch(GOOGLE_FORM_ACTION_URL, {
@@ -203,7 +239,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 稍微延遲 500ms 營造舒適流暢感
                 await new Promise(r => setTimeout(r, 500));
 
-                // 隱藏表單，顯示成功畫面
+                // 隱藏報名大標題與表單，顯示極簡成功畫面
+                const signupHeader = document.getElementById('signup-header');
+                if (signupHeader) {
+                    signupHeader.style.display = 'none';
+                }
                 registrationForm.style.display = 'none';
                 if (formSuccess) {
                     formSuccess.style.display = 'block';
@@ -222,6 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     'entry.1902119823': formOptionsToSubmit
                 });
 
+                const signupHeader = document.getElementById('signup-header');
+                if (signupHeader) {
+                    signupHeader.style.display = 'none';
+                }
                 registrationForm.style.display = 'none';
                 if (formSuccess) {
                     formSuccess.style.display = 'block';
