@@ -1497,6 +1497,8 @@ footer {
     font-size: 1.1rem;
     font-weight: bold;
     color: var(--text-muted);
+}
+
 .compact-req-wrapper {
     margin-top: 0.85rem;
     padding-top: 0.75rem;
@@ -1504,17 +1506,31 @@ footer {
 }
 
 .compact-req-title {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--accent-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     letter-spacing: 0.02em;
 }
 
 .compact-req-badges {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.req-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 0.95rem;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1.5px solid rgba(16, 185, 129, 0.35);
+    border-radius: 8px;
+    color: #34d399;
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 .compact-req-note {
@@ -1524,17 +1540,6 @@ footer {
     font-weight: 600;
     margin-top: 0.75rem;
     letter-spacing: 0.02em;
-}
-
-.req-badge {
-    display: inline-block;
-    padding: 0.35rem 0.65rem;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    border-radius: 6px;
-    color: #34d399;
-    font-size: 0.82rem;
-    font-weight: 500;
 }
 
 @keyframes fadeInDown {
