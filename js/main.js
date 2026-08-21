@@ -232,12 +232,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        const courseCheckbox = document.getElementById('checkbox-online-course');
+        const guaranteeInfo = document.getElementById('online-course-guarantee-info');
+
+        // 監聽「EQ線上課程」勾選狀態，動態展示/隱藏保證金激勵機制
+        if (courseCheckbox && guaranteeInfo) {
+            courseCheckbox.addEventListener('change', () => {
+                if (courseCheckbox.checked) {
+                    guaranteeInfo.style.display = 'block';
+                    guaranteeInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    guaranteeInfo.style.display = 'none';
+                }
+            });
+        }
+
+        // 全局函式：外部點擊「保證金退還機制」時自動定位並展開
+        window.showGuaranteeInfo = function() {
+            const signupSection = document.getElementById('signup');
+            if (signupSection) {
+                signupSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            if (courseCheckbox && guaranteeInfo) {
+                courseCheckbox.checked = true;
+                guaranteeInfo.style.display = 'block';
+                guaranteeInfo.style.boxShadow = '0 0 30px rgba(251, 191, 36, 0.4)';
+                setTimeout(() => {
+                    guaranteeInfo.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(251, 191, 36, 0.08)';
+                }, 2000);
+            }
+        };
+
         // 重新填寫按鈕
         btnResetForm?.addEventListener('click', () => {
             registrationForm.reset();
             registrationForm.style.display = 'flex';
             if (formSuccess) {
                 formSuccess.style.display = 'none';
+            }
+            if (guaranteeInfo) {
+                guaranteeInfo.style.display = 'none';
             }
             registrationForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
