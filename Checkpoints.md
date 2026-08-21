@@ -6,6 +6,23 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v1.26] - 全站圖片視覺無損高效能瘦身、漸進式 JPEG 載入加速
+- **快照時間**：2026-08-21 21:44
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **主要變更與建置內容**：
+  1. **圖片資源體積大減 65.2%（從 3.80 MB 降至 1.32 MB）**：
+     - `hero_eq_parent_child.jpg`：1.15 MB ➔ 334 KB（-71.0%）
+     - `eq_classroom_sharing.jpg`：1.08 MB ➔ 313 KB（-71.0%）
+     - `parent_child_colearning.jpg`：943 KB ➔ 250 KB（-73.5%）
+     - `dm_2025.jpg`：713 KB ➔ 456 KB（-36.0%）
+  2. **100% 保持原始解析度與高品質（Progressive JPEG + Optimize）**：
+     - 採用 `quality=85` 搭配霍夫曼最佳化與漸進式編碼，在 Retina/4K 螢幕上肉眼視覺無損，且能在弱網環境下實現秒級輪廓漸進渲染。
+  3. **同步更新工作區、`web/images` 與 `EQ官網/images`**。
+  4. **全端與雙分支 (`main` & `gh-pages`) 同步即時部署**。
+
+---
+
 ### 🌟 [v1.25] - 更正芯福里官網網址、報名表單提示文字純淨化、欄位名稱微調
 - **快照時間**：2026-08-21 19:38
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
