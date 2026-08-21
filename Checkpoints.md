@@ -6,6 +6,19 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v1.29] - 更新 Email 主旨為【樂利 EQ 志工官網】新報名通知、提供 Google 官方 0 廣告精緻通知系統
+- **快照時間**：2026-08-21 23:05
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **主要變更與建置內容**：
+  1. **信件主旨精準更新**：改為 **`【樂利 EQ 志工官網】新報名通知：[姓名]（[手機]）`**。
+  2. **新增 Google 官方零廣告 Apps Script 通知系統 (`google_apps_script_notification.js`)**：
+     - 徹底移除第三方 FormSubmit 的英文頁首、Sponsor 贊助商廣告、英文頁尾與 Name/Value 冗餘表頭。
+     - 表格寬度精緻控制在 `480px`，最適配手機與電腦螢幕舒適閱讀。
+  3. **全端與雙分支 (`main` & `gh-pages`) 同步即時部署**。
+
+---
+
 ### 🌟 [v1.28] - 自訂 Email 通知主旨與精準欄位格式、啟用專屬安全 Token 轉發
 - **快照時間**：2026-08-21 22:42
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`

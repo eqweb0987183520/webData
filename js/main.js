@@ -125,13 +125,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 const emailPayload = {
-                    _subject: '樂利國小EQ志工<有新夥伴報名囉>',
+                    _subject: `【樂利 EQ 志工官網】新報名通知：${data.name}（${data.phone}）`,
                     '新夥伴姓名': data.name,
                     '新夥伴手機': data.phone,
                     '新夥伴Line ID': data.line || '（未提供）',
                     '新夥伴參與項目': data.options.join('、'),
                     '新夥伴報名時間': timeString,
-                    _template: 'table',
+                    _template: 'box',
                     _captcha: 'false'
                 };
 
