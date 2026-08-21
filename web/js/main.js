@@ -99,7 +99,191 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. 複製與互動 Toast 通知
+    // 7. 原生深色報名表單非同步提交 (Google Form Seamless Submit)
+    const registrationForm = document.getElementById('eq-registration-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const formSuccess = document.getElementById('form-success');
+    const btnResetForm = document.getElementById('btn-reset-form');
+
+    if (registrationForm) {
+        const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfSos9SzhP0PsOiHEQKmRzOjoO_N6sKKj7iIXrstmwETB-b7A/formResponse';
+        
+        const nameInput = document.getElementById('form-name');
+        const phoneInput = document.getElementById('form-phone');
+        const lineInput = document.getElementById('form-line');
+        const errorName = document.getElementById('error-name');
+        const errorPhone = document.getElementById('error-phone');
+
+        // 即時移除錯誤提示
+        nameInput?.addEventListener('input', () => {
+            nameInput.classList.remove('is-invalid');
+            errorName?.classList.remove('show');
+        });
+
+        phoneInput?.addEventListener('input', () => {
+            phoneInput.classList.remove('is-invalid');
+            errorPhone?.classList.remove('show');
+        });
+
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            let isValid = true;
+            const nameVal = nameInput?.value.trim();
+            const phoneVal = phoneInput?.value.trim();
+            const lineVal = lineInput?.value.trim() || '';
+
+            if (!nameVal) {
+                nameInput?.classList.add('is-invalid');
+                errorName?.classList.add('show');
+                isValid = false;
+            }
+
+            // 簡易台灣電話/手機驗證（至少 8 碼數字）
+            const cleanPhone = phoneVal.replace(/[^0-9]/g, '');
+            if (!phoneVal || cleanPhone.length < 8) {
+                phoneInput?.classList.add('is-invalid');
+                errorPhone?.classList.add('show');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                const firstInvalid = registrationForm.querySelector('.is-invalid');
+                firstInvalid?.focus();
+                return;
+            }
+
+            // 收集選取的項目
+            const checkedOptions = Array.from(registrationForm.querySelectorAll('input[name="interest_options"]:checked'))
+                .map(cb => cb.value);
+
+            // 建立要送往 Google 表單的 FormData / URLSearchParams
+            const formData = new URLSearchParams();
+            formData.append('entry.602205738', nameVal);     // 姓名
+            formData.append('entry.1903577013', phoneVal);   // 手機號碼
+            if (lineVal) {
+                formData.append('entry.1179144741', lineVal); // LINE ID
+            }
+            
+            // 勾選項目：如果包含擔任志工或EQ線上課程，依序傳送
+            checkedOptions.forEach(opt => {
+                formData.append('entry.1902119823', opt);
+            });
+
+            // 切換按鈕為載入狀態
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnLoading = submitBtn.querySelector('.btn-loading');
+                if (btnText && btnLoading) {
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'inline-flex';
+                }
+            }
+
+            try {
+                // 使用 fetch no-cors 模式直接背景寫入 Google Form
+                await fetch(GOOGLE_FORM_ACTION_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: formData.toString()
+                });
+
+                // 稍微延遲 500ms 營造舒適流暢感
+                await new Promise(r => setTimeout(r, 500));
+
+                // 隱藏表單，顯示成功畫面
+                registrationForm.style.display = 'none';
+                if (formSuccess) {
+                    formSuccess.style.display = 'block';
+                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+                showToast('🎉 報名資料已成功送出！');
+            } catch (err) {
+                console.error('表單發送時發生異常:', err);
+                
+                // Fallback: 建立隱藏 iframe 送出以確保入庫
+                submitViaHiddenIframe(GOOGLE_FORM_ACTION_URL, {
+                    'entry.602205738': nameVal,
+                    'entry.1903577013': phoneVal,
+                    'entry.1179144741': lineVal,
+                    'entry.1902119823': checkedOptions
+                });
+
+                registrationForm.style.display = 'none';
+                if (formSuccess) {
+                    formSuccess.style.display = 'block';
+                }
+                showToast('🎉 報名登記已完成！');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoading = submitBtn.querySelector('.btn-loading');
+                    if (btnText && btnLoading) {
+                        btnText.style.display = 'inline-flex';
+                        btnLoading.style.display = 'none';
+                    }
+                }
+            }
+        });
+
+        // 重新填寫按鈕
+        btnResetForm?.addEventListener('click', () => {
+            registrationForm.reset();
+            registrationForm.style.display = 'flex';
+            if (formSuccess) {
+                formSuccess.style.display = 'none';
+            }
+            registrationForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    }
+
+    // 輔助函式：透過 Hidden iframe 備援送出
+    function submitViaHiddenIframe(actionUrl, data) {
+        let iframe = document.getElementById('hidden_iframe');
+        if (!iframe) {
+            iframe = document.createElement('iframe');
+            iframe.id = 'hidden_iframe';
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+        }
+
+        const hiddenForm = document.createElement('form');
+        hiddenForm.action = actionUrl;
+        hiddenForm.method = 'POST';
+        hiddenForm.target = 'hidden_iframe';
+        hiddenForm.style.display = 'none';
+
+        for (const [key, val] of Object.entries(data)) {
+            if (Array.isArray(val)) {
+                val.forEach(v => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = v;
+                    hiddenForm.appendChild(input);
+                });
+            } else if (val) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = val;
+                hiddenForm.appendChild(input);
+            }
+        }
+
+        document.body.appendChild(hiddenForm);
+        hiddenForm.submit();
+        setTimeout(() => hiddenForm.remove(), 2000);
+    }
+
+    // 8. 複製與互動 Toast 通知
     window.showToast = function(msg) {
         let toast = document.getElementById('global-toast');
         if (!toast) {
@@ -131,3 +315,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 });
+
