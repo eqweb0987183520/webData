@@ -12,7 +12,7 @@
     --text-secondary: #a8a29e; /* Stone 400 */
     --text-muted: #78716c; /* Stone 500 */
     --card-bg: rgba(12, 20, 17, 0.72);
-    --card-border: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(251, 191, 36, 0.42); /* 明確清晰的微金橘黃線框 */
     --drawer-bg: rgba(6, 11, 9, 0.96);
     --nav-bg: rgba(6, 11, 9, 0.85);
     --shadow-main: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
@@ -479,24 +479,21 @@ nav {
     transition: var(--transition-smooth);
     position: relative;
     cursor: pointer;
-    border: 1px solid var(--card-border);
-}
-    position: relative;
-    cursor: pointer;
-    border: 1px solid var(--card-border);
+    border: 1.5px solid rgba(251, 191, 36, 0.48); /* 未點選即具備清晰顯眼的橘黃線框（比照圖2） */
+    background: var(--card-bg);
 }
 
 .pillar-card.collapsible:hover,
 .scenario-card.collapsible:hover {
-    border-color: var(--accent-primary);
+    border-color: #fbbf24;
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px -8px var(--accent-primary-glow);
+    box-shadow: 0 12px 30px -8px rgba(251, 191, 36, 0.35);
 }
 
 .pillar-card.collapsible.open,
 .scenario-card.collapsible.open {
-    border-color: var(--accent-primary);
-    box-shadow: 0 16px 36px -10px var(--accent-primary-glow);
+    border-color: #fbbf24;
+    box-shadow: 0 16px 36px -10px rgba(251, 191, 36, 0.35);
 }
 
 .pillar-header,
@@ -1304,24 +1301,30 @@ footer {
     background: rgba(255, 255, 255, 0.09);
 }
 
-.checkbox-item input[type="checkbox"] {
+.checkbox-item input[type="checkbox"],
+.radio-item input[type="radio"] {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
 
-.checkbox-custom {
+.checkbox-custom,
+.radio-custom {
     width: 20px;
     height: 20px;
     min-width: 20px;
     border-radius: 6px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(251, 191, 36, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 2px;
     transition: var(--transition-smooth);
     background: rgba(0, 0, 0, 0.4);
+}
+
+.radio-custom {
+    border-radius: 50%;
 }
 
 .checkbox-item input[type="checkbox"]:checked ~ .checkbox-custom {
@@ -1338,14 +1341,31 @@ footer {
     transform: rotate(45deg) translate(-1px, -1px);
 }
 
-.checkbox-item:has(input[type="checkbox"]:checked) {
-    border-color: rgba(251, 191, 36, 0.55);
-    background: rgba(251, 191, 36, 0.08);
+.radio-item input[type="radio"]:checked ~ .radio-custom {
+    border-color: var(--accent-primary);
+    background: rgba(0, 0, 0, 0.6);
 }
 
-.checkbox-item-course:has(input[type="checkbox"]:checked) {
+.radio-item input[type="radio"]:checked ~ .radio-custom::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
+}
+
+.checkbox-item:has(input[type="checkbox"]:checked),
+.radio-item:has(input[type="radio"]:checked) {
+    border-color: #fbbf24;
+    background: rgba(251, 191, 36, 0.1);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+}
+
+.checkbox-item-course:has(input[type="checkbox"]:checked),
+.checkbox-item-course:has(input[type="radio"]:checked) {
     border-color: var(--accent-primary);
-    box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+    box-shadow: 0 0 18px rgba(251, 191, 36, 0.25);
 }
 
 .checkbox-label {

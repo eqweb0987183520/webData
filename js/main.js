@@ -153,9 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 收集選取的項目
-            const checkedOptions = Array.from(registrationForm.querySelectorAll('input[name="interest_options"]:checked'))
-                .map(cb => cb.value);
+            // 收集選取的二選一方案
+            const selectedPlan = registrationForm.querySelector('input[name="participation_plan"]:checked')?.value || 'volunteer_only';
+            const formOptionsToSubmit = [];
+
+            if (selectedPlan === 'course_and_volunteer') {
+                // 方法二：包含擔任志工與EQ線上課程
+                formOptionsToSubmit.push('擔任志工', 'EQ線上課程');
+            } else {
+                // 方法一：單純擔任志工
+                formOptionsToSubmit.push('擔任志工');
+            }
 
             // 建立要送往 Google 表單的 FormData / URLSearchParams
             const formData = new URLSearchParams();
@@ -165,8 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('entry.1179144741', lineVal); // LINE ID
             }
             
-            // 勾選項目：如果包含擔任志工或EQ線上課程，依序傳送
-            checkedOptions.forEach(opt => {
+            // 勾選項目依序傳送
+            formOptionsToSubmit.forEach(opt => {
                 formData.append('entry.1902119823', opt);
             });
 
@@ -211,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     'entry.602205738': nameVal,
                     'entry.1903577013': phoneVal,
                     'entry.1179144741': lineVal,
-                    'entry.1902119823': checkedOptions
+                    'entry.1902119823': formOptionsToSubmit
                 });
 
                 registrationForm.style.display = 'none';
@@ -232,20 +240,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const courseCheckbox = document.getElementById('checkbox-online-course');
+        const planRadios = registrationForm.querySelectorAll('input[name="participation_plan"]');
         const guaranteeInfo = document.getElementById('online-course-guarantee-info');
+        const courseRadio = document.getElementById('plan-course-volunteer');
+        const volunteerRadio = document.getElementById('plan-volunteer-only');
 
-        // 監聽「EQ線上課程」勾選狀態，動態展示/隱藏保證金激勵機制
-        if (courseCheckbox && guaranteeInfo) {
-            courseCheckbox.addEventListener('change', () => {
-                if (courseCheckbox.checked) {
+        // 監聽參與方案二選一 Radio 切換狀態，動態展示/隱藏保證金激勵機制
+        planRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (courseRadio && courseRadio.checked && guaranteeInfo) {
                     guaranteeInfo.style.display = 'block';
                     guaranteeInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
+                } else if (guaranteeInfo) {
                     guaranteeInfo.style.display = 'none';
                 }
             });
-        }
+        });
 
         // 全局函式：外部點擊「保證金退還機制」時自動定位並展開
         window.showGuaranteeInfo = function() {
@@ -253,8 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (signupSection) {
                 signupSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            if (courseCheckbox && guaranteeInfo) {
-                courseCheckbox.checked = true;
+            if (courseRadio && guaranteeInfo) {
+                courseRadio.checked = true;
                 guaranteeInfo.style.display = 'block';
                 guaranteeInfo.style.boxShadow = '0 0 30px rgba(251, 191, 36, 0.4)';
                 setTimeout(() => {
@@ -267,6 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btnResetForm?.addEventListener('click', () => {
             registrationForm.reset();
             registrationForm.style.display = 'flex';
+            if (volunteerRadio) {
+                volunteerRadio.checked = true;
+            }
             if (formSuccess) {
                 formSuccess.style.display = 'none';
             }
