@@ -347,18 +347,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.copyLineInvite = function() {
-        navigator.clipboard.writeText('https://line.me/ti/g2/leli_eq_volunteer').then(() => {
-            showToast('📋 已複製 LINE 群組邀請連結 歡迎在手機或 LINE 中開啟加入！');
+        const lineId = 'dorischi0401';
+        navigator.clipboard.writeText(lineId).then(() => {
+            showToast(`✅ 已複製 LINE ID：${lineId}，請至 LINE 搜尋好友！`);
         }).catch(() => {
-            showToast('已為您開啟加入 LINE 群組！');
+            showToast(`LINE ID：${lineId}`);
         });
     };
 
     window.copyLineId = function(id = 'dorischi0401') {
         navigator.clipboard.writeText(id).then(() => {
-            showToast(`📋 已複製 LINE ID: ${id} 歡迎在 LINE 搜尋好友諮詢！`);
+            showToast(`✅ 已複製 LINE ID：${id}，請至 LINE 搜尋好友！`);
         }).catch(() => {
-            showToast(`LINE ID: ${id}`);
+            showToast(`LINE ID：${id}`);
         });
     };
 });
