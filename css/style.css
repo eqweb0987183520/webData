@@ -1070,49 +1070,52 @@ nav {
     transform: translateX(-50%) translateY(0);
 }
 
-/* Footer */
+/* Footer - 主辦與協辦單位平均對稱排列 */
 footer {
     background-color: var(--bg-secondary);
-    border-top: 1px solid var(--card-border);
-    padding: 36px 0 18px 0;
+    border-top: 1.5px solid rgba(251, 191, 36, 0.35);
+    padding: 32px 0 20px 0;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.footer-info p {
-    color: var(--text-secondary);
-    font-size: var(--text-sub);
-    margin-top: 0.6rem;
-    line-height: 1.65;
-}
-
-.footer-links h4 {
-    font-size: 1rem;
-    margin-bottom: 0.6rem;
-    color: var(--accent-primary);
-}
-
-.footer-links ul {
-    list-style: none;
+.footer-orgs-grid {
     display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    max-width: 680px;
+    margin: 0 auto 1.5rem auto;
 }
 
-.footer-links a {
-    color: var(--text-secondary);
+.footer-org-card {
+    flex: 1 1 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.95rem 1.4rem;
+    border-radius: 14px;
     text-decoration: none;
-    font-size: var(--text-sub);
+    border: 1.5px solid rgba(251, 191, 36, 0.45);
+    background: rgba(12, 20, 17, 0.75);
     transition: var(--transition-smooth);
 }
 
-.footer-links a:hover {
-    color: var(--accent-primary);
+.footer-org-card:hover {
+    border-color: #fbbf24;
+    background: rgba(251, 191, 36, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(251, 191, 36, 0.25);
+}
+
+.footer-org-icon {
+    font-size: 1.35rem;
+}
+
+.footer-org-name {
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    font-weight: 600;
 }
 
 /* ==========================================================================
@@ -1401,21 +1404,48 @@ footer {
     margin-bottom: 1rem;
 }
 
-.compact-g-tag {
-    display: inline-block;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--accent-primary);
-    background: rgba(251, 191, 36, 0.15);
-    border-radius: 4px;
-    padding: 0.2rem 0.5rem;
-    margin-bottom: 0.35rem;
+.compact-fee-highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 0.45rem;
+    font-size: 1.02rem;
 }
 
-.compact-g-header h4 {
-    font-size: 1.18rem;
+.fee-row-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--text-primary);
-    margin: 0;
+}
+
+.free-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.cost-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    background: rgba(251, 191, 36, 0.18);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.45);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.compact-fee-subnote {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin: 0.4rem 0 0 0;
+    line-height: 1.5;
 }
 
 .compact-price-flow {
@@ -1473,6 +1503,15 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+.compact-req-note {
+    text-align: center;
+    font-size: 0.86rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-top: 0.75rem;
+    letter-spacing: 0.02em;
 }
 
 .req-badge {

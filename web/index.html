@@ -46,7 +46,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="css/style.css?v=1.19">
+    <link rel="stylesheet" href="css/style.css?v=1.20">
 </head>
 <body>
 
@@ -336,7 +336,7 @@
                             <div class="sub-path-title">🌱 擔任 EQ 講師助手</div>
                             <ul class="sub-path-list">
                                 <li>近距離看看專業講師如何跟孩子們互動</li>
-                                <li>🕒 每學期僅 3~4 次（下午 13:30~15:00）</li>
+                                <li>🕒 每學期僅 3~4 次（下午 13:00~15:00）</li>
                             </ul>
                         </div>
                     </div>
@@ -367,7 +367,7 @@
                             <div class="sub-path-title">🌱 擔任 EQ 講師助手</div>
                             <ul class="sub-path-list">
                                 <li>近距離看看專業講師如何跟孩子們互動</li>
-                                <li>🕒 每學期僅 3~4 次（下午 13:30~15:00）</li>
+                                <li>🕒 每學期僅 3~4 次（下午 13:00~15:00）</li>
                             </ul>
                         </div>
                     </div>
@@ -429,8 +429,8 @@
                                 <input type="radio" name="participation_plan" id="plan-volunteer-only" value="volunteer_only" checked>
                                 <span class="radio-custom"></span>
                                 <span class="checkbox-label">
-                                    <strong>🌱 擔任志工（方法一：輕度學習）</strong>
-                                    <small>進班觀摩引導、每學期僅 3~4 次（下午 13:30~15:00）</small>
+                                    <strong>方法一:輕度學習(擔任志工)</strong>
+                                    <small>進班觀摩引導、每學期僅 3~4 次（下午 13:00~15:00）</small>
                                 </span>
                             </label>
 
@@ -438,18 +438,21 @@
                                 <input type="radio" name="participation_plan" id="plan-course-volunteer" value="course_and_volunteer">
                                 <span class="radio-custom"></span>
                                 <span class="checkbox-label">
-                                    <strong>✨ 擔任志工 ＋ 線上課程（方法二：認真學習）</strong>
-                                    <small>包含實體助手 ＋ 24hr 線上課程與公開課（點選查看保證金退還機制）</small>
+                                    <strong>方法二:認真學習(擔任志工+線上學習)</strong>
+                                    <small>包含實體助手 ＋ 24hr 線上課程與公開課（點選查看費用與任務說明）</small>
                                 </span>
                             </label>
                         </div>
                     </div>
 
-                    <!-- Compact Guarantee Card (Only shown when "EQ 線上課程" is checked) -->
+                    <!-- Compact Guarantee Card (Only shown when "方法二" is checked) -->
                     <div id="online-course-guarantee-info" class="compact-guarantee-box glass" style="display: none;">
                         <div class="compact-g-header">
-                            <span class="compact-g-tag">💡 線上課程激勵機制</span>
-                            <h4>透明收費 ✕ 完成任務退還保證金</h4>
+                            <div class="compact-fee-highlight">
+                                <div class="fee-row-item">🌱 <strong>擔任志工：</strong><span class="free-badge">免費</span></div>
+                                <div class="fee-row-item">💻 <strong>線上學習：</strong><span class="cost-badge">需支付 500 元工本費</span></div>
+                            </div>
+                            <p class="compact-fee-subnote">線上課程與費用，皆由芯福里情緒教育協會提供與收取</p>
                         </div>
                         <div class="compact-price-flow">
                             <div class="c-flow-item">
@@ -472,6 +475,7 @@
                             <span class="req-badge">✔ 完成 4 次線上共學演練</span>
                             <span class="req-badge">✔ 實體入班陪伴 8~12 小時</span>
                         </div>
+                        <div class="compact-req-note">(以上三任務皆需完成，才達退費標準)</div>
                     </div>
 
                     <div class="form-action">
@@ -517,16 +521,6 @@
                     各位家長並不缺少愛，而是缺少一個「懂孩子」的方法。<br class="desktop-br">
                     加入樂利 EQ 志工團隊，讓我們成為孩子最有力的靠山！
                 </p>
-                <div class="cta-actions">
-                    <a href="javascript:void(0)" onclick="copyLineInvite()" class="btn-line">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.084.495.238l2.476 3.355V8.108c0-.345.282-.63.63-.63.345 0 .626.285.626.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-                        <span>一鍵加入 LINE 招募群組</span>
-                    </a>
-                    <a href="#signup" class="btn-primary">
-                        <span>線上立即報名</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
                 <div>
                     <div class="line-contact-card" onclick="copyLineInvite()">
                         <span>💬 招募諮詢 LINE ID：<strong id="line-id-text">dorischi0401</strong>（點擊複製）</span>
@@ -548,35 +542,15 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <div class="logo">
-                        <div class="logo-badge">樂利 EQ 志工</div>
-                    </div>
-                    <p>
-                        攜手芯福里情緒教育協會
-                    </p>
-                </div>
-
-                <div class="footer-links">
-                    <h4>快速導覽</h4>
-                    <ul>
-                        <li><a href="#why-eq">EQ 三大核心</a></li>
-                        <li><a href="#scenarios">真實難題破解</a></li>
-                        <li><a href="#roadmap">參與方式二選一</a></li>
-                        <li><a href="javascript:void(0)" onclick="showGuaranteeInfo()">保證金退還機制</a></li>
-                        <li><a href="#signup">線上立即報名</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>主辦與協辦單位</h4>
-                    <ul>
-                        <li><a href="https://www.llps.ntpc.edu.tw/" target="_blank" rel="noopener">新北市樂利國小官網</a></li>
-                        <li><a href="https://www.happinessinmind.org.tw/" target="_blank" rel="noopener">芯福里情緒教育推廣協會</a></li>
-                        <li><a href="javascript:void(0)" onclick="copyLineInvite()">官方 LINE 招募群組</a></li>
-                    </ul>
-                </div>
+            <div class="footer-orgs-grid">
+                <a href="https://www.llps.ntpc.edu.tw/" target="_blank" rel="noopener" class="footer-org-card glass">
+                    <span class="footer-org-icon">🏫</span>
+                    <span class="footer-org-name">新北市樂利國小官網</span>
+                </a>
+                <a href="https://www.happinessinmind.org.tw/" target="_blank" rel="noopener" class="footer-org-card glass">
+                    <span class="footer-org-icon">💖</span>
+                    <span class="footer-org-name">芯福里情緒教育推廣協會</span>
+                </a>
             </div>
 
             <div class="footer-bottom">
@@ -585,6 +559,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=1.19"></script>
+    <script src="js/main.js?v=1.20"></script>
 </body>
 </html>
