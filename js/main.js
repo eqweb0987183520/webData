@@ -107,23 +107,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (registrationForm) {
         const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfSos9SzhP0PsOiHEQKmRzOjoO_N6sKKj7iIXrstmwETB-b7A/formResponse';
-        const NOTIFY_EMAIL = 'b0987183520@gmail.com';
+        const NOTIFY_TARGET = 'b39dab05cb18b87c6643ff6e3833cf4c'; // 綁定 b0987183520@gmail.com 的專屬安全 Token
 
         // 非同步寄送通知 Email 至指定信箱
         async function sendEmailNotification(data) {
             try {
+                const now = new Date();
+                const timeString = now.toLocaleString('zh-TW', { 
+                    timeZone: 'Asia/Taipei',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false 
+                });
+
                 const emailPayload = {
-                    _subject: `【樂利 EQ 志工官網】新報名通知：${data.name}（${data.phone}）`,
-                    '報名家長姓名': data.name,
-                    '聯絡手機': data.phone,
-                    'LINE ID': data.line || '（未提供）',
-                    '參與項目': data.options.join('、'),
-                    '登記時間': new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
+                    _subject: '樂利國小EQ志工<有新夥伴報名囉>',
+                    '新夥伴姓名': data.name,
+                    '新夥伴手機': data.phone,
+                    '新夥伴Line ID': data.line || '（未提供）',
+                    '新夥伴參與項目': data.options.join('、'),
+                    '新夥伴報名時間': timeString,
                     _template: 'table',
                     _captcha: 'false'
                 };
 
-                await fetch(`https://formsubmit.co/ajax/${NOTIFY_EMAIL}`, {
+                await fetch(`https://formsubmit.co/ajax/${NOTIFY_TARGET}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
