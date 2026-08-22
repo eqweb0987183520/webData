@@ -298,20 +298,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const planRadios = registrationForm.querySelectorAll('input[name="participation_plan"]');
         const guaranteeInfo = document.getElementById('online-course-guarantee-info');
+        const volunteerInfo = document.getElementById('volunteer-only-info');
         const courseRadio = document.getElementById('plan-course-volunteer');
         const volunteerRadio = document.getElementById('plan-volunteer-only');
 
-        // 監聽參與方案二選一 Radio 切換狀態，動態展示/隱藏保證金激勵機制
+        function updatePlanDetails(shouldScroll = false) {
+            if (courseRadio && courseRadio.checked) {
+                if (volunteerInfo) volunteerInfo.style.display = 'none';
+                if (guaranteeInfo) {
+                    guaranteeInfo.style.display = 'block';
+                    if (shouldScroll) {
+                        guaranteeInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }
+            } else {
+                if (guaranteeInfo) guaranteeInfo.style.display = 'none';
+                if (volunteerInfo) {
+                    volunteerInfo.style.display = 'block';
+                    if (shouldScroll) {
+                        volunteerInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }
+            }
+        }
+
+        // 監聽參與方案二選一 Radio 切換狀態，動態展示/隱藏說明
         planRadios.forEach(radio => {
             radio.addEventListener('change', () => {
-                if (courseRadio && courseRadio.checked && guaranteeInfo) {
-                    guaranteeInfo.style.display = 'block';
-                    guaranteeInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else if (guaranteeInfo) {
-                    guaranteeInfo.style.display = 'none';
-                }
+                updatePlanDetails(true);
             });
         });
+
+        // 初始化方案說明顯示狀態
+        updatePlanDetails(false);
 
         // 全局函式：外部點擊「保證金退還機制」時自動定位並展開
         window.showGuaranteeInfo = function() {
@@ -319,13 +338,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (signupSection) {
                 signupSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            if (courseRadio && guaranteeInfo) {
+            if (courseRadio) {
                 courseRadio.checked = true;
-                guaranteeInfo.style.display = 'block';
-                guaranteeInfo.style.boxShadow = '0 0 30px rgba(251, 191, 36, 0.4)';
-                setTimeout(() => {
-                    guaranteeInfo.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(251, 191, 36, 0.08)';
-                }, 2000);
+                updatePlanDetails(false);
+                if (guaranteeInfo) {
+                    guaranteeInfo.style.boxShadow = '0 0 30px rgba(251, 191, 36, 0.4)';
+                    setTimeout(() => {
+                        guaranteeInfo.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(251, 191, 36, 0.08)';
+                    }, 2000);
+                }
             }
         };
 
@@ -339,9 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (formSuccess) {
                 formSuccess.style.display = 'none';
             }
-            if (guaranteeInfo) {
-                guaranteeInfo.style.display = 'none';
-            }
+            updatePlanDetails(false);
             registrationForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     }
