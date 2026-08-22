@@ -843,7 +843,7 @@ nav {
 .sub-path-list .sub-line {
     display: inline-block;
     color: var(--text-secondary);
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     margin-top: 0.15rem;
 }
 
