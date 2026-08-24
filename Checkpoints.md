@@ -6,6 +6,23 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v3.01] - 全端強制鎖定純黑金深色主題、清除 iOS 淺色快取、優化 Safari 狀態列
+- **快照時間**：2026-08-24 17:46
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **主要變更與建置內容**：
+  1. **強制固定純黑金主題（Dark Theme Only）**：
+     - 移除 JavaScript 中對 `prefers-color-scheme: light` 的自動切換邏輯，消除 iPhone/iOS 系統預設淺色外觀導致的白底問題。
+     - 自動清除訪客端歷史 `localStorage` 淺色主題暫存，確保所有裝置與 In-App 瀏覽器載入即為經典黑金主題。
+  2. **全面優化行動端與 Safari 深色適配**：
+     - `<head>` 注入 `<meta name="color-scheme" content="dark">` 與 `<meta name="theme-color" content="#060b09">`，使 Safari 頂部與底部狀態列完美融入極致深色背景。
+     - 移除 CSS 中多餘的淺色模式變數與樣式覆寫，全站 CSS 輕量化。
+  3. **快取破除（Cache Busting）**：
+     - `style.css` 與 `main.js` 同步更新版本參數至 `?v=3.01`。
+  4. **全端與雙分支 (`main` & `gh-pages`) 同步即時部署**。
+
+---
+
 ### 👑 [v3.00] 【正式里程碑穩定版】 - 樂利國小 EQ 志工官方網站 旗艦升級穩定版
 - **快照時間**：2026-08-22 19:18
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`

@@ -16,7 +16,8 @@
 ## 🎨 2. UI / UX 設計與排版規範
 1. **配色與視覺主題**：
    - 核心色調：高級黑金風（Midnight Slate + Amber Gold + Emerald Green）。
-   - 支援深色 / 淺色雙模式切換（`localStorage` 記住偏好）。
+   - 全端強制固定為純黑金深色主題（`data-theme="dark"`），全平台（含 iOS/Safari/LINE）一致黑底，移除白底淺色模式。
+   - 支援 `<meta name="color-scheme" content="dark">` 與 `<meta name="theme-color" content="#060b09">` 確保瀏覽器狀態列融合。
    - 卡片邊框一律使用高對比質感邊框（`1.5px solid rgba(251, 191, 36, 0.35)`），避免在未展開時看不清區塊邊界。
 2. **參與方式雙軌架構**：
    - **方法一（輕度學習）**：🌱 擔任志工（需擔任 EQ 講師的助手 8 小時，每學期僅 4 次，下午 13:00~15:00）。
