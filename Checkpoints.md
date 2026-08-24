@@ -6,6 +6,21 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v3.02] - 整合 LINE 智慧逃脫機制、防快取 HTTP 標頭、跳脫外部瀏覽器導引彈窗
+- **快照時間**：2026-08-24 18:45
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **主要變更與建置內容**：
+  1. **LINE 內嵌瀏覽器極速逃脫機制**：
+     - `<head>` 頂端注入極速攔截腳本，自動附帶 `openExternalBrowser=1` 跳轉系統預設瀏覽器（Android 調用 Chrome，iOS 提供 Safari 快捷切換），避免 LINE 頑固舊快取。
+  2. **LINE 逃脫引導防呆彈窗（黑金奢華風格）**：
+     - 新增 `#lineGuideModal` 彈窗，提示 iOS/iPad 使用者點擊選單「以 Safari / 預設瀏覽器開啟」。
+  3. **全站 HTTP 防快取標頭 (Anti-Cache Headers)**：
+     - 加入 `Cache-Control: no-cache, no-store, must-revalidate`、`Pragma: no-cache`、`Expires: 0`，徹底杜絕舊 HTML 暫存。
+  4. **快取破除升級至 `?v=3.02` 並完成全端部署**。
+
+---
+
 ### 🌟 [v3.01] - 全端強制鎖定純黑金深色主題、清除 iOS 淺色快取、優化 Safari 狀態列
 - **快照時間**：2026-08-24 17:46
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`

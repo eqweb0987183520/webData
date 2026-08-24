@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // 忽略可能存在的儲存限制
     }
 
+    // 2. LINE 內嵌瀏覽器導引彈窗展示 (若仍在 iOS LINE 內部)
+    const ua = (navigator.userAgent || '').toLowerCase();
+    if (ua.indexOf('line') > -1) {
+        const lineModal = document.getElementById('lineGuideModal');
+        if (lineModal) {
+            lineModal.classList.remove('hidden');
+        }
+    }
+
     // 2. 導覽列滾動陰影與毛玻璃效果
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
