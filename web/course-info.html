@@ -581,6 +581,47 @@
             </div>
         </section>
 
+        <!-- 模組 6：常見問題解答 FAQ（專為新夥伴解惑，可陸續擴充） -->
+        <section class="info-card" id="faq-section">
+            <div class="card-header-bar">
+                <div class="card-header-left">
+                    <span class="card-icon">💡</span>
+                    <h2 class="card-title">常見問題解答 (FAQ)</h2>
+                </div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">
+                    解惑速查手冊
+                </div>
+            </div>
+
+            <!-- FAQ 1 -->
+            <div class="faq-item" style="padding: 0.2rem 0;">
+                <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:0.6rem; margin-bottom:0.75rem;">
+                    <div style="font-size:1.05rem; font-weight:700; color:var(--accent-primary); line-height:1.5;">
+                        Q1. 「線上課程」、「線上共學」和「入班擔任志工」有什麼差別？
+                    </div>
+                    <button class="btn-copy-card" onclick="copyFAQ(1)" title="複製此題解答貼至 LINE">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <span>複製此題</span>
+                    </button>
+                </div>
+
+                <div class="faq-answer-box" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:0.95rem 1.1rem; display:flex; flex-direction:column; gap:0.75rem; font-size:0.98rem; line-height:1.7;">
+                    <div>
+                        <strong class="highlight-gold">💻 1. EQ 線上課程（自主觀課）</strong><br>
+                        為期約 3 個月（10/8～1/15），學員可依個人空檔時間，隨時以個人 Google 帳號登入平台自主觀看教學影片，彈性學習無壓力。
+                    </div>
+                    <div>
+                        <strong class="highlight-gold">👥 2. EQ 線上共學（督導示範與演練）</strong><br>
+                        由資深督導群在線上（Zoom）親自示範教案演練與入班活動技巧，並開放即時線上提問與交流，幫助大家熟悉教案流程。
+                    </div>
+                    <div>
+                        <strong class="highlight-gold">🏫 3. 入班擔任志工（實務見習與校園服務）</strong><br>
+                        親自至樂利國小班級擔任 EQ 志工助手（協助主講遞教具道具、陪伴學童），更能近距離第一線觀察主講如何溫暖引導與孩子溝通！
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- SEO 核心搜尋關鍵字語意索引 (提升 Google 精準搜尋權重) -->
         <div style="text-align:center; margin-top:2.2rem; padding:1.2rem 0 0.5rem; border-top:1px solid rgba(255,255,255,0.06); color:var(--text-muted); font-size:0.85rem; line-height:2.2;">
             <span style="opacity:0.75; margin-right:0.3rem;">🔍 核心關鍵字：</span>
@@ -637,6 +678,19 @@
   ✔ 擔任志工：需擔任 EQ 講師的助手 8 小時`
         };
 
+        // 常見問題 FAQ 定義（支援持續擴充 FAQ 2、FAQ 3...）
+        const faqTexts = {
+            1: `【樂利EQ 常見問題 FAQ 1】
+Q：線上課程、線上共學、入班擔任志工有什麼差別？
+
+A：三者相輔相成，循序漸進：
+1. 💻 EQ 線上課程：為期約 3 個月（10/8~1/15），可依個人空檔隨時線上自主觀課。
+2. 👥 EQ 線上共學：由資深督導群在線上（Zoom）示範教案演練，並提供線上提問交流。
+3. 🏫 入班擔任志工：至樂利國小班級擔任助手（遞教具道具），近距離觀摩主講如何與孩子溫暖溝通！
+
+🔗 完整資訊查閱：https://eqweb0987183520.github.io/webData/course-info.html`
+        };
+
         const sectionNames = {
             signup: '報名時間與窗口',
             watch: '線上觀看日期',
@@ -644,6 +698,21 @@
             volunteer: '入班志工時間',
             deposit: '費用與保證金退費條件'
         };
+
+        function copyFAQ(num) {
+            const text = faqTexts[num];
+            if (!text) return;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(`✅ 已複製 FAQ ${num} 解答！可直接貼至 LINE`);
+                }).catch(() => {
+                    fallbackCopy(text, `✅ 已複製 FAQ ${num} 解答！`);
+                });
+            } else {
+                fallbackCopy(text, `✅ 已複製 FAQ ${num} 解答！`);
+            }
+        }
 
         function showToast(msg) {
             const toast = document.getElementById('toastNotice');
