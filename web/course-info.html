@@ -30,9 +30,9 @@
             } catch(e) {}
         })();
     </script>
-    <title>115上學期 EQ線上課程資訊（樂利國小版）｜樂利 EQ 志工</title>
-    <meta name="description" content="115學年度上學期樂利國小 EQ 線上課程報名時間、線上觀看日期、線上共學時程、入班實習及保證金退費條件快速查閱指南。">
-    <meta name="keywords" content="樂利國小, EQ線上課程, 芯福里, 115上學期, 志工培訓, 祁紫涵, 報名時間, 線上共學">
+    <title>115上學期 EQ線上課程資訊（樂利國小版）｜樂利EQ課程・報名時間與共學時程速查</title>
+    <meta name="description" content="115學年度上學期樂利國小 EQ 線上課程資訊（樂利國小版）。整理團體報名期間（9/16~9/22）、個人報名、線上觀看時限（10/8~1/15）、4次週五/週二線上共學、志工入班時程與保證金退費規範，樂利報名窗口：祁紫涵。">
+    <meta name="keywords" content="樂利EQ課程, 樂利EQ線上課程, 樂利EQ, 樂利國小EQ課程, 115上樂利EQ, 樂利EQ志工培訓, 樂利EQ共學, 樂利EQ報名時間, 樂利報名窗口祁紫涵, 祁紫涵, 樂利EQ保證金, 樂利EQ志工入班時間, 土城樂利EQ">
 
     <!-- Open Graph / LINE / Facebook Sharing Meta Tags -->
     <meta property="og:type" content="website">
@@ -50,50 +50,15 @@
         .info-page-container {
             max-width: 820px;
             margin: 0 auto;
-            padding: 100px 1.2rem 60px;
-        }
-
-        .page-badge-wrap {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .badge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            background: rgba(251, 191, 36, 0.15);
-            border: 1px solid rgba(251, 191, 36, 0.45);
-            color: var(--accent-primary);
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            letter-spacing: 0.02em;
-        }
-
-        .badge-pill.green {
-            background: rgba(16, 185, 129, 0.15);
-            border-color: rgba(16, 185, 129, 0.45);
-            color: #34d399;
+            padding: 95px 1.2rem 60px;
         }
 
         .page-main-title {
             font-size: clamp(1.6rem, 4vw, 2.2rem);
             font-weight: 800;
             line-height: 1.35;
-            margin-bottom: 0.6rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.01em;
-        }
-
-        .page-subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
         }
 
         /* 快捷操作橫列 */
@@ -101,7 +66,7 @@
             display: flex;
             gap: 0.8rem;
             flex-wrap: wrap;
-            margin-bottom: 2.2rem;
+            margin-bottom: 2rem;
         }
 
         .btn-action {
@@ -167,10 +132,17 @@
         .card-header-bar {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 0.65rem;
             margin-bottom: 1.1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 0.8rem;
+        }
+
+        .card-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
         }
 
         .card-icon {
@@ -184,6 +156,30 @@
             color: var(--text-primary);
             letter-spacing: -0.01em;
             margin: 0;
+        }
+
+        /* 單格獨立複製按鈕 */
+        .btn-copy-card {
+            background: rgba(251, 191, 36, 0.12);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            color: var(--accent-primary);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.32rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+        }
+
+        .btn-copy-card:hover {
+            background: var(--accent-primary);
+            color: #1c1917;
+            transform: scale(1.04);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.35);
         }
 
         /* 清爽重點清單 */
@@ -222,6 +218,16 @@
         .highlight-green {
             color: #34d399;
             font-weight: 700;
+        }
+
+        .fee-badge-box {
+            background: rgba(251, 191, 36, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.28);
+            border-radius: 10px;
+            padding: 0.65rem 0.95rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            line-height: 1.6;
         }
 
         .tag-date {
@@ -265,7 +271,11 @@
 
         @media (max-width: 600px) {
             .info-card {
-                padding: 1.3rem 1.2rem;
+                padding: 1.3rem 1.1rem;
+            }
+            .card-header-bar {
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
             .item-row {
                 flex-direction: column;
@@ -307,10 +317,9 @@
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         <span>首頁</span>
                     </a>
-                    <button class="btn-action primary" onclick="copyFullSummary()">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        <span>一鍵複製文字</span>
-                    </button>
+                    <a href="index.html#signup" class="btn-action primary">
+                        <span>前往報名</span>
+                    </a>
                 </div>
             </nav>
         </div>
@@ -319,23 +328,13 @@
     <!-- 主要內容區 -->
     <main class="info-page-container">
         
-        <!-- 頁面標題區 -->
-        <div class="page-badge-wrap">
-            <span class="badge-pill">📌 115 學年度上學期</span>
-            <span class="badge-pill green">新北市土城區樂利國小</span>
-        </div>
+        <!-- 頁面主標題 -->
         <h1 class="page-main-title gradient-text">
             115上學期 EQ線上課程資訊<br>（樂利國小版）
         </h1>
-        <p class="page-subtitle">
-            本頁專為樂利志工窗口 <strong>祁紫涵</strong>、志工夥伴及報名家長提供核心時程查閱，重點明確、一目了然。
-        </p>
 
         <!-- 快捷操作列 -->
         <div class="quick-actions-bar">
-            <button class="btn-action" onclick="copyFullSummary()">
-                📋 複製完整資訊給夥伴
-            </button>
             <button class="btn-action" onclick="copyPageUrl()">
                 🔗 複製本頁網址
             </button>
@@ -347,8 +346,14 @@
         <!-- 模組 1：報名時間與窗口 -->
         <section class="info-card">
             <div class="card-header-bar">
-                <span class="card-icon">⏰</span>
-                <h2 class="card-title">報名時間與窗口</h2>
+                <div class="card-header-left">
+                    <span class="card-icon">⏰</span>
+                    <h2 class="card-title">報名時間與窗口</h2>
+                </div>
+                <button class="btn-copy-card" onclick="copySection('signup')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>複製此區</span>
+                </button>
             </div>
             
             <div class="item-row">
@@ -376,12 +381,18 @@
         <!-- 模組 2：線上觀看日期 -->
         <section class="info-card">
             <div class="card-header-bar">
-                <span class="card-icon">🖥️</span>
-                <h2 class="card-title">線上觀看日期</h2>
+                <div class="card-header-left">
+                    <span class="card-icon">🖥️</span>
+                    <h2 class="card-title">線上觀看日期</h2>
+                </div>
+                <button class="btn-copy-card" onclick="copySection('watch')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>複製此區</span>
+                </button>
             </div>
             
             <div class="item-row">
-                <div class="item-label">自主觀看時限</div>
+                <div class="item-label">線上觀看日期</div>
                 <div class="item-value">
                     <span class="highlight-green" style="font-size:1.1rem;">2026/10/08 ～ 2027/01/15</span>
                 </div>
@@ -391,8 +402,14 @@
         <!-- 模組 3：線上共學日期 -->
         <section class="info-card">
             <div class="card-header-bar">
-                <span class="card-icon">👥</span>
-                <h2 class="card-title">線上共學日期（上午 09:00～12:00）</h2>
+                <div class="card-header-left">
+                    <span class="card-icon">👥</span>
+                    <h2 class="card-title">線上共學日期（上午 09:00～12:00）</h2>
+                </div>
+                <button class="btn-copy-card" onclick="copySection('online')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>複製此區</span>
+                </button>
             </div>
 
             <div class="item-row">
@@ -419,8 +436,14 @@
         <!-- 模組 4：本學期入班（可擔任志工）時間 -->
         <section class="info-card">
             <div class="card-header-bar">
-                <span class="card-icon">🏫</span>
-                <h2 class="card-title">本學期入班（可擔任志工）時間</h2>
+                <div class="card-header-left">
+                    <span class="card-icon">🏫</span>
+                    <h2 class="card-title">本學期入班（可擔任志工）時間</h2>
+                </div>
+                <button class="btn-copy-card" onclick="copySection('volunteer')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>複製此區</span>
+                </button>
             </div>
 
             <div style="color:var(--text-secondary); margin-bottom: 0.8rem; font-size: 0.95rem;">
@@ -459,8 +482,19 @@
         <!-- 模組 5：保證金退費條件 -->
         <section class="info-card">
             <div class="card-header-bar">
-                <span class="card-icon">💰</span>
-                <h2 class="card-title">保證金退費條件</h2>
+                <div class="card-header-left">
+                    <span class="card-icon">💰</span>
+                    <h2 class="card-title">保證金退費條件</h2>
+                </div>
+                <button class="btn-copy-card" onclick="copySection('deposit')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>複製此區</span>
+                </button>
+            </div>
+
+            <!-- 費用結構說明 -->
+            <div class="fee-badge-box">
+                💳 <strong>報名費用</strong>：<span class="highlight-gold">2,000 元</span>（含保證金 1,500 元 + 工本費 500 元）
             </div>
 
             <div class="item-row">
@@ -482,37 +516,45 @@
 
     <!-- 複製成功 Toast 提示 -->
     <div id="toastNotice">
-        <span>✅ 已複製到剪貼簿！可直接貼至 LINE</span>
+        <span>✅ 已成功複製！</span>
     </div>
 
     <!-- 交互 Script -->
     <script>
-        // 整理要複製的純文字內容
-        const summaryText = `📌 115上學期 EQ線上課程資訊（樂利國小版）
-
-【報名時間】
+        // 各區塊精簡文字內容定義
+        const sectionTexts = {
+            signup: `【115上 樂利EQ 報名時間與窗口】
 ‧ 團體報名期間：2026/09/16（三）上午 09:00 ～ 2026/09/22（二）中午 11:59 止
 ‧ 個人報名期間：2026/09/16（三）上午 09:00 ～ 2026/09/29（二）中午 11:59 止
-‧ 樂利報名窗口：祁紫涵
+‧ 樂利報名窗口：祁紫涵`,
 
-【線上觀看日期】
-‧ 2026/10/08 ～ 2027/01/15
+            watch: `【115上 樂利EQ 線上觀看日期】
+‧ 觀看日期：2026/10/08 ～ 2027/01/15`,
 
-【線上共學日期】（上午 09:00～12:00）
+            online: `【115上 樂利EQ 線上共學日期】（上午 09:00～12:00）
 ‧【五上】每週五：第1次 10/16、第2次 10/23、第3次 10/30、第4次 11/06
-‧【一年級】每週二：第1次 10/20、第2次 10/27、第3次 11/03、第4次 11/10
+‧【一年級】每週二：第1次 10/20、第2次 10/27、第3次 11/03、第4次 11/10`,
 
-【本學期入班（可擔任志工）時間】（下午 13:00～15:00）
+            volunteer: `【115上 樂利EQ 入班志工時間】（下午 13:00～15:00）
 ‧【五年級】一共要入班 4 天（日期：9/24、10/1、10/8、10/15）
 ‧【四年級】一共要入班 3 天（日期：11/5、11/12、11/19）
-‧【二年級】一共要入班 3 天（日期：12/8、12/15、12/22）
+‧【二年級】一共要入班 3 天（日期：12/8、12/15、12/22）`,
 
-【保證金退費條件】
-✔ 線上課程：約 2 個月內自主看完
-✔ 線上共學：4 次線上都需上線
-✔ 擔任志工：需擔任 EQ 講師的助手 8 小時
+            deposit: `【115上 樂利EQ 費用與保證金退費條件】
+‧ 報名費用：2,000 元（含保證金 1,500 元 + 工本費 500 元）
+‧ 保證金退費條件：
+  ✔ 線上課程：約 2 個月內自主看完
+  ✔ 線上共學：4 次線上都需上線
+  ✔ 擔任志工：需擔任 EQ 講師的助手 8 小時`
+        };
 
-🔗 完整線上查閱網址：${window.location.href}`;
+        const sectionNames = {
+            signup: '報名時間與窗口',
+            watch: '線上觀看日期',
+            online: '線上共學日期',
+            volunteer: '入班志工時間',
+            deposit: '費用與保證金退費條件'
+        };
 
         function showToast(msg) {
             const toast = document.getElementById('toastNotice');
@@ -520,18 +562,22 @@
             toast.classList.add('show');
             setTimeout(() => {
                 toast.classList.remove('show');
-            }, 2600);
+            }, 2400);
         }
 
-        function copyFullSummary() {
+        function copySection(key) {
+            const text = sectionTexts[key];
+            const name = sectionNames[key] || '區塊';
+            if (!text) return;
+
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(summaryText).then(() => {
-                    showToast('✅ 已複製完整課程資訊！可直接傳到 LINE');
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(`✅ 已複製「${name}」資訊！可貼到 LINE`);
                 }).catch(() => {
-                    fallbackCopy(summaryText);
+                    fallbackCopy(text, `✅ 已複製「${name}」資訊！`);
                 });
             } else {
-                fallbackCopy(summaryText);
+                fallbackCopy(text, `✅ 已複製「${name}」資訊！`);
             }
         }
 
@@ -541,14 +587,14 @@
                 navigator.clipboard.writeText(url).then(() => {
                     showToast('🔗 已複製本頁網址連結！');
                 }).catch(() => {
-                    fallbackCopy(url);
+                    fallbackCopy(url, '🔗 已複製本頁網址連結！');
                 });
             } else {
-                fallbackCopy(url);
+                fallbackCopy(url, '🔗 已複製本頁網址連結！');
             }
         }
 
-        function fallbackCopy(text) {
+        function fallbackCopy(text, successMsg) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
             textarea.style.position = 'fixed';
@@ -559,9 +605,9 @@
             textarea.select();
             try {
                 document.execCommand('copy');
-                showToast('✅ 已成功複製！');
+                showToast(successMsg || '✅ 已成功複製！');
             } catch (err) {
-                showToast('⚠️ 複製失敗，請長按文字選取複製');
+                showToast('⚠️ 複製失敗，請長按選取複製');
             }
             document.body.removeChild(textarea);
         }
