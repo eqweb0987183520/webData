@@ -385,15 +385,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            width: auto;
-            min-width: 210px;
-            max-width: 280px;
+            gap: 0.55rem;
+            width: fit-content;
+            max-width: 90%;
             background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
             color: #1c1917;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             font-weight: 800;
-            padding: 0.8rem 1.6rem;
+            padding: 0.68rem 1.45rem;
             border-radius: 9999px;
             text-decoration: none;
             box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
@@ -421,15 +420,14 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            width: auto;
-            min-width: 210px;
-            max-width: 280px;
+            width: fit-content;
+            max-width: 90%;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-secondary);
             font-size: 0.92rem;
             font-weight: 600;
-            padding: 0.65rem 1.4rem;
+            padding: 0.58rem 1.25rem;
             border-radius: 9999px;
             cursor: pointer;
             transition: var(--transition-smooth);
@@ -543,17 +541,15 @@
             }
 
             .btn-bottom-primary {
-                font-size: 0.98rem;
-                padding: 0.75rem 1.4rem;
-                min-width: 195px;
-                max-width: 250px;
+                font-size: 0.95rem;
+                padding: 0.62rem 1.25rem;
+                width: fit-content;
             }
 
             .btn-bottom-secondary {
                 font-size: 0.88rem;
-                padding: 0.62rem 1.3rem;
-                min-width: 195px;
-                max-width: 250px;
+                padding: 0.52rem 1.15rem;
+                width: fit-content;
             }
         }
 
@@ -733,16 +729,16 @@
             <div class="item-row">
                 <div class="item-label">團體報名期間</div>
                 <div class="item-value highlight-gold">
-                    <div>2026/09/16（三）上午 09:00 ～</div>
-                    <div>2026/09/22（二）中午 11:59 止</div>
+                    <div style="white-space:nowrap;">2026/09/16（三）上午 09:00 ～</div>
+                    <div style="white-space:nowrap;">2026/09/22（二）中午 11:59 止</div>
                 </div>
             </div>
 
             <div class="item-row">
                 <div class="item-label">個人報名期間</div>
                 <div class="item-value">
-                    <div>2026/09/16（三）上午 09:00 ～</div>
-                    <div>2026/09/29（二）中午 11:59 止</div>
+                    <div style="white-space:nowrap;">2026/09/16（三）上午 09:00 ～</div>
+                    <div style="white-space:nowrap;">2026/09/29（二）中午 11:59 止</div>
                 </div>
             </div>
 
@@ -782,7 +778,7 @@
                     <span class="card-icon">👥</span>
                     <h2 class="card-title">
                         <div>線上共學日期</div>
-                        <div style="font-size:0.92rem; font-weight:600; color:var(--text-secondary); margin-top:0.2rem;">（上午 09:00～12:00，線上）</div>
+                        <div style="font-size:0.92rem; font-weight:600; color:var(--text-secondary); margin-top:0.2rem; white-space:nowrap;">（上午 09:00～12:00）</div>
                     </h2>
                 </div>
                 <button class="btn-copy-card" onclick="copySection('online')">
@@ -895,8 +891,8 @@
 
             <!-- 費用結構說明 -->
             <div class="fee-badge-box">
-                <div>💳 <strong>報名費用</strong>：<span class="highlight-gold">2,000 元</span></div>
-                <div style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.2rem;">（含保證金 1,500 元 + 工本費 500 元）</div>
+                <div style="font-weight:700;">💳 報名費：<span class="highlight-gold">2,000 元</span></div>
+                <div style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.2rem; white-space:nowrap;">（保證金 1,500 元 + 工本費 500 元）</div>
             </div>
 
             <div class="item-row">
@@ -931,26 +927,24 @@
                     Q1. 「線上課程」、「線上共學」和「入班擔任志工」有什麼差別？
                 </div>
 
-                <div class="faq-answer-box" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:0.95rem 1.1rem; display:flex; flex-direction:column; gap:0.75rem; font-size:0.98rem; line-height:1.7;">
+                <div class="faq-answer-box" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:0.95rem 1.1rem; display:flex; flex-direction:column; gap:0.65rem; font-size:0.98rem; line-height:1.65;">
                     <div>
                         <strong class="highlight-gold">💻 1. EQ 線上課程（自主觀課）</strong><br>
-                        為期約 3 個月（10/8～1/15），學員可依個人空檔隨時線上自主觀看教學影片，彈性學習無壓力。
+                        約 3 個月（10/8～1/15），學員可依個人空檔隨時自主觀看線上影片。
                     </div>
                     <div>
-                        <strong class="highlight-gold">👥 2. EQ 線上共學（督導示範與演練）</strong><br>
-                        由資深督導群在線上親自示範教案演練與活動技巧，並開放即時線上提問與交流，幫助大家熟悉教案流程。
+                        <strong class="highlight-gold">👥 2. EQ 線上共學（督導示範演練）</strong><br>
+                        共 4 次線上共學，由資深督導示範教案演練與即時答疑。
                     </div>
-                    <div style="display:flex; flex-direction:column; gap:0.5rem;">
-                        <div>
-                            <strong class="highlight-gold">🏫 3. 入班擔任志工（實務見習與校園服務）</strong><br>
-                            親自至樂利國小班級擔任 EQ 志工助手（協助主講遞教具道具、陪伴學童），近距離第一線觀察主講如何溫暖引導與孩子溝通！
-                        </div>
-                        <div style="display:flex; justify-content:flex-end; margin-top:0.25rem;">
-                            <button class="btn-copy-card" onclick="copyFAQ(1)" title="複製此題解答貼至 LINE">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                                <span>複製此題</span>
-                            </button>
-                        </div>
+                    <div>
+                        <strong class="highlight-gold">🏫 3. 入班擔任志工（實務見習服務）</strong><br>
+                        至樂利國小班級擔任助手（遞教具道具），第一線觀摩教學！
+                    </div>
+                    <div style="display:flex; justify-content:flex-end; margin-top:0.35rem; padding-top:0.45rem; border-top:1px dashed rgba(255,255,255,0.08);">
+                        <button class="btn-copy-card" onclick="copyFAQ(1)" title="複製此題解答貼至 LINE">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span>複製此題</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -997,8 +991,12 @@
         // 各區塊精簡文字內容定義
         const sectionTexts = {
             signup: `【115上 樂利EQ 報名時間與窗口】
-‧ 團體報名期間：2026/09/16（三）上午 09:00 ～ 2026/09/22（二）中午 11:59 止
-‧ 個人報名期間：2026/09/16（三）上午 09:00 ～ 2026/09/29（二）中午 11:59 止
+‧ 團體報名期間：
+  2026/09/16（三）上午 09:00 ～
+  2026/09/22（二）中午 11:59 止
+‧ 個人報名期間：
+  2026/09/16（三）上午 09:00 ～
+  2026/09/29（二）中午 11:59 止
 ‧ 樂利報名窗口：祁紫涵`,
 
             watch: `【115上 樂利EQ 線上觀看日期】
@@ -1015,7 +1013,8 @@
 ‧【二年級】一共要入班 3 天（日期：12/8、12/15、12/22）`,
 
             deposit: `【115上 樂利EQ 費用與保證金退費條件】
-‧ 報名費用：2,000 元（含保證金 1,500 元 + 工本費 500 元）
+‧ 報名費：2,000 元
+  （保證金 1,500 元 + 工本費 500 元）
 ‧ 保證金退費條件：
   ✔ 線上課程：約 2 個月內自主看完
   ✔ 線上共學：4 次線上都需上線
@@ -1029,9 +1028,9 @@
 Q：線上課程、線上共學、入班擔任志工有什麼差別？
 
 A：三者相輔相成，循序漸進：
-1. 💻 EQ 線上課程：為期約 3 個月（10/8~1/15），學員可依個人空檔隨時線上自主觀課，彈性學習無壓力。
-2. 👥 EQ 線上共學：由資深督導群在線上親自示範教案演練與技巧，並開放即時提問交流。
-3. 🏫 入班擔任志工：至樂利國小班級擔任助手（遞教具道具），近距離觀摩主講如何與孩子溫暖溝通！
+1. 💻 EQ 線上課程：約 3 個月（10/8~1/15），依個人空檔隨時線上自主觀課。
+2. 👥 EQ 線上共學：共 4 次，由督導線上示範演練與即時答疑。
+3. 🏫 入班擔任志工：至樂利國小班級擔任助手（遞教具道具），實地觀摩教學！
 
 🔗 完整資訊查閱：https://eqweb0987183520.github.io/webData/course-info.html`
         };
