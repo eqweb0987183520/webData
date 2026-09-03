@@ -6,6 +6,27 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v3.13] - 保證金退款條件結語、修復彈窗 RWD 樣式洩漏與控制台警告排查
+- **快照時間**：2026-09-03 10:52
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **課程資訊網址**：[https://eqweb0987183520.github.io/webData/course-info.html](https://eqweb0987183520.github.io/webData/course-info.html)
+- **主要變更與建置內容**：
+  1. **保證金退費條件底部強化提示**：
+     - 在「保證金退費條件」區塊底部新增醒目方框：「🎉 完成以上三個任務，即可退回保證金 1,500 元」，明確告知三項任務須同時達成且可退還 1500 元。
+     - 同步更新「複製此區」的 LINE 文本，加入退費完成提示。
+  2. **排查並修復左上角安裝 APP 彈窗裸露問題**：
+     - 排查發現 CSS `@media (max-width: 640px)` 缺少閉合大括號 `}`，導致 `.modal-overlay.hidden` 規則被圈入僅手機版生效，使得桌面端 (電腦寬螢幕) 下隱藏規則失效、彈窗內容裸露在頁面左上方。已補正閉合括號，桌機與各端完全正常隱藏。
+  3. **清除 F12 控制台警告**：
+     - 補齊 `<link rel="icon" type="image/png" href="images/icon-192.png">`，解決 `/favicon.ico 404` 錯誤。
+     - 補上 Chrome 推薦的 `<meta name="mobile-web-app-capable" content="yes">`，消除 deprecated 警告。
+     - 解釋說明 `beforeinstallpromptevent.preventDefault()` 為 PWA 接管原生安裝橫幅的標準行為，非程式錯誤。
+  4. **快取版本升級與雙目錄 100% 同步**：
+     - `sw.js` 與 `web/sw.js` 升級快取版本為 `eq-course-pwa-v3.13`。
+     - 雙目錄全面同步並提交至 Git 倉庫。
+
+---
+
 ### 🌟 [v3.12] - 深度建置 PWA「📲 安裝 APP」桌面捷徑系統、LINE 極速逃脫防快取與全平台導引
 - **快照時間**：2026-09-03 10:14
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`

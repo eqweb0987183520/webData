@@ -84,7 +84,10 @@
     
     <!-- PWA & Mobile Web App 桌面安裝支援 -->
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="images/icon-192.png">
+    <link rel="shortcut icon" href="images/icon-192.png">
     <link rel="apple-touch-icon" href="images/icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="樂利EQ">
@@ -363,6 +366,7 @@
                 flex-direction: column;
                 gap: 0.25rem;
             }
+        }
 
         /* PWA 安裝教學彈窗 */
         .modal-overlay {
@@ -713,6 +717,11 @@
                     <div>✔ <strong class="highlight-gold">擔任志工</strong>：需擔任 EQ 講師的助手 8 小時</div>
                 </div>
             </div>
+
+            <!-- 達成退費說明 -->
+            <div class="fee-badge-box" style="margin-top: 0.85rem; margin-bottom: 0; background: rgba(52, 211, 153, 0.1); border-color: rgba(52, 211, 153, 0.35); color: #f5f5f4;">
+                🎉 <strong>完成以上三個任務，即可退回保證金 <span class="highlight-green">1,500 元</span></strong>
+            </div>
         </section>
 
         <!-- 模組 6：常見問題解答 FAQ（專為新夥伴解惑，可陸續擴充） -->
@@ -810,7 +819,8 @@
 ‧ 保證金退費條件：
   ✔ 線上課程：約 2 個月內自主看完
   ✔ 線上共學：4 次線上都需上線
-  ✔ 擔任志工：需擔任 EQ 講師的助手 8 小時`
+  ✔ 擔任志工：需擔任 EQ 講師的助手 8 小時
+👉 完成以上三個任務，即可退回保證金 1,500 元`
         };
 
         // 常見問題 FAQ 定義（支援持續擴充 FAQ 2、FAQ 3...）
