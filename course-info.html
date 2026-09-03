@@ -81,6 +81,15 @@
 
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#060b09">
+    
+    <!-- PWA & Mobile Web App 桌面安裝支援 -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="樂利EQ">
+    <meta name="application-name" content="樂利EQ">
+
     <link rel="stylesheet" href="css/style.css?v=3.04">
 
     <style>
@@ -355,10 +364,90 @@
                 gap: 0.25rem;
             }
 
-            .item-label {
-                min-width: unset;
-                font-size: 0.9rem;
-            }
+        /* PWA 安裝教學彈窗 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+            box-sizing: border-box;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.hidden {
+            display: none !important;
+        }
+
+        .modal-card {
+            background: #0f1d17;
+            border: 1.5px solid var(--accent-primary);
+            border-radius: 20px;
+            max-width: 440px;
+            width: 100%;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+            text-align: left;
+            position: relative;
+            box-sizing: border-box;
+            color: #f5f5f4;
+        }
+
+        .guide-modal-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin: 0 0 1.1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-steps-box p {
+            margin: 0.75rem 0;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #e7e5e4;
+        }
+
+        .guide-note-box {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 10px;
+            padding: 0.75rem 0.95rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #fef08a;
+        }
+
+        .btn-primary-close {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #1c1917;
+            border: none;
+            padding: 0.7rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 1.4rem;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-primary-close:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
         }
     </style>
 </head>
@@ -368,13 +457,42 @@
     <div id="lineGuideModal" class="line-guide-modal hidden">
         <div class="line-guide-card">
             <div class="line-guide-icon">🌐</div>
-            <div class="line-guide-title">建議在瀏覽器中開啟</div>
+            <div class="line-guide-title">建議在預設瀏覽器中開啟</div>
             <div class="line-guide-steps">
-                為了提供最完整流暢的視覺體驗：<br><br>
-                <div class="step-item"><strong>1. 點擊右上角或右下角的</strong> <span class="highlight-badge">[ ⋮ ]</span> 或 <span class="highlight-badge">[ ⋯ ]</span></div>
+                為確保順暢體驗並支援一鍵安裝桌面：<br><br>
+                <div class="step-item"><strong>1. 點擊右上角或右下角</strong> <span class="highlight-badge">[ ⋮ ]</span> 或 <span class="highlight-badge">[ ⋯ ]</span></div>
                 <div class="step-item"><strong>2. 點選</strong> <span class="highlight-text">「在預設瀏覽器中開啟」</span> 或 <span class="highlight-text">「以 Safari 開啟」</span></div>
             </div>
             <button id="btn-close-line-guide" class="btn-guide-close" onclick="document.getElementById('lineGuideModal').classList.add('hidden')">我知道了，繼續瀏覽</button>
+        </div>
+    </div>
+
+    <!-- Android 專屬安裝 App 教學彈窗 -->
+    <div id="androidInstallGuideModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h3 class="guide-modal-title">🤖 Android 手機安裝 APP 教學</h3>
+            <div class="guide-steps-box">
+                <p>1. 點擊瀏覽器右上角的 <strong>「選單」圖示 ⋮</strong></p>
+                <p>2. 點選 <strong>「安裝應用程式」</strong> 或 <strong>「加到主畫面」 📲</strong></p>
+                <div class="guide-note-box">
+                    💡 <strong>若在 LINE 中開啟：</strong><br>
+                    請先點右上角 <strong>「⋮」</strong> ➜ 點選 <strong>「在預設瀏覽器中開啟」</strong>（Chrome），即可一鍵安裝到桌面！
+                </div>
+            </div>
+            <button class="btn-primary-close" onclick="document.getElementById('androidInstallGuideModal').classList.add('hidden')">我知道了 👍</button>
+        </div>
+    </div>
+
+    <!-- iOS Safari 加入主畫面教學彈窗 -->
+    <div id="iosInstallModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h3 class="guide-modal-title">🍏 iPhone / iPad 加入桌面教學</h3>
+            <div class="guide-steps-box">
+                <p>1. 點擊 Safari 瀏覽器正下方的 <strong>「分享」圖示 📤</strong></p>
+                <p>2. 往下滑動，點選 <strong>「加入主畫面」 ➕</strong></p>
+                <p>3. 點擊右上角 <strong>「新增」</strong> 即可在桌面秒開使用！</p>
+            </div>
+            <button class="btn-primary-close" onclick="document.getElementById('iosInstallModal').classList.add('hidden')">我知道了 👍</button>
         </div>
     </div>
 
@@ -387,6 +505,9 @@
                 </a>
 
                 <div class="nav-actions">
+                    <button id="btn-header-install" class="btn-action primary" onclick="triggerPWAInstall()" title="將樂利EQ課程資訊安裝至手機或電腦桌面">
+                        📲 安裝 APP
+                    </button>
                     <a href="index.html" class="btn-action">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         <span>首頁</span>
@@ -410,6 +531,9 @@
 
         <!-- 快捷操作列 -->
         <div class="quick-actions-bar">
+            <button id="btn-quick-install" class="btn-action primary" onclick="triggerPWAInstall()" title="將課程資訊安裝到手機或電腦桌面">
+                📲 安裝 APP
+            </button>
             <button class="btn-action" onclick="copyPageUrl()">
                 🔗 複製本頁網址
             </button>
@@ -780,6 +904,97 @@ A：三者相輔相成，循序漸進：
             }
             document.body.removeChild(textarea);
         }
+
+        // ==========================================
+        // PWA 桌面安裝與 Service Worker 支援
+        // ==========================================
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(err => {
+                    console.log('SW registration error:', err);
+                });
+            });
+        }
+
+        // 檢測是否已安裝至桌面 (Standalone 模式)
+        function updatePWAInstallVisibility() {
+            const isPWA = window.matchMedia('(display-mode: standalone)').matches ||
+                          window.navigator.standalone === true ||
+                          localStorage.getItem('eq_pwa_installed') === 'true';
+
+            const btnHeader = document.getElementById('btn-header-install');
+            const btnQuick = document.getElementById('btn-quick-install');
+            if (isPWA) {
+                document.documentElement.classList.add('is-pwa-standalone');
+                if (btnHeader) btnHeader.style.display = 'none';
+                if (btnQuick) btnQuick.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            window.deferredPrompt = e;
+            const btnHeader = document.getElementById('btn-header-install');
+            const btnQuick = document.getElementById('btn-quick-install');
+            if (btnHeader) btnHeader.style.display = 'inline-flex';
+            if (btnQuick) btnQuick.style.display = 'inline-flex';
+        });
+
+        window.triggerPWAInstall = function triggerPWAInstall() {
+            const ua = (navigator.userAgent || '').toLowerCase();
+            const isLine = ua.indexOf('line') > -1;
+            const isIOS = /ipad|iphone|ipod/.test(ua) && !window.MSStream;
+
+            // 1. 若在 LINE 內嵌瀏覽器中，提示跳出至外部原生瀏覽器（因 LINE 禁止直接加到桌面）
+            if (isLine) {
+                const lineModal = document.getElementById('lineGuideModal');
+                if (lineModal) {
+                    lineModal.classList.remove('hidden');
+                } else {
+                    alert('💡 提示：請點擊右上角「⋮」選擇「在預設瀏覽器中開啟」，即可一鍵安裝到桌面！');
+                }
+                return;
+            }
+
+            // 2. 原生 PWA 提示 (Android Chrome / Edge / Desktop)
+            if (window.deferredPrompt) {
+                window.deferredPrompt.prompt();
+                window.deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult && choiceResult.outcome === 'accepted') {
+                        localStorage.setItem('eq_pwa_installed', 'true');
+                        updatePWAInstallVisibility();
+                        showToast('✅ 成功安裝！已加入桌面捷徑');
+                    }
+                    window.deferredPrompt = null;
+                });
+                return;
+            }
+
+            // 3. iOS Safari 引導
+            if (isIOS) {
+                const iosModal = document.getElementById('iosInstallModal');
+                if (iosModal) iosModal.classList.remove('hidden');
+                return;
+            }
+
+            // 4. Android Chrome 備援引導
+            const androidModal = document.getElementById('androidInstallGuideModal');
+            if (androidModal) {
+                androidModal.classList.remove('hidden');
+            } else {
+                alert('📲 請點擊瀏覽器右上角「⋮」➜ 選擇「安裝應用程式」或「加到主畫面」即可安裝到桌面！');
+            }
+        };
+
+        window.addEventListener('appinstalled', () => {
+            localStorage.setItem('eq_pwa_installed', 'true');
+            updatePWAInstallVisibility();
+            window.deferredPrompt = null;
+            showToast('✅ 成功安裝！已加入桌面捷徑');
+        });
+
+        updatePWAInstallVisibility();
+        window.addEventListener('DOMContentLoaded', updatePWAInstallVisibility);
     </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "樂利EQ課程資訊",
+  "short_name": "樂利EQ",
+  "description": "115上學期 EQ線上課程資訊（樂利國小版）與志工培訓速查",
+  "start_url": "course-info.html",
+  "display": "standalone",
+  "background_color": "#060b09",
+  "theme_color": "#060b09",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

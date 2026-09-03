@@ -6,6 +6,28 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v3.12] - 深度建置 PWA「📲 安裝 APP」桌面捷徑系統、LINE 極速逃脫防快取與全平台導引
+- **快照時間**：2026-09-03 10:14
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **課程資訊網址**：[https://eqweb0987183520.github.io/webData/course-info.html](https://eqweb0987183520.github.io/webData/course-info.html)
+- **主要變更與建置內容**：
+  1. **建置「📲 安裝 APP」桌面捷徑按鈕**：
+     - 依照使用者指示與「1到50防失智遊戲」成功架構，於頂部導覽列及快捷操作列均配置顯眼的「📲 安裝 APP」按鈕。
+  2. **LINE 內嵌瀏覽器極速逃脫與快取破除 (Anti-Cache / Escape)**：
+     - 自動在 LINE 點擊時附加 `openExternalBrowser=1` 強制開啟外部原生瀏覽器，避開 LINE 內嵌瀏覽器殘留快取與無法加入桌面的限制。
+     - 若使用者仍停留於 LINE 內部，點擊「安裝 APP」自動彈出全平台防呆跳脫引導教學。
+  3. **iOS & Android 雙平台安裝導引彈窗**：
+     - iOS Safari：精準提示「分享 📤 ➜ 加入主畫面 ➕ ➜ 新增」。
+     - Android Chrome：支援原生 PWA `beforeinstallprompt` 一鍵安裝，並備援選單「⋮ ➜ 安裝應用程式」引導彈窗。
+     - 安裝後處於獨立 App (Standalone) 模式時，按鈕自動智慧隱藏。
+  4. **PWA 基礎建設 (Manifest + Service Worker + Icons)**：
+     - 建立 `manifest.json` 與 `sw.js`（Network-First 網路優先更新快取策略）。
+     - 生成 192x192 及 512x512 高解析專屬「樂利EQ」App Icon。
+  5. **雙目錄 (`root` & `web/`) 100% 同步發布並推播至 GitHub Pages**。
+
+---
+
 ### 🌟 [v3.11] - 全面移除五下 (PAC) 未開課之線上資訊與時間、純化為實質開課 3 大年級
 - **快照時間**：2026-09-03 10:05
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
