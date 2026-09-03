@@ -1119,7 +1119,7 @@ A：三者相輔相成，循序漸進：
         // ==========================================
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js').catch(err => {
+                navigator.serviceWorker.register('sw.js?v=3.17').catch(err => {
                     console.log('SW registration error:', err);
                 });
             });
