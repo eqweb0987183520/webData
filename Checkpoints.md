@@ -6,6 +6,23 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v3.07] - 全面深化雙頁 SEO 關鍵字矩陣、Schema.org 結構化資料與 Google 霸榜精準錨點
+- **快照時間**：2026-09-03 09:07
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **課程資訊網址**：[https://eqweb0987183520.github.io/webData/course-info.html](https://eqweb0987183520.github.io/webData/course-info.html)
+- **主要變更與建置內容**：
+  1. **核心第一名關鍵字深度強化（樂利EQ / EQ樂利）**：
+     - 首頁 (`index.html`) 與課程頁 (`course-info.html`) 的 `<title>`、`<meta keywords>`、`<meta description>` 全面升級，主打「樂利EQ」、「EQ樂利」、「樂利EQ志工」、「EQ志工」、「EQ情緒教育」、「樂利EQ課程」。
+  2. **Schema.org 雙重結構化資料 (JSON-LD)**：
+     - 首頁注入 `EducationalOrganization` 包含多組 `alternateName`（樂利EQ、EQ樂利、EQ志工、EQ情緒教育）。
+     - 課程頁注入 `Course` + `BreadcrumbList` 雙結構化資料，使 Google 爬蟲精準識別階層與關鍵字關聯。
+  3. **頁尾語意搜尋索引條（SEO Semantic Footer）**：
+     - 兩頁頁尾皆加入精緻磨砂質感的「熱門搜尋」關鍵字索引列，提供爬蟲最強自然語意錨點，同時方便訪客一覽。
+  4. **雙目錄 (`root` & `web/`) 100% 同步發布並推播至 GitHub Pages**。
+
+---
+
 ### 🌟 [v3.06] - 還原各區塊專屬全寬一列排版、消除左右折行擠壓並維持流暢 RWD 自適應
 - **快照時間**：2026-09-03 08:52
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
