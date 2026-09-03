@@ -377,7 +377,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.9rem;
+            gap: 0.85rem;
             width: 100%;
         }
 
@@ -385,17 +385,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.65rem;
-            width: 100%;
-            max-width: 440px;
+            gap: 0.6rem;
+            width: auto;
+            min-width: 210px;
+            max-width: 280px;
             background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
             color: #1c1917;
-            font-size: 1.12rem;
+            font-size: 1.05rem;
             font-weight: 800;
-            padding: 0.95rem 1.8rem;
-            border-radius: 16px;
+            padding: 0.8rem 1.6rem;
+            border-radius: 9999px;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
             transition: var(--transition-smooth);
             box-sizing: border-box;
             touch-action: manipulation;
@@ -403,7 +404,7 @@
 
         .btn-bottom-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px rgba(245, 158, 11, 0.6);
+            box-shadow: 0 12px 26px rgba(245, 158, 11, 0.6);
             color: #000;
         }
 
@@ -419,20 +420,42 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.55rem;
-            width: 100%;
-            max-width: 440px;
+            gap: 0.5rem;
+            width: auto;
+            min-width: 210px;
+            max-width: 280px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 600;
-            padding: 0.72rem 1.4rem;
-            border-radius: 12px;
+            padding: 0.65rem 1.4rem;
+            border-radius: 9999px;
             cursor: pointer;
             transition: var(--transition-smooth);
             box-sizing: border-box;
             touch-action: manipulation;
+        }
+
+        .btn-bottom-secondary:hover {
+            background: rgba(251, 191, 36, 0.12);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+
+        /* 日期標籤群組排版 (保證 2 次一列) */
+        .date-tags-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .date-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            align-items: center;
         }
 
         .btn-bottom-secondary:hover {
@@ -520,13 +543,17 @@
             }
 
             .btn-bottom-primary {
-                font-size: 1.05rem;
-                padding: 0.85rem 1.3rem;
+                font-size: 0.98rem;
+                padding: 0.75rem 1.4rem;
+                min-width: 195px;
+                max-width: 250px;
             }
 
             .btn-bottom-secondary {
-                font-size: 0.9rem;
-                padding: 0.65rem 1.1rem;
+                font-size: 0.88rem;
+                padding: 0.62rem 1.3rem;
+                min-width: 195px;
+                max-width: 250px;
             }
         }
 
@@ -705,15 +732,17 @@
             
             <div class="item-row">
                 <div class="item-label">團體報名期間</div>
-                <div class="item-value">
-                    <span class="highlight-gold">2026/09/16（三）上午 09:00 ～ 2026/09/22（二）中午 11:59 止</span>
+                <div class="item-value highlight-gold">
+                    <div>2026/09/16（三）上午 09:00 ～</div>
+                    <div>2026/09/22（二）中午 11:59 止</div>
                 </div>
             </div>
 
             <div class="item-row">
                 <div class="item-label">個人報名期間</div>
                 <div class="item-value">
-                    2026/09/16（三）上午 09:00 ～ 2026/09/29（二）中午 11:59 止
+                    <div>2026/09/16（三）上午 09:00 ～</div>
+                    <div>2026/09/29（二）中午 11:59 止</div>
                 </div>
             </div>
 
@@ -751,7 +780,10 @@
             <div class="card-header-bar">
                 <div class="card-header-left">
                     <span class="card-icon">👥</span>
-                    <h2 class="card-title">線上共學日期（上午 09:00～12:00）</h2>
+                    <h2 class="card-title">
+                        <div>線上共學日期</div>
+                        <div style="font-size:0.92rem; font-weight:600; color:var(--text-secondary); margin-top:0.2rem;">（上午 09:00～12:00，線上）</div>
+                    </h2>
                 </div>
                 <button class="btn-copy-card" onclick="copySection('online')">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -761,31 +793,43 @@
 
             <div class="item-row">
                 <div class="item-label">【一年級】每週二</div>
-                <div class="item-value">
-                    <span class="tag-date">第 1 次 10/20</span>
-                    <span class="tag-date">第 2 次 10/27</span>
-                    <span class="tag-date">第 3 次 11/03</span>
-                    <span class="tag-date">第 4 次 11/10</span>
+                <div class="item-value date-tags-group">
+                    <div class="date-tags-row">
+                        <span class="tag-date">第 1 次 10/20</span>
+                        <span class="tag-date">第 2 次 10/27</span>
+                    </div>
+                    <div class="date-tags-row">
+                        <span class="tag-date">第 3 次 11/03</span>
+                        <span class="tag-date">第 4 次 11/10</span>
+                    </div>
                 </div>
             </div>
 
             <div class="item-row">
                 <div class="item-label">【二年級】每週一</div>
-                <div class="item-value">
-                    <span class="tag-date">第 1 次 11/09</span>
-                    <span class="tag-date">第 2 次 11/16</span>
-                    <span class="tag-date">第 3 次 11/23</span>
-                    <span class="tag-date">第 4 次 11/30</span>
+                <div class="item-value date-tags-group">
+                    <div class="date-tags-row">
+                        <span class="tag-date">第 1 次 11/09</span>
+                        <span class="tag-date">第 2 次 11/16</span>
+                    </div>
+                    <div class="date-tags-row">
+                        <span class="tag-date">第 3 次 11/23</span>
+                        <span class="tag-date">第 4 次 11/30</span>
+                    </div>
                 </div>
             </div>
 
             <div class="item-row">
                 <div class="item-label">【五上】每週五</div>
-                <div class="item-value">
-                    <span class="tag-date">第 1 次 10/16</span>
-                    <span class="tag-date">第 2 次 10/23</span>
-                    <span class="tag-date">第 3 次 10/30</span>
-                    <span class="tag-date">第 4 次 11/06</span>
+                <div class="item-value date-tags-group">
+                    <div class="date-tags-row">
+                        <span class="tag-date">第 1 次 10/16</span>
+                        <span class="tag-date">第 2 次 10/23</span>
+                    </div>
+                    <div class="date-tags-row">
+                        <span class="tag-date">第 3 次 10/30</span>
+                        <span class="tag-date">第 4 次 11/06</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -851,7 +895,8 @@
 
             <!-- 費用結構說明 -->
             <div class="fee-badge-box">
-                💳 <strong>報名費用</strong>：<span class="highlight-gold">2,000 元</span>（含保證金 1,500 元 + 工本費 500 元）
+                <div>💳 <strong>報名費用</strong>：<span class="highlight-gold">2,000 元</span></div>
+                <div style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.2rem;">（含保證金 1,500 元 + 工本費 500 元）</div>
             </div>
 
             <div class="item-row">
@@ -882,28 +927,30 @@
 
             <!-- FAQ 1 -->
             <div class="faq-item" style="padding: 0.2rem 0;">
-                <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:0.6rem; margin-bottom:0.75rem;">
-                    <div style="font-size:1.05rem; font-weight:700; color:var(--accent-primary); line-height:1.5;">
-                        Q1. 「線上課程」、「線上共學」和「入班擔任志工」有什麼差別？
-                    </div>
-                    <button class="btn-copy-card" onclick="copyFAQ(1)" title="複製此題解答貼至 LINE">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        <span>複製此題</span>
-                    </button>
+                <div style="font-size:1.05rem; font-weight:700; color:var(--accent-primary); line-height:1.5; margin-bottom:0.75rem;">
+                    Q1. 「線上課程」、「線上共學」和「入班擔任志工」有什麼差別？
                 </div>
 
                 <div class="faq-answer-box" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:0.95rem 1.1rem; display:flex; flex-direction:column; gap:0.75rem; font-size:0.98rem; line-height:1.7;">
                     <div>
                         <strong class="highlight-gold">💻 1. EQ 線上課程（自主觀課）</strong><br>
-                        為期約 3 個月（10/8～1/15），學員可依個人空檔時間，隨時以個人 Google 帳號登入平台自主觀看教學影片，彈性學習無壓力。
+                        為期約 3 個月（10/8～1/15），學員可依個人空檔隨時線上自主觀看教學影片，彈性學習無壓力。
                     </div>
                     <div>
                         <strong class="highlight-gold">👥 2. EQ 線上共學（督導示範與演練）</strong><br>
-                        由資深督導群在線上（Zoom）親自示範教案演練與入班活動技巧，並開放即時線上提問與交流，幫助大家熟悉教案流程。
+                        由資深督導群在線上親自示範教案演練與活動技巧，並開放即時線上提問與交流，幫助大家熟悉教案流程。
                     </div>
-                    <div>
-                        <strong class="highlight-gold">🏫 3. 入班擔任志工（實務見習與校園服務）</strong><br>
-                        親自至樂利國小班級擔任 EQ 志工助手（協助主講遞教具道具、陪伴學童），更能近距離第一線觀察主講如何溫暖引導與孩子溝通！
+                    <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                        <div>
+                            <strong class="highlight-gold">🏫 3. 入班擔任志工（實務見習與校園服務）</strong><br>
+                            親自至樂利國小班級擔任 EQ 志工助手（協助主講遞教具道具、陪伴學童），近距離第一線觀察主講如何溫暖引導與孩子溝通！
+                        </div>
+                        <div style="display:flex; justify-content:flex-end; margin-top:0.25rem;">
+                            <button class="btn-copy-card" onclick="copyFAQ(1)" title="複製此題解答貼至 LINE">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                <span>複製此題</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -982,8 +1029,8 @@
 Q：線上課程、線上共學、入班擔任志工有什麼差別？
 
 A：三者相輔相成，循序漸進：
-1. 💻 EQ 線上課程：為期約 3 個月（10/8~1/15），可依個人空檔隨時線上自主觀課。
-2. 👥 EQ 線上共學：由資深督導群在線上（Zoom）示範教案演練，並提供線上提問交流。
+1. 💻 EQ 線上課程：為期約 3 個月（10/8~1/15），學員可依個人空檔隨時線上自主觀課，彈性學習無壓力。
+2. 👥 EQ 線上共學：由資深督導群在線上親自示範教案演練與技巧，並開放即時提問交流。
 3. 🏫 入班擔任志工：至樂利國小班級擔任助手（遞教具道具），近距離觀摩主講如何與孩子溫暖溝通！
 
 🔗 完整資訊查閱：https://eqweb0987183520.github.io/webData/course-info.html`
