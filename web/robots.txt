@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eqweb0987183520.github.io/webData/sitemap.xml
