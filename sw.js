@@ -1,7 +1,8 @@
-const CACHE_NAME = 'eq-course-pwa-v3.17';
+const CACHE_NAME = 'eq-course-pwa-v3.18';
 
 const ASSETS_TO_CACHE = [
   'course-info.html',
+  'schedule.html',
   'manifest.json',
   'images/icon-192.png',
   'images/icon-512.png',
