@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="375">
+    
+    <!-- HTTP Anti-Cache Headers -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>樂利國小 EQ 志工組 115學年上學期 總行事曆與排程查詢系統</title>
+
+    <script>
+        // LINE 內嵌瀏覽器極速逃脫機制
+        (function() {
+            try {
+                var ua = (navigator.userAgent || '').toLowerCase();
+                if (ua.indexOf('line') > -1 && window.location.search.indexOf('openExternalBrowser=1') === -1) {
+                    var sep = window.location.href.indexOf('?') > -1 ? '&' : '?';
+                    window.location.href = window.location.href + sep + 'openExternalBrowser=1';
+                }
+            } catch(e) {}
+        })();
+    </script>
+
+    <style>
+        :root {
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", "微軟正黑體", sans-serif;
+            --bg-page: #0a0f0d;
+            --card-bg: rgba(18, 28, 24, 0.92);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --accent-gold: #fbbf24;
+            --accent-green: #34d399;
+            --accent-blue: #38bdf8;
+            --accent-purple: #c084fc;
+            --text-main: #f5f5f4;
+            --text-sub: #a8a29e;
+            --tag-volunteer: #047857;
+            --tag-training: #b45309;
+            --tag-online: #0369a1;
+            --tag-deadline: #6d28d9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            padding: 24px 16px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1060px;
+        }
+
+        /* 標題區 */
+        .header-section {
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
+
+        .main-title {
+            font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+            font-weight: 800;
+            color: var(--accent-gold);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-title {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 名詞定義展示卡 */
+        .def-banner {
+            background: rgba(251, 191, 36, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.28);
+            border-radius: 14px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+
+        .def-item {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .badge-def {
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .badge-def.outer {
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--accent-gold);
+            border: 1px solid rgba(251, 191, 36, 0.5);
+        }
+
+        .badge-def.inner {
+            background: rgba(52, 211, 153, 0.2);
+            color: var(--accent-green);
+            border: 1px solid rgba(52, 211, 153, 0.5);
+        }
+
+        /* 篩選與工具列 */
+        .control-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            font-weight: 700;
+            min-width: 75px;
+        }
+
+        .btn-filter {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
+            padding: 0.35rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-filter:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .btn-filter.active {
+            background: var(--accent-gold);
+            color: #1c1917;
+            border-color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            color: #fff;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .action-buttons-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .count-summary {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+        }
+
+        .btn-action {
+            background: rgba(251, 191, 36, 0.12);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            color: var(--accent-gold);
+            padding: 0.4rem 0.95rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action:hover {
+            background: var(--accent-gold);
+            color: #1c1917;
+        }
+
+        /* 總行事曆卡片與表格排版 */
+        .table-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.94rem;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-gold);
+            padding: 0.85rem 1rem;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: middle;
+            line-height: 1.55;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* 標籤樣式 */
+        .pill-category {
+            display: inline-block;
+            padding: 0.18rem 0.55rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .cat-volunteer { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+        .cat-training  { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+        .cat-online    { background: rgba(14, 165, 233, 0.2); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.4); }
+        .cat-deadline  { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+
+        .pill-grade {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .alert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.82rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .alert-safe {
+            background: rgba(52, 211, 153, 0.12);
+            color: #34d399;
+        }
+
+        .alert-warn {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            font-weight: 700;
+            border: 1px dashed rgba(251, 191, 36, 0.45);
+        }
+
+        /* 複製 Toast */
+        #toastNotice {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(12, 20, 17, 0.95);
+            border: 1.5px solid var(--accent-gold);
+            color: #fff;
+            padding: 0.75rem 1.6rem;
+            border-radius: 9999px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        #toastNotice.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            th:nth-child(5), td:nth-child(5),
+            th:nth-child(6), td:nth-child(6) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 頁面標題 -->
+        <div class="header-section">
+            <h1 class="main-title">樂利國小 EQ 志工組 115學年上學期 總行事曆</h1>
+            <div class="sub-title">入班服務・外訓演練・內訓預習・線上共學・衝堂防範檢核總表</div>
+        </div>
+
+        <!-- 名詞定義橫幅 -->
+        <div class="def-banner">
+            <div class="def-item">
+                <span class="badge-def outer">外訓</span>
+                <span>督導協助演練備課（芯福里專業督導指導）</span>
+            </div>
+            <div class="def-item">
+                <span class="badge-def inner">內訓</span>
+                <span>資深主講「協助預習」演練備課（資深夥伴帶領）</span>
+            </div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <!-- 類別篩選 -->
+            <div class="filter-row">
+                <span class="filter-label">活動類別：</span>
+                <button class="btn-filter active" onclick="setCategoryFilter('all', this)">全部</button>
+                <button class="btn-filter" onclick="setCategoryFilter('入班志工', this)">🏫 入班服務</button>
+                <button class="btn-filter" onclick="setCategoryFilter('外訓演練', this)">🎯 外訓備課</button>
+                <button class="btn-filter" onclick="setCategoryFilter('線上共學', this)">👥 線上共學</button>
+                <button class="btn-filter" onclick="setCategoryFilter('重要期限', this)">⏰ 報名期限</button>
+            </div>
+
+            <!-- 年級篩選 -->
+            <div class="filter-row">
+                <span class="filter-label">服務年級：</span>
+                <button class="btn-filter active" onclick="setGradeFilter('all', this)">全部</button>
+                <button class="btn-filter" onclick="setGradeFilter('一年級', this)">一年級</button>
+                <button class="btn-filter" onclick="setGradeFilter('二年級', this)">二年級</button>
+                <button class="btn-filter" onclick="setGradeFilter('四年級', this)">四年級</button>
+                <button class="btn-filter" onclick="setGradeFilter('五年級', this)">五年級</button>
+            </div>
+
+            <!-- 關鍵字搜尋與衝堂篩選 -->
+            <div class="filter-row">
+                <span class="filter-label">快速搜尋：</span>
+                <input type="text" id="searchInput" class="search-input" placeholder="搜尋日期、夥伴姓名（如陳新昱、蔡幼姿）、地點或關鍵字..." oninput="renderTable()">
+                <button class="btn-filter" id="btnOnlyWarning" onclick="toggleWarningOnly(this)">⚡ 僅看同日提醒</button>
+            </div>
+
+            <!-- 操作按鈕列 -->
+            <div class="action-buttons-row">
+                <div id="countSummary" class="count-summary">共 27 筆排程項目</div>
+                <div style="display: flex; gap: 0.6rem;">
+                    <button class="btn-action" onclick="copyFilteredList()">📋 複製目前清單 (LINE文案)</button>
+                    <button class="btn-action" onclick="window.print()">🖨️ 列印表單</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 行事曆表格 -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>日期 / 星期</th>
+                        <th>時間</th>
+                        <th>類別</th>
+                        <th>年級 / 資格</th>
+                        <th>活動名稱與內容</th>
+                        <th>衝堂 / 接軌提示</th>
+                    </tr>
+                </thead>
+                <tbody id="scheduleTableBody">
+                    <!-- JS 動態生成 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="toastNotice">✅ 已複製到剪貼簿！</div>
+
+    <script>
+        const scheduleData = [
+            { id: "EV-01", date: "09/16 ~ 09/22", day: "三~二", time: "09:00~11:59", cat: "重要期限", grade: "全體", role: "新舊學員", title: "線上課程 團體報名期間 (樂利窗口：祁紫涵)", alert: "safe", alertText: "🟢 獨立排程", notes: "9/22 中午 11:59 截止" },
+            { id: "EV-02", date: "09/16 ~ 09/29", day: "三~二", time: "09:00~11:59", cat: "重要期限", grade: "全體", role: "個人補報", title: "線上課程 個人報名期間 (協會官網系統)", alert: "safe", alertText: "🟢 獨立排程", notes: "9/29 中午 11:59 截止" },
+            { id: "EV-03", date: "09/24", day: "四", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "五年級", role: "主講+志工", title: "五年級 EQ 入班 第 1 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "五年級 11 班全開" },
+            { id: "EV-04", date: "10/01", day: "四", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "五年級", role: "主講+志工", title: "五年級 EQ 入班 第 2 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "各班主講志工出勤" },
+            { id: "EV-05", date: "10/08", day: "四", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "五年級", role: "主講+志工", title: "五年級 EQ 入班 第 3 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "線上自主觀課亦於本日開始 (10/8~1/15)" },
+            { id: "EV-06", date: "10/13", day: "二", time: "13:00~16:00", cat: "外訓演練", grade: "四年級", role: "新主講", title: "四年級外訓 第 1 次（督導協助演練備課）", alert: "safe", alertText: "🟢 獨立排程", notes: "督導指導新主講備課" },
+            { id: "EV-07", date: "10/15", day: "四", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "五年級", role: "主講+志工", title: "五年級 EQ 入班 第 4 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "五年級入班圓滿完成" },
+            { id: "EV-08", date: "10/16", day: "五", time: "09:00~12:00", cat: "線上共學", grade: "五年級", role: "已報名學員", title: "五年級 RET 線上共學 第 1 次", alert: "safe", alertText: "🟢 獨立排程", notes: "限已報名線上課程之夥伴" },
+            { id: "EV-09", date: "10/20", day: "二", time: "09:00~12:00", cat: "線上共學", grade: "一年級", role: "已報名學員", title: "一年級 線上共學 第 1 次", alert: "warn", alertText: "🟡 同日有四年級外訓", notes: "上午線上共學，下午四年級外訓" },
+            { id: "EV-10", date: "10/20", day: "二", time: "13:00~16:00", cat: "外訓演練", grade: "四年級", role: "新主講", title: "四年級外訓 第 2 次（督導協助演練備課）", alert: "warn", alertText: "🟡 同日上午線上共學", notes: "下午新主講演練" },
+            { id: "EV-11", date: "10/23", day: "五", time: "09:00~12:00", cat: "線上共學", grade: "五年級", role: "已報名學員", title: "五年級 RET 線上共學 第 2 次", alert: "safe", alertText: "🟢 獨立排程", notes: "限已報名線上課程之夥伴" },
+            { id: "EV-12", date: "10/27", day: "二", time: "09:00~12:00", cat: "線上共學", grade: "一年級", role: "已報名學員", title: "一年級 線上共學 第 2 次", alert: "warn", alertText: "🟡 同日有四年級外訓", notes: "上午線上共學，下午四年級全體外訓" },
+            { id: "EV-13", date: "10/27", day: "二", time: "13:00~16:00", cat: "外訓演練", grade: "四年級", role: "新主講+舊主講", title: "四年級外訓 第 3 次（新主講 + 舊主講全員合訓）", alert: "warn", alertText: "🟡 新舊主講全員到齊", notes: "四年級全體主講備課" },
+            { id: "EV-14", date: "10/30", day: "五", time: "09:00~12:00", cat: "線上共學", grade: "五年級", role: "已報名學員", title: "五年級 RET 線上共學 第 3 次", alert: "safe", alertText: "🟢 獨立排程", notes: "限已報名線上課程之夥伴" },
+            { id: "EV-15", date: "11/03", day: "二", time: "09:00~12:00", cat: "線上共學", grade: "一年級", role: "已報名學員", title: "一年級 線上共學 第 3 次", alert: "warn", alertText: "🟡 同日有二年級外訓", notes: "上午線上共學，下午二年級外訓" },
+            { id: "EV-16", date: "11/03", day: "二", time: "13:00~16:00", cat: "外訓演練", grade: "二年級", role: "二年級主講", title: "二年級外訓 第 1 次（督導協助演練備課）", alert: "warn", alertText: "🟡 同日上午線上共學", notes: "下午二年級主講備課" },
+            { id: "EV-17", date: "11/05", day: "四", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "四年級", role: "主講+志工", title: "四年級 EQ 入班 第 1 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "四年級入班開始" },
+            { id: "EV-18", date: "11/06", day: "五", time: "09:00~12:00", cat: "線上共學", grade: "五年級", role: "已報名學員", title: "五年級 RET 線上共學 第 4 次", alert: "safe", alertText: "🟢 獨立排程", notes: "五年級線上共學結業" },
+            { id: "EV-19", date: "11/10", day: "二", time: "09:00~12:00", cat: "線上共學", grade: "一年級", role: "已報名學員", title: "一年級 線上共學 第 4 次", alert: "safe", alertText: "🟢 獨立排程", notes: "一年級線上共學結業" },
+            { id: "EV-20", date: "11/12", day: "四", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "四年級", role: "主講+志工", title: "四年級 EQ 入班 第 2 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "四年級入班第 2 次" },
+            { id: "EV-21", date: "11/17", day: "二", time: "13:00~16:00", cat: "外訓演練", grade: "二年級", role: "二年級主講", title: "二年級外訓 第 2 次（督導協助演練備課）", alert: "safe", alertText: "🟢 獨立排程", notes: "督導指導備課" },
+            { id: "EV-22", date: "11/19", day: "四", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "四年級", role: "主講+志工", title: "四年級 EQ 入班 第 3 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "四年級入班圓滿完成" },
+            { id: "EV-23", date: "11/25", day: "三", time: "13:00~16:00", cat: "外訓演練", grade: "二年級", role: "二年級主講", title: "二年級外訓 第 3 次（督導協助演練備課）", alert: "safe", alertText: "🟢 獨立排程", notes: "原需求註記11/25(二)，實為週三" },
+            { id: "EV-24", date: "12/08", day: "二", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "二年級", role: "主講+志工", title: "二年級 EQ 入班 第 1 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "二年級入班開始" },
+            { id: "EV-25", date: "12/15", day: "二", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "二年級", role: "主講+志工", title: "二年級 EQ 入班 第 2 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "二年級入班第 2 次" },
+            { id: "EV-26", date: "12/22", day: "二", time: "13:00~15:00<br>15:00~15:30", cat: "入班志工", grade: "二年級", role: "主講+志工", title: "二年級 EQ 入班 第 3 天（課後討論 15:00~15:30）", alert: "safe", alertText: "🟢 獨立排程", notes: "二年級入班圓滿完成" }
+        ];
+
+        let selectedCategory = 'all';
+        let selectedGrade = 'all';
+        let onlyWarning = false;
+
+        function setCategoryFilter(cat, btn) {
+            selectedCategory = cat;
+            btn.parentElement.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable();
+        }
+
+        function setGradeFilter(gr, btn) {
+            selectedGrade = gr;
+            btn.parentElement.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable();
+        }
+
+        function toggleWarningOnly(btn) {
+            onlyWarning = !onlyWarning;
+            btn.classList.toggle('active', onlyWarning);
+            renderTable();
+        }
+
+        function getCategoryClass(cat) {
+            switch(cat) {
+                case '入班志工': return 'cat-volunteer';
+                case '外訓演練': return 'cat-training';
+                case '線上共學': return 'cat-online';
+                default: return 'cat-deadline';
+            }
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('scheduleTableBody');
+            const searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
+
+            const filtered = scheduleData.filter(item => {
+                if (selectedCategory !== 'all' && item.cat !== selectedCategory) return false;
+                if (selectedGrade !== 'all' && item.grade !== selectedGrade && item.grade !== '全體') return false;
+                if (onlyWarning && item.alert !== 'warn') return false;
+                if (searchKeyword) {
+                    const str = `${item.date} ${item.time} ${item.cat} ${item.grade} ${item.role} ${item.title} ${item.notes} ${item.alertText}`.toLowerCase();
+                    if (!str.includes(searchKeyword)) return false;
+                }
+                return true;
+            });
+
+            document.getElementById('countSummary').innerText = `符合條件：共 ${filtered.length} 筆項目`;
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 2.5rem; color: var(--text-sub);">無符合條件之排程項目</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(item => `
+                <tr>
+                    <td style="font-weight:700; color:var(--text-main); white-space:nowrap;">
+                        ${item.date} <span style="color:var(--accent-gold);">(${item.day})</span>
+                    </td>
+                    <td style="font-size:0.88rem; color:var(--text-sub); white-space:nowrap;">
+                        ${item.time}
+                    </td>
+                    <td>
+                        <span class="pill-category ${getCategoryClass(item.cat)}">${item.cat}</span>
+                    </td>
+                    <td>
+                        <span class="pill-grade">${item.grade}</span>
+                        <div style="font-size:0.82rem; color:var(--text-sub); margin-top:0.2rem;">${item.role}</div>
+                    </td>
+                    <td>
+                        <div style="font-weight:700; color:#fff;">${item.title}</div>
+                        <div style="font-size:0.84rem; color:var(--text-sub); margin-top:0.2rem;">${item.notes}</div>
+                    </td>
+                    <td>
+                        <span class="alert-badge ${item.alert === 'warn' ? 'alert-warn' : 'alert-safe'}">
+                            ${item.alertText}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function copyFilteredList() {
+            const searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
+            const filtered = scheduleData.filter(item => {
+                if (selectedCategory !== 'all' && item.cat !== selectedCategory) return false;
+                if (selectedGrade !== 'all' && item.grade !== selectedGrade && item.grade !== '全體') return false;
+                if (onlyWarning && item.alert !== 'warn') return false;
+                if (searchKeyword) {
+                    const str = `${item.date} ${item.time} ${item.cat} ${item.grade} ${item.role} ${item.title} ${item.notes}`.toLowerCase();
+                    if (!str.includes(searchKeyword)) return false;
+                }
+                return true;
+            });
+
+            const text = filtered.map(i => `‧ ${i.date}(${i.day}) ${i.time.replace('<br>', ' ')} [${i.cat}] ${i.grade} - ${i.title}`).join('\n');
+            const fullText = `【樂利EQ 115上學期 行事曆精選】\n${text}\n\n🔗 完整排程速查：https://eqweb0987183520.github.io/webData/course-info.html`;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(fullText).then(() => showToast());
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = fullText;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast();
+            }
+        }
+
+        function showToast() {
+            const t = document.getElementById('toastNotice');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2200);
+        }
+
+        // 初始化渲染
+        renderTable();
+    </script>
+</body>
+</html>
