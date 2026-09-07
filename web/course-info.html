@@ -32,14 +32,14 @@
     </script>
     <title>樂利EQ課程｜115上學期 EQ線上課程資訊（樂利國小版・EQ樂利・EQ志工速查）</title>
     <meta name="google-site-verification" content="ZgjR4qugewYUv8m_xAsq1rPDhwHByDgBkeGPy7pIhLg">
-    <meta name="description" content="新北市土城區樂利國小 EQ 線上課程（樂利EQ / EQ樂利課程資訊）。整理團體報名時間（9/16~9/22）、個人報名、線上觀看時限、4次線上共學時程、志工入班時程與保證金退費規範。樂利報名窗口：祁紫涵。搜尋「樂利EQ」或「樂利EQ課程」即可快速查閱！">
-    <meta name="keywords" content="樂利EQ, EQ樂利, 樂利EQ課程, 樂利EQ線上課程, 樂利EQ志工, EQ志工, EQ情緒教育, 樂利國小EQ, 樂利國小EQ課程, 樂利國小EQ志工, 115上樂利EQ, 樂利EQ志工培訓, 樂利EQ共學, 樂利EQ報名時間, 樂利報名窗口祁紫涵, 祁紫涵, 樂利EQ保證金, 樂利EQ志工入班時間, 土城樂利EQ">
+    <meta name="description" content="新北市土城區樂利國小 EQ 課程（樂利EQ / EQ樂利課程資訊）。整理線上課程重要日期（報名9/16~9/22、線上觀課10/8~1/15、1年級與5年級RET線上共學）、各年級入班擔任志工時程、二年級與四年級外訓時間及保證金退費規範。樂利報名窗口：祁紫涵。">
+    <meta name="keywords" content="樂利EQ, EQ樂利, 樂利EQ課程, 樂利EQ線上課程, 樂利EQ志工, EQ志工, EQ情緒教育, 樂利國小EQ, 樂利國小EQ課程, 樂利國小EQ志工, 115上樂利EQ, 樂利EQ志工培訓, 樂利EQ外訓, 樂利EQ共學, 樂利EQ報名時間, 樂利報名窗口祁紫涵, 祁紫涵, 樂利EQ保證金, 樂利EQ志工入班時間, 土城樂利EQ">
 
     <!-- Open Graph / LINE Sharing Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eqweb0987183520.github.io/webData/course-info.html">
     <meta property="og:title" content="樂利EQ課程｜115上學期 EQ線上課程資訊（樂利國小版・EQ樂利）">
-    <meta property="og:description" content="115學年度上學期樂利國小 EQ 線上課程完整時程：報名日期、線上觀看、4次線上共學、志工入班時間與保證金退費規範。樂利報名窗口：祁紫涵。">
+    <meta property="og:description" content="115學年度上學期樂利國小 EQ 課程完整時程：線上課程重要日期、1年級與5年級RET線上共學、各年級志工入班時程、二年級與四年級外訓時間與保證金退費規範。樂利報名窗口：祁紫涵。">
     <meta property="og:image" content="images/hero_eq_parent_child.jpg">
 
     <!-- Google Structured Data (JSON-LD) for Course and Breadcrumbs -->
@@ -457,11 +457,129 @@
             align-items: center;
         }
 
-        .btn-bottom-secondary:hover {
-            background: rgba(251, 191, 36, 0.12);
-            border-color: var(--accent-primary);
+        /* 子模組區塊（大區塊內包含之各項時間模組） */
+        .sub-card-section {
+            padding: 0.2rem 0;
+        }
+
+        .sub-card-title-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .sub-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-copy-sub {
+            background: rgba(251, 191, 36, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.3);
             color: var(--accent-primary);
-            transform: translateY(-1px);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.22rem 0.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            touch-action: manipulation;
+            flex-shrink: 0;
+        }
+
+        .btn-copy-sub:hover {
+            background: var(--accent-primary);
+            color: #1c1917;
+            transform: scale(1.03);
+        }
+
+        /* 入班與課後討論時間概要盒 */
+        .time-schedule-summary-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.4rem;
+            background: rgba(251, 191, 36, 0.06);
+            border: 1px solid rgba(251, 191, 36, 0.22);
+            border-radius: 10px;
+            padding: 0.65rem 0.95rem;
+            margin-bottom: 0.95rem;
+            font-size: 0.96rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 名詞定義框 (外訓 / 內訓) */
+        .terms-def-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.85rem 1.05rem;
+            margin-bottom: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            font-size: 0.96rem;
+        }
+
+        .term-line {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .term-badge {
+            display: inline-block;
+            padding: 0.18rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .term-badge.outer {
+            background: rgba(251, 191, 36, 0.18);
+            color: var(--accent-primary);
+            border: 1px solid rgba(251, 191, 36, 0.45);
+        }
+
+        .term-badge.inner {
+            background: rgba(52, 211, 153, 0.18);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.45);
+        }
+
+        /* 角色培訓標籤列 */
+        .training-role-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin: 0.15rem 0.35rem 0.15rem 0;
+        }
+
+        .role-pill {
+            font-size: 0.82rem;
+            padding: 0.12rem 0.5rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-weight: 600;
+        }
+
+        .role-pill.combined {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--accent-primary);
+            border-color: rgba(251, 191, 36, 0.4);
+            font-weight: 700;
         }
 
         /* 頁底三行宣告 */
@@ -714,125 +832,117 @@
             <span class="title-line">（樂利國小版）</span>
         </h1>
 
-        <!-- 模組 1：報名時間與窗口（獨立一列） -->
-        <section class="info-card">
+        <!-- ========================================================
+             大區塊 1：線上課程重要日期資訊
+             （包含：⏰報名時間與窗口 + 🖥️線上觀看日期 + 👥線上共學日期）
+             ======================================================== -->
+        <section class="info-card" id="section-online-course">
             <div class="card-header-bar">
                 <div class="card-header-left">
-                    <span class="card-icon">⏰</span>
-                    <h2 class="card-title">報名時間與窗口</h2>
+                    <span class="card-icon">🌐</span>
+                    <h2 class="card-title">線上課程重要日期資訊</h2>
                 </div>
-                <button class="btn-copy-card" onclick="copySection('signup')">
+                <button class="btn-copy-card" onclick="copySection('onlineCourseAll')" title="一鍵複製線上課程完整時程">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    <span>複製此區</span>
-                </button>
-            </div>
-            
-            <div class="item-row">
-                <div class="item-label">團體報名期間</div>
-                <div class="item-value highlight-gold">
-                    <div style="white-space:nowrap;">2026/09/16（三）上午 09:00 ～</div>
-                    <div style="white-space:nowrap;">2026/09/22（二）中午 11:59 止</div>
-                </div>
-            </div>
-
-            <div class="item-row">
-                <div class="item-label">個人報名期間</div>
-                <div class="item-value">
-                    <div style="white-space:nowrap;">2026/09/16（三）上午 09:00 ～</div>
-                    <div style="white-space:nowrap;">2026/09/29（二）中午 11:59 止</div>
-                </div>
-            </div>
-
-            <div class="item-row">
-                <div class="item-label">樂利報名窗口</div>
-                <div class="item-value">
-                    <strong class="highlight-gold" style="font-size:1.08rem;">祁紫涵</strong>
-                </div>
-            </div>
-        </section>
-
-        <!-- 模組 2：線上觀看日期（獨立一列） -->
-        <section class="info-card">
-            <div class="card-header-bar">
-                <div class="card-header-left">
-                    <span class="card-icon">🖥️</span>
-                    <h2 class="card-title">線上觀看日期</h2>
-                </div>
-                <button class="btn-copy-card" onclick="copySection('watch')">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    <span>複製此區</span>
-                </button>
-            </div>
-            
-            <div class="item-row">
-                <div class="item-label">線上觀看日期</div>
-                <div class="item-value">
-                    <span class="highlight-green" style="font-size:1.15rem; font-weight:800;">2026/10/08 ～ 2027/01/15</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 模組 3：線上共學日期（獨立一列・本學期開課年級） -->
-        <section class="info-card">
-            <div class="card-header-bar">
-                <div class="card-header-left">
-                    <span class="card-icon">👥</span>
-                    <h2 class="card-title">
-                        <div>線上共學日期</div>
-                        <div style="font-size:0.92rem; font-weight:600; color:var(--text-secondary); margin-top:0.2rem; white-space:nowrap;">（上午 09:00～12:00）</div>
-                    </h2>
-                </div>
-                <button class="btn-copy-card" onclick="copySection('online')">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    <span>複製此區</span>
+                    <span>複製全區</span>
                 </button>
             </div>
 
-            <div class="item-row">
-                <div class="item-label">【一年級】每週二</div>
-                <div class="item-value date-tags-group">
-                    <div class="date-tags-row">
-                        <span class="tag-date">第 1 次 10/20</span>
-                        <span class="tag-date">第 2 次 10/27</span>
+            <!-- 子模組 1-1：⏰ 報名時間與窗口 -->
+            <div class="sub-card-section">
+                <div class="sub-card-title-bar">
+                    <div class="sub-card-title">⏰ 報名時間與窗口</div>
+                    <button class="btn-copy-sub" onclick="copySection('signup')">複製報名資訊</button>
+                </div>
+                
+                <div class="item-row">
+                    <div class="item-label">團體報名期間</div>
+                    <div class="item-value highlight-gold">
+                        <div style="white-space:nowrap;">2026/09/16（三）上午 09:00 ～</div>
+                        <div style="white-space:nowrap;">2026/09/22（二）中午 11:59 止</div>
                     </div>
-                    <div class="date-tags-row">
-                        <span class="tag-date">第 3 次 11/03</span>
-                        <span class="tag-date">第 4 次 11/10</span>
+                </div>
+
+                <div class="item-row">
+                    <div class="item-label">個人報名期間</div>
+                    <div class="item-value">
+                        <div style="white-space:nowrap;">2026/09/16（三）上午 09:00 ～</div>
+                        <div style="white-space:nowrap;">2026/09/29（二）中午 11:59 止</div>
+                    </div>
+                </div>
+
+                <div class="item-row">
+                    <div class="item-label">樂利報名窗口</div>
+                    <div class="item-value">
+                        <strong class="highlight-gold" style="font-size:1.08rem;">祁紫涵</strong>
                     </div>
                 </div>
             </div>
 
-            <div class="item-row">
-                <div class="item-label">【二年級】每週一</div>
-                <div class="item-value date-tags-group">
-                    <div class="date-tags-row">
-                        <span class="tag-date">第 1 次 11/09</span>
-                        <span class="tag-date">第 2 次 11/16</span>
-                    </div>
-                    <div class="date-tags-row">
-                        <span class="tag-date">第 3 次 11/23</span>
-                        <span class="tag-date">第 4 次 11/30</span>
+            <!-- 子模組 1-2：🖥️ 線上觀看日期 -->
+            <div class="sub-card-section" style="margin-top: 1.35rem; padding-top: 1.15rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <div class="sub-card-title-bar">
+                    <div class="sub-card-title">🖥️ 線上觀看日期</div>
+                    <button class="btn-copy-sub" onclick="copySection('watch')">複製觀看日期</button>
+                </div>
+                
+                <div class="item-row">
+                    <div class="item-label">線上觀看日期</div>
+                    <div class="item-value">
+                        <span class="highlight-green" style="font-size:1.15rem; font-weight:800;">2026/10/08 ～ 2027/01/15</span>
                     </div>
                 </div>
             </div>
 
-            <div class="item-row">
-                <div class="item-label">【五上】每週五</div>
-                <div class="item-value date-tags-group">
-                    <div class="date-tags-row">
-                        <span class="tag-date">第 1 次 10/16</span>
-                        <span class="tag-date">第 2 次 10/23</span>
+            <!-- 子模組 1-3：👥 線上共學日期（只開設 1年級 + 5年級RET） -->
+            <div class="sub-card-section" style="margin-top: 1.35rem; padding-top: 1.15rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <div class="sub-card-title-bar">
+                    <div class="sub-card-title">
+                        <span>👥 線上共學日期</span>
+                        <span style="font-size:0.9rem; font-weight:600; color:var(--text-secondary); margin-left:0.35rem;">（上午 09:00～12:00）</span>
                     </div>
-                    <div class="date-tags-row">
-                        <span class="tag-date">第 3 次 10/30</span>
-                        <span class="tag-date">第 4 次 11/06</span>
+                    <button class="btn-copy-sub" onclick="copySection('online')">複製共學日期</button>
+                </div>
+
+                <!-- 資格注意事項警示框 -->
+                <div style="background: rgba(251, 191, 36, 0.08); border: 1px dashed rgba(251, 191, 36, 0.35); border-radius: 9px; padding: 0.55rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.92rem; color: #fef08a; line-height: 1.6;">
+                    ⚠️ <strong>參與資格：</strong>本學期線上課程僅開設 <strong>1年級</strong> 與 <strong>5年級RET</strong>，<strong>現有報名線上課程的夥伴才能參與！</strong>
+                </div>
+
+                <div class="item-row">
+                    <div class="item-label">【一年級】每週二</div>
+                    <div class="item-value date-tags-group">
+                        <div class="date-tags-row">
+                            <span class="tag-date">第 1 次 10/20</span>
+                            <span class="tag-date">第 2 次 10/27</span>
+                        </div>
+                        <div class="date-tags-row">
+                            <span class="tag-date">第 3 次 11/03</span>
+                            <span class="tag-date">第 4 次 11/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-row">
+                    <div class="item-label">【五年級 RET】每週五</div>
+                    <div class="item-value date-tags-group">
+                        <div class="date-tags-row">
+                            <span class="tag-date">第 1 次 10/16</span>
+                            <span class="tag-date">第 2 次 10/23</span>
+                        </div>
+                        <div class="date-tags-row">
+                            <span class="tag-date">第 3 次 10/30</span>
+                            <span class="tag-date">第 4 次 11/06</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 模組 4：本學期入班（可擔任志工）時間（獨立一列） -->
-        <section class="info-card">
+        <!-- ========================================================
+             大區塊 2：🏫 本學期入班（可擔任志工）時間（獨立一列）
+             ======================================================== -->
+        <section class="info-card" id="section-volunteer">
             <div class="card-header-bar">
                 <div class="card-header-left">
                     <span class="card-icon">🏫</span>
@@ -844,8 +954,10 @@
                 </button>
             </div>
 
-            <div style="color:var(--text-secondary); margin-bottom: 0.8rem; font-size: 0.95rem;">
-                入班時段：<strong class="highlight-gold">下午 13:00 ～ 15:00</strong>（每次 2 小時）
+            <!-- 入班與課後討論時間概要盒 -->
+            <div class="time-schedule-summary-box">
+                <div>入班時間：<strong class="highlight-gold">下午 13:00 ～ 15:00</strong>（每次 2 小時）</div>
+                <div>課後討論：<strong class="highlight-gold">下午 15:00 ～ 15:30</strong>（每次 30 分鐘）</div>
             </div>
 
             <div class="item-row">
@@ -873,6 +985,65 @@
                     <span class="tag-date">12/8</span>
                     <span class="tag-date">12/15</span>
                     <span class="tag-date">12/22</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             大區塊 3：🎯 二年級與四年級外訓時間（獨立一列）
+             ======================================================== -->
+        <section class="info-card" id="section-training">
+            <div class="card-header-bar">
+                <div class="card-header-left">
+                    <span class="card-icon">🎯</span>
+                    <h2 class="card-title">二年級與四年級外訓時間</h2>
+                </div>
+                <button class="btn-copy-card" onclick="copySection('training')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>複製此區</span>
+                </button>
+            </div>
+
+            <!-- 名詞定義說明框 -->
+            <div class="terms-def-box">
+                <div class="term-line">
+                    <span class="term-badge outer">外訓</span>
+                    <span>督導協助演練備課</span>
+                </div>
+                <div class="term-line">
+                    <span class="term-badge inner">內訓</span>
+                    <span>資深主講「協助預習」演練備課</span>
+                </div>
+            </div>
+
+            <div style="color:var(--text-secondary); margin-bottom: 0.85rem; font-size: 0.95rem;">
+                培訓時段：<strong class="highlight-gold">下午 13:00 ～ 16:00</strong>
+            </div>
+
+            <div class="item-row">
+                <div class="item-label">【四年級外訓】</div>
+                <div class="item-value date-tags-group">
+                    <div class="training-role-row">
+                        <span class="tag-date">10/13（二）</span>
+                        <span class="role-pill">新主講</span>
+                    </div>
+                    <div class="training-role-row">
+                        <span class="tag-date">10/20（二）</span>
+                        <span class="role-pill">新主講</span>
+                    </div>
+                    <div class="training-role-row">
+                        <span class="tag-date">10/27（二）</span>
+                        <span class="role-pill combined">新主講 + 舊主講</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-label">【二年級外訓】</div>
+                <div class="item-value">
+                    <span class="tag-date">11/3（二）</span>
+                    <span class="tag-date">11/17（二）</span>
+                    <span class="tag-date">11/25（二）</span>
                 </div>
             </div>
         </section>
@@ -994,6 +1165,20 @@
     <script>
         // 各區塊精簡文字內容定義
         const sectionTexts = {
+            onlineCourseAll: `【115上 樂利EQ 線上課程重要日期資訊】
+⏰ 報名時間與窗口：
+‧ 團體報名：2026/09/16（三）09:00 ～ 09/22（二）11:59 止
+‧ 個人報名：2026/09/16（三）09:00 ～ 09/29（二）11:59 止
+‧ 樂利報名窗口：祁紫涵
+
+🖥️ 線上觀看日期：
+‧ 2026/10/08 ～ 2027/01/15
+
+👥 線上共學日期（上午 09:00～12:00）：
+（⚠️ 現有報名線上課程的夥伴才能參與）
+‧【一年級】每週二：第1次 10/20、第2次 10/27、第3次 11/03、第4次 11/10
+‧【五年級 RET】每週五：第1次 10/16、第2次 10/23、第3次 10/30、第4次 11/06`,
+
             signup: `【115上 樂利EQ 報名時間與窗口】
 ‧ 團體報名期間：
   2026/09/16（三）上午 09:00 ～
@@ -1007,14 +1192,31 @@
 ‧ 觀看日期：2026/10/08 ～ 2027/01/15`,
 
             online: `【115上 樂利EQ 線上共學日期】（上午 09:00～12:00）
+（⚠️ 現有報名線上課程的夥伴才能參與）
 ‧【一年級】每週二：第1次 10/20、第2次 10/27、第3次 11/03、第4次 11/10
-‧【二年級】每週一：第1次 11/09、第2次 11/16、第3次 11/23、第4次 11/30
-‧【五上】每週五：第1次 10/16、第2次 10/23、第3次 10/30、第4次 11/06`,
+‧【五年級 RET】每週五：第1次 10/16、第2次 10/23、第3次 10/30、第4次 11/06`,
 
-            volunteer: `【115上 樂利EQ 入班志工時間】（下午 13:00～15:00）
+            volunteer: `【115上 樂利EQ 入班志工時間】
+‧ 入班時段：下午 13:00 ～ 15:00（每次 2 小時）
+‧ 課後討論：下午 15:00 ～ 15:30（每次 30 分鐘）
 ‧【五年級】一共要入班 4 天（日期：9/24、10/1、10/8、10/15）
 ‧【四年級】一共要入班 3 天（日期：11/5、11/12、11/19）
 ‧【二年級】一共要入班 3 天（日期：12/8、12/15、12/22）`,
+
+            training: `【115上 樂利EQ 二年級與四年級外訓時間】
+📖 名詞定義：
+‧ 外訓：督導協助演練備課
+‧ 內訓：資深主講"協助預習"演練備課
+⏰ 培訓時間：下午 13:00 ～ 16:00
+
+‧【四年級外訓】：
+  10/13（二）：新主講
+  10/20（二）：新主講
+  10/27（二）：新主講 + 舊主講
+‧【二年級外訓】：
+  11/3（二）
+  11/17（二）
+  11/25（二）`,
 
             deposit: `【115上 樂利EQ 費用與保證金退費條件】
 ‧ 報名費：2,000 元
@@ -1040,10 +1242,12 @@ A：三者相輔相成，循序漸進：
         };
 
         const sectionNames = {
+            onlineCourseAll: '線上課程重要日期資訊',
             signup: '報名時間與窗口',
             watch: '線上觀看日期',
             online: '線上共學日期',
             volunteer: '入班志工時間',
+            training: '外訓時間',
             deposit: '費用與保證金退費條件'
         };
 
@@ -1123,7 +1327,7 @@ A：三者相輔相成，循序漸進：
         // ==========================================
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js?v=3.17').catch(err => {
+                navigator.serviceWorker.register('sw.js?v=3.18').catch(err => {
                     console.log('SW registration error:', err);
                 });
             });
