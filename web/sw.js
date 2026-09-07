@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eq-course-pwa-v3.21';
+const CACHE_NAME = 'eq-course-pwa-v3.22';
 
 const ASSETS_TO_CACHE = [
   'course-info.html',
