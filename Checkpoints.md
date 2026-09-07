@@ -6,6 +6,28 @@
 
 ## 🏷️ 版本紀錄列表
 
+### 🌟 [v3.19] - 課程資訊頂部頁籤分流重構、外訓視覺金黃色全面統一、單一 main 分支發布管理
+- **快照時間**：2026-09-07 12:45
+- **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
+- **官方網站網址**：[https://eqweb0987183520.github.io/webData/](https://eqweb0987183520.github.io/webData/)
+- **課程資訊網址**：[https://eqweb0987183520.github.io/webData/course-info.html](https://eqweb0987183520.github.io/webData/course-info.html)
+- **總行事曆網址**：[https://eqweb0987183520.github.io/webData/schedule.html](https://eqweb0987183520.github.io/webData/schedule.html)
+- **主要變更與建置內容**：
+  1. **單一 main 分支發布管理與刪除 gh-pages 分支**：
+     - 將 GitHub Pages 發布源正式切換為 `main` 分支根目錄 `/`。
+     - 徹底刪除遠端 `gh-pages` 分支，杜絕過去 A/B 分支未同步導致 404 或快取版本落後的窘境。
+  2. **《115上課程資訊》頂部四大分流頁籤（Tabs）**：
+     - 🟢 **【💻 線上課程資訊】**：專屬線上學員視角，整合「報名時間與窗口」、「線上觀看日期」、「線上共學日期（1年級+5年級RET）」、「本學期入班時間（解鎖1,500元保證金退費任務）」、「保證金退費條件」與「常見問題 FAQ」。
+     - 🏫 **【🏫 實體入班時間】**：純粹實體志工視角，去除線上課干擾，專注呈現五年級（4天）、四年級（3天）、二年級（3天）入班時段（13:00~15:00）與課後討論（15:00~15:30）。
+     - 🎯 **【🎯 外訓備課時間】**：專屬主講講師視角，貫徹全金黃色框架（`.card-gold-featured`）、金色徽章與金色標籤，統一四年級新舊主講外訓與二年級外訓呈現規範。
+     - 📋 **【📋 全部總覽】**：完整展現所有模組卡片，便於全局審閱。
+     - 支援 URL Hash 錨點（如 `#online`, `#volunteer`, `#training`, `#all`），便於直接在 LINE 分享指定頁籤。
+  3. **Service Worker 與 Cache Busting 升級**：
+     - Service Worker 與靜態樣式引用同步升級至 `v3.19`。
+     - 根目錄與 `web/` 目錄 100% 同步無差異。
+
+---
+
 ### 🌟 [v3.18] - 課程資訊重構為三大獨立區塊、移除二年級線上共學、建立樂利總行事曆與排程表單
 - **快照時間**：2026-09-07 12:10
 - **目標倉庫**：`https://github.com/eqweb0987183520/webData.git`
