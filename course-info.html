@@ -94,7 +94,7 @@
     <meta name="apple-mobile-web-app-title" content="樂利EQ">
     <meta name="application-name" content="樂利EQ">
 
-    <link rel="stylesheet" href="css/style.css?v=3.20">
+    <link rel="stylesheet" href="css/style.css?v=3.21">
 
     <style>
         /* ===================================================
@@ -1090,7 +1090,7 @@
                     <span>🎯 外訓備課時間</span>
                 </button>
                 <button class="course-tab-btn" data-tab="roster" onclick="switchCourseTab('roster')">
-                    <span>👥 外訓名單與請假</span>
+                    <span>👥 外訓名單</span>
                 </button>
                 <button class="course-tab-btn" data-tab="all" onclick="switchCourseTab('all')">
                     <span>📋 全部總覽</span>
@@ -1463,7 +1463,7 @@
                 </div>
 
                 <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px dashed rgba(251,191,36,0.25); font-size: 0.92rem; color: #fde68a; line-height: 1.6; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.6rem;">
-                    <div>📍 <strong>培訓地點：</strong>樂利國小二樓會議室。請參與夥伴準時出席！</div>
+                    <div>📍 <strong>培訓地點：</strong>樂利國小校史室。請參與夥伴準時出席！</div>
                     <button class="btn-action" style="font-size:0.86rem; padding:0.35rem 0.85rem;" onclick="switchCourseTab('roster')">
                         👥 查看外訓名單 ➔
                     </button>
@@ -1472,15 +1472,15 @@
         </div>
 
         <!-- ========================================================
-             頁籤 4：【👥 外訓名單與請假】專屬分流視角
-             （二年級與四年級外訓參與名單、新主講督導備課、請假登記）
+             頁籤 4：【👥 外訓名單】專屬分流視角
+             （二年級與四年級外訓名單、安和主講、請假登記）
              ======================================================== -->
         <div id="pane-roster" class="tab-pane">
             <section class="info-card card-gold-featured">
                 <div class="card-header-bar">
                     <div class="card-header-left">
                         <span class="card-icon">👥</span>
-                        <h2 class="card-title highlight-gold">二年級與四年級外訓名單＆請假動態</h2>
+                        <h2 class="card-title highlight-gold">二年級與四年級外訓名單</h2>
                     </div>
                     <button class="btn-copy-card" onclick="copySection('roster')">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -1488,13 +1488,10 @@
                     </button>
                 </div>
 
-                <!-- 培訓規範提示盒 -->
-                <div class="terms-def-box" style="border: 1.5px solid rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.05);">
-                    <div style="font-weight: 700; color: #fef08a; font-size: 1rem;">
-                        📢 培訓出席規範：本期四年級與二年級全體新主講，皆已列入外訓「必須參加」名單，接受督導備課演練！
-                    </div>
-                    <div style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.5;">
-                        ⏰ 培訓時間：<strong>下午 13:00 ～ 16:00</strong> ｜ 📍 培訓地點：<strong>樂利國小二樓會議室</strong>
+                <!-- 培訓時間與地點 -->
+                <div class="terms-def-box" style="border: 1.5px solid rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.05); padding: 0.75rem 1rem;">
+                    <div style="font-size: 0.96rem; color: #fef08a; line-height: 1.5;">
+                        ⏰ 培訓時間：<strong>下午 13:00 ～ 16:00</strong> ｜ 📍 培訓地點：<strong>樂利國小校史室</strong>
                     </div>
                 </div>
 
@@ -1506,10 +1503,6 @@
                             <span style="font-size:0.86rem; font-weight:600; color:var(--text-secondary); margin-left:auto;">10/13、10/20、10/27 (二)</span>
                         </div>
                         
-                        <!-- 四年級新主講 -->
-                        <div style="font-size:0.92rem; font-weight:700; color:var(--accent-primary); margin-bottom:0.45rem; display:flex; align-items:center; gap:0.4rem;">
-                            <span>🌟 四年級新主講名單（需督導備課演練）</span>
-                        </div>
                         <div class="roster-member-list">
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
@@ -1527,8 +1520,8 @@
                                     <span class="role-pill combined">新主講</span>
                                 </div>
                                 <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
                                     <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="novice-pill">🔰 初次上陣・無主講備課經驗</span>
                                 </div>
                             </div>
 
@@ -1538,8 +1531,8 @@
                                     <span class="role-pill combined">新主講</span>
                                 </div>
                                 <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
                                     <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="novice-pill">🔰 初次上陣・無主講備課經驗</span>
                                 </div>
                             </div>
 
@@ -1549,50 +1542,126 @@
                                     <span class="role-pill combined">新主講</span>
                                 </div>
                                 <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
                                     <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="novice-pill">🔰 初次上陣・無主講備課經驗</span>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- 四年級特別報名 -->
-                        <div style="font-size:0.92rem; font-weight:700; color:#93c5fd; margin-top:0.95rem; margin-bottom:0.45rem; display:flex; align-items:center; gap:0.4rem;">
-                            <span>📝 特別報名外訓課程</span>
-                        </div>
-                        <div class="roster-member-list">
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">楊欣憓</span>
+                                    <span class="role-pill combined">安和主講</span>
                                 </div>
                                 <div class="roster-member-badges">
-                                    <span class="signup-pill">📝 主動報名參加四年級外訓課程</span>
+                                    <span class="term-badge outer">需督導備課演練</span>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- 舊主講出席說明與請假 -->
-                        <div style="font-size:0.92rem; font-weight:700; color:#6ee7b7; margin-top:0.95rem; margin-bottom:0.45rem; display:flex; align-items:center; gap:0.4rem;">
-                            <span>👥 舊主講出席動態（10/27 新舊主講聯合演練）</span>
-                        </div>
-                        <div class="roster-member-list">
-                            <div class="roster-member-row">
-                                <div class="roster-member-left">
-                                    <span class="roster-member-name">賴竹軒</span>
-                                    <span class="role-pill">四年級舊主講</span>
-                                    <span class="role-pill combined">二年級新主講</span>
-                                </div>
-                                <div class="roster-member-badges">
-                                    <span class="leave-pill">⚠️ 10/27（二）外訓請假</span>
-                                </div>
-                            </div>
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">四年級舊主講全員</span>
                                     <span class="role-pill">舊主講組</span>
                                 </div>
                                 <div class="roster-member-badges">
-                                    <span class="veteran-pill">✔ 10/27 出席聯合外訓</span>
+                                    <span class="veteran-pill">10/27 盡量出席</span>
                                 </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">賴竹軒</span>
+                                    <span class="role-pill">舊主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="leave-pill">⚠️ 10/27 外訓請假</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 二年級外訓名單 -->
+                    <div class="roster-subcard">
+                        <div class="roster-subcard-title">
+                            <span>🎯 二年級外訓名單</span>
+                            <span style="font-size:0.86rem; font-weight:600; color:var(--text-secondary); margin-left:auto;">11/3、11/17、11/25 (二)</span>
+                        </div>
+
+                        <div class="roster-member-list">
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">陳怡奾</span>
+                                    <span class="role-pill combined">新主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="term-badge outer">需督導備課演練</span>
+                                </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">陳新昱</span>
+                                    <span class="role-pill combined">新主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="term-badge outer">需督導備課演練</span>
+                                </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">余佩芳</span>
+                                    <span class="role-pill combined">新主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="term-badge outer">需督導備課演練</span>
+                                </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">蔡方馨</span>
+                                    <span class="role-pill combined">新主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
+                                    <span class="term-badge outer">需督導備課演練</span>
+                                </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">宋易融</span>
+                                    <span class="role-pill combined">新主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="term-badge outer">需督導備課演練</span>
+                                </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">賴竹軒</span>
+                                    <span class="role-pill combined">新主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="term-badge outer">需督導備課演練</span>
+                                    <span class="leave-pill">⚠️ 11/25 外訓請假</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 內訓與備課貼心提醒 -->
+                    <div style="background: rgba(251, 191, 36, 0.06); border: 1px dashed rgba(251, 191, 36, 0.35); border-radius: 12px; padding: 0.9rem 1.1rem; font-size: 0.92rem; color: #fde68a; line-height: 1.65;">
+                        <div style="font-weight:700; color:#fef08a; margin-bottom:0.35rem; display:flex; align-items:center; gap:0.4rem;">
+                            <span>💡 備課貼心叮嚀與內訓輔導機制</span>
+                        </div>
+                        <div>‧ <strong>無經驗夥伴支援</strong>：方莉婷、簡榮君、吳欣慧（四年級）與蔡方馨（二年級）無主講經驗，內訓時資深主講將協助預習引導，請夥伴安心備課！</div>
+                        <div style="margin-top:0.25rem;">‧ <strong>請假登記備查</strong>：賴竹軒 10/27 與 11/25 外訓請假已完成登記，請假場次建議向同行夥伴借閱演練重點筆記。</div>
+                    </div>
+                </div>
+            </section>
+        </div>                              </div>
                             </div>
                         </div>
                     </div>
@@ -1898,9 +1967,12 @@
             <!-- 外訓名單＆請假動態 (全部總覽模組) -->
             <section class="info-card card-gold-featured">
                 <div class="card-header-bar">
+            <!-- 外訓名單 (全部總覽模組) -->
+            <section class="info-card card-gold-featured">
+                <div class="card-header-bar">
                     <div class="card-header-left">
                         <span class="card-icon">👥</span>
-                        <h2 class="card-title highlight-gold">二年級與四年級外訓名單＆請假動態</h2>
+                        <h2 class="card-title highlight-gold">二年級與四年級外訓名單</h2>
                     </div>
                     <button class="btn-copy-card" onclick="copySection('roster')">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -1908,12 +1980,10 @@
                     </button>
                 </div>
 
-                <div class="terms-def-box" style="border: 1.5px solid rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.05);">
-                    <div style="font-weight: 700; color: #fef08a; font-size: 1rem;">
-                        📢 培訓出席規範：本期四年級與二年級全體新主講，皆已列入外訓「必須參加」名單，接受督導備課演練！
-                    </div>
-                    <div style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.5;">
-                        ⏰ 培訓時間：<strong>下午 13:00 ～ 16:00</strong> ｜ 📍 培訓地點：<strong>樂利國小二樓會議室</strong>
+                <!-- 培訓時間與地點 -->
+                <div class="terms-def-box" style="border: 1.5px solid rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.05); padding: 0.75rem 1rem;">
+                    <div style="font-size: 0.96rem; color: #fef08a; line-height: 1.5;">
+                        ⏰ 培訓時間：<strong>下午 13:00 ～ 16:00</strong> ｜ 📍 培訓地點：<strong>樂利國小校史室</strong>
                     </div>
                 </div>
 
@@ -1925,9 +1995,6 @@
                             <span style="font-size:0.86rem; font-weight:600; color:var(--text-secondary); margin-left:auto;">10/13、10/20、10/27 (二)</span>
                         </div>
                         
-                        <div style="font-size:0.92rem; font-weight:700; color:var(--accent-primary); margin-bottom:0.45rem;">
-                            🌟 四年級新主講名單（需督導備課演練）
-                        </div>
                         <div class="roster-member-list">
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
@@ -1938,73 +2005,67 @@
                                     <span class="term-badge outer">需督導備課演練</span>
                                 </div>
                             </div>
+
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">方莉婷</span>
                                     <span class="role-pill combined">新主講</span>
                                 </div>
                                 <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
                                     <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="novice-pill">🔰 初次上陣・無主講備課經驗</span>
                                 </div>
                             </div>
+
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">簡榮君</span>
                                     <span class="role-pill combined">新主講</span>
                                 </div>
                                 <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
                                     <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="novice-pill">🔰 初次上陣・無主講備課經驗</span>
                                 </div>
                             </div>
+
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">吳欣慧</span>
                                     <span class="role-pill combined">新主講</span>
                                 </div>
                                 <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
                                     <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="novice-pill">🔰 初次上陣・無主講備課經驗</span>
                                 </div>
                             </div>
-                        </div>
 
-                        <div style="font-size:0.92rem; font-weight:700; color:#93c5fd; margin-top:0.95rem; margin-bottom:0.45rem;">
-                            📝 特別報名外訓課程
-                        </div>
-                        <div class="roster-member-list">
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">楊欣憓</span>
+                                    <span class="role-pill combined">安和主講</span>
                                 </div>
                                 <div class="roster-member-badges">
-                                    <span class="signup-pill">📝 主動報名參加四年級外訓課程</span>
+                                    <span class="term-badge outer">需督導備課演練</span>
                                 </div>
                             </div>
-                        </div>
 
-                        <div style="font-size:0.92rem; font-weight:700; color:#6ee7b7; margin-top:0.95rem; margin-bottom:0.45rem;">
-                            👥 舊主講出席動態（10/27 新舊主講聯合演練）
-                        </div>
-                        <div class="roster-member-list">
-                            <div class="roster-member-row">
-                                <div class="roster-member-left">
-                                    <span class="roster-member-name">賴竹軒</span>
-                                    <span class="role-pill">四年級舊主講</span>
-                                    <span class="role-pill combined">二年級新主講</span>
-                                </div>
-                                <div class="roster-member-badges">
-                                    <span class="leave-pill">⚠️ 10/27（二）外訓請假</span>
-                                </div>
-                            </div>
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">四年級舊主講全員</span>
                                     <span class="role-pill">舊主講組</span>
                                 </div>
                                 <div class="roster-member-badges">
-                                    <span class="veteran-pill">✔ 10/27 出席聯合外訓</span>
+                                    <span class="veteran-pill">10/27 盡量出席</span>
+                                </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">賴竹軒</span>
+                                    <span class="role-pill">舊主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="leave-pill">⚠️ 10/27 外訓請假</span>
                                 </div>
                             </div>
                         </div>
@@ -2017,21 +2078,7 @@
                             <span style="font-size:0.86rem; font-weight:600; color:var(--text-secondary); margin-left:auto;">11/3、11/17、11/25 (二)</span>
                         </div>
 
-                        <div style="font-size:0.92rem; font-weight:700; color:var(--accent-primary); margin-bottom:0.45rem;">
-                            🌟 二年級新主講名單（需督導備課演練）
-                        </div>
                         <div class="roster-member-list">
-                            <div class="roster-member-row">
-                                <div class="roster-member-left">
-                                    <span class="roster-member-name">賴竹軒</span>
-                                    <span class="role-pill combined">二年級新主講</span>
-                                    <span class="role-pill">四年級舊主講</span>
-                                </div>
-                                <div class="roster-member-badges">
-                                    <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="leave-pill">⚠️ 11/25（二）外訓請假</span>
-                                </div>
-                            </div>
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">陳怡奾</span>
@@ -2041,6 +2088,7 @@
                                     <span class="term-badge outer">需督導備課演練</span>
                                 </div>
                             </div>
+
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">陳新昱</span>
@@ -2050,6 +2098,7 @@
                                     <span class="term-badge outer">需督導備課演練</span>
                                 </div>
                             </div>
+
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">余佩芳</span>
@@ -2059,16 +2108,18 @@
                                     <span class="term-badge outer">需督導備課演練</span>
                                 </div>
                             </div>
+
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">蔡方馨</span>
                                     <span class="role-pill combined">新主講</span>
                                 </div>
                                 <div class="roster-member-badges">
+                                    <span class="novice-pill">🔰 無主講經驗</span>
                                     <span class="term-badge outer">需督導備課演練</span>
-                                    <span class="novice-pill">🔰 初次上陣・無主講備課經驗</span>
                                 </div>
                             </div>
+
                             <div class="roster-member-row">
                                 <div class="roster-member-left">
                                     <span class="roster-member-name">宋易融</span>
@@ -2076,6 +2127,17 @@
                                 </div>
                                 <div class="roster-member-badges">
                                     <span class="term-badge outer">需督導備課演練</span>
+                                </div>
+                            </div>
+
+                            <div class="roster-member-row">
+                                <div class="roster-member-left">
+                                    <span class="roster-member-name">賴竹軒</span>
+                                    <span class="role-pill combined">新主講</span>
+                                </div>
+                                <div class="roster-member-badges">
+                                    <span class="term-badge outer">需督導備課演練</span>
+                                    <span class="leave-pill">⚠️ 11/25 外訓請假</span>
                                 </div>
                             </div>
                         </div>
@@ -2086,7 +2148,7 @@
                         <div style="font-weight:700; color:#fef08a; margin-bottom:0.35rem;">
                             💡 備課貼心叮嚀與內訓輔導機制
                         </div>
-                        <div>‧ <strong>初次上陣夥伴支援</strong>：方莉婷、簡榮君、吳欣慧（四年級）與蔡方馨（二年級）無主講備課經驗，內訓時資深主講將協助預習引導，請夥伴安心備課！</div>
+                        <div>‧ <strong>無經驗夥伴支援</strong>：方莉婷、簡榮君、吳欣慧（四年級）與蔡方馨（二年級）無主講經驗，內訓時資深主講將協助預習引導，請夥伴安心備課！</div>
                         <div style="margin-top:0.25rem;">‧ <strong>請假登記備查</strong>：賴竹軒 10/27 與 11/25 外訓請假已完成登記，請假場次建議向同行夥伴借閱演練重點筆記。</div>
                     </div>
                 </div>
@@ -2236,7 +2298,7 @@
 ‧ 外訓：督導協助演練備課
 ‧ 內訓：資深主講"協助預習"演練備課
 ⏰ 培訓時間：下午 13:00 ～ 16:00
-📍 培訓地點：樂利國小二樓會議室
+📍 培訓地點：樂利國小校史室
 
 ‧【四年級外訓】：
   10/13（二）：新主講
@@ -2247,40 +2309,35 @@
   11/17（二）
   11/25（二）（⚠️ 賴竹軒請假）`,
 
-            roster: `【115上 樂利EQ 二年級與四年級外訓名單＆請假動態】
+            roster: `【115上 樂利EQ 二年級與四年級外訓名單】
 ⏰ 培訓時間：下午 13:00 ～ 16:00
-📍 培訓地點：樂利國小二樓會議室
-📢 培訓出席規範：本期四年級與二年級全體新主講，皆已列入外訓「必須參加」名單，接受督導備課演練！
+📍 培訓地點：樂利國小校史室
 
 ====================
 🎯【四年級外訓名單】
 ====================
 ‧ 培訓日期：10/13(二)、10/20(二)、10/27(二)
-‧ 新主講名單（需督導備課演練）：
-  👉 陳新昱
-  👉 方莉婷（🔰 初次上陣・無主講備課經驗）
-  👉 簡榮君（🔰 初次上陣・無主講備課經驗）
-  👉 吳欣慧（🔰 初次上陣・無主講備課經驗）
-‧ 特別報名外訓：
-  👉 楊欣憓（📝 主動報名參加四年級外訓課程）
-‧ 舊主講出席動態：
-  👉 10/27（二）新舊主講聯合演練：舊主講全員出席
-  👉 ⚠️ 賴竹軒（四年級舊主講）10/27 請假
+  👉 陳新昱（新主講，需督導備課演練）
+  👉 方莉婷（新主講，🔰 無主講經驗，需督導備課演練）
+  👉 簡榮君（新主講，🔰 無主講經驗，需督導備課演練）
+  👉 吳欣慧（新主講，🔰 無主講經驗，需督導備課演練）
+  👉 楊欣憓（安和主講，需督導備課演練）
+  👉 四年級舊主講全員（10/27 盡量出席）
+  👉 賴竹軒（舊主講，⚠️ 10/27 外訓請假）
 
 ====================
 🎯【二年級外訓名單】
 ====================
 ‧ 培訓日期：11/3(二)、11/17(二)、11/25(二)
-‧ 新主講名單（需督導備課演練）：
-  👉 賴竹軒（二年級新主講/四年級舊主講，⚠️ 11/25 請假）
-  👉 陳怡奾
-  👉 陳新昱
-  👉 余佩芳
-  👉 蔡方馨（🔰 初次上陣・無主講備課經驗）
-  👉 宋易融
+  👉 陳怡奾（新主講，需督導備課演練）
+  👉 陳新昱（新主講，需督導備課演練）
+  👉 余佩芳（新主講，需督導備課演練）
+  👉 蔡方馨（新主講，🔰 無主講經驗，需督導備課演練）
+  👉 宋易融（新主講，需督導備課演練）
+  👉 賴竹軒（新主講，需督導備課演練，⚠️ 11/25 外訓請假）
 
 💡 備課貼心提醒：
-‧ 無主講經驗夥伴（方莉婷、簡榮君、吳欣慧、蔡方馨）：內訓時資深主講將協助預習引導，請安心上陣！
+‧ 無經驗夥伴（方莉婷、簡榮君、吳欣慧、蔡方馨）：內訓時資深主講將協助預習引導，請安心上陣！
 ‧ 請假夥伴（賴竹軒）：10/27 與 11/25 請假已登錄備查。`,
 
             deposit: `【115上 樂利EQ 費用與保證金退費條件】
@@ -2313,7 +2370,7 @@ A：三者相輔相成，循序漸進：
             online: '線上共學日期',
             volunteer: '入班志工時間',
             training: '外訓時間',
-            roster: '外訓名單與請假',
+            roster: '外訓名單',
             deposit: '費用與保證金退費條件'
         };
 
@@ -2435,7 +2492,7 @@ A：三者相輔相成，循序漸進：
         // ==========================================
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js?v=3.20').catch(err => {
+                navigator.serviceWorker.register('sw.js?v=3.21').catch(err => {
                     console.log('SW registration error:', err);
                 });
             });
