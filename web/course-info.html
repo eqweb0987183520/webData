@@ -94,7 +94,7 @@
     <meta name="apple-mobile-web-app-title" content="樂利EQ">
     <meta name="application-name" content="樂利EQ">
 
-    <link rel="stylesheet" href="css/style.css?v=3.23">
+    <link rel="stylesheet" href="css/style.css?v=3.24">
 
     <style>
         /* ===================================================
@@ -1000,6 +1000,287 @@
             transform: scale(1.02);
             box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
         }
+        /* ===================================================
+           2026 EQ 組織分工藍圖專屬深色模式樣式
+           =================================================== */
+        .btn-action.blueprint-btn {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(99, 102, 241, 0.25) 100%);
+            border: 1.5px solid rgba(56, 189, 248, 0.5);
+            color: #7dd3fc;
+            font-weight: 700;
+        }
+
+        .btn-action.blueprint-btn:hover {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.35) 0%, rgba(99, 102, 241, 0.4) 100%);
+            border-color: #38bdf8;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+        }
+
+        .btn-action.blueprint-btn.is-active {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border-color: #f59e0b;
+            color: #1c1917;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        /* 藍圖初衷網格 */
+        .bp-vision-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin-bottom: 1.6rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .bp-vision-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bp-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .bp-vision-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1rem;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .bp-vision-item.bv-1 { border-left-color: #38bdf8; }
+        .bp-vision-item.bv-2 { border-left-color: #f87171; }
+        .bp-vision-item.bv-3 { border-left-color: #34d399; }
+        .bp-vision-item.bv-4 { border-left-color: #c084fc; }
+
+        .bp-vision-item h4 {
+            font-size: 0.96rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .bp-vision-item p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* 藍圖雙視角切換器 */
+        .bp-view-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .bp-view-tabs {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 4px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 4px;
+        }
+
+        .bp-view-btn {
+            padding: 0.55rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .bp-view-btn.active {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* 藍圖卡片主題色 */
+        .bp-card-blue { border-left: 4px solid #38bdf8 !important; }
+        .bp-card-amber { border-left: 4px solid #fbbf24 !important; }
+        .bp-card-emerald { border-left: 4px solid #34d399 !important; }
+        .bp-card-purple { border-left: 4px solid #c084fc !important; }
+
+        .bp-section-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .bp-section-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .bp-subbox {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bp-subbox-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .bp-badge {
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 0.15rem 0.55rem;
+            border-radius: 6px;
+        }
+
+        .bp-badge.lead { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+        .bp-badge.sublead { background: rgba(56, 189, 248, 0.2); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4); }
+        .bp-badge.adviser { background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.4); }
+        .bp-badge.admin { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+        .bp-badge.creative { background: rgba(192, 132, 252, 0.2); color: #e9d5ff; border: 1px solid rgba(192, 132, 252, 0.4); }
+
+        .bp-names {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #f8fafc;
+            margin-bottom: 0.65rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .bp-names span {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.15rem 0.6rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .bp-duty-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .bp-duty-list li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .bp-duty-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bp-duty-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0.2rem;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        /* 個人名冊網格 */
+        .bp-member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .bp-member-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 1.1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .bp-member-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .bp-member-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 0.6rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .bp-member-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .bp-member-tag-count {
+            font-size: 0.75rem;
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 0.1rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+        }
+
+        .bp-member-task-item {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 0.55rem 0.75rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+
+        .bp-member-task-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .bp-member-task-group {
+            color: #38bdf8;
+            font-weight: 700;
+            font-size: 0.78rem;
+            display: block;
+            margin-bottom: 0.15rem;
+        }
     </style>
 </head>
 <body>
@@ -1055,6 +1336,10 @@
             </a>
 
             <div class="nav-actions">
+                <button id="btn-toggle-blueprint" class="btn-action blueprint-btn" onclick="toggleBlueprintView()" title="切換查看 2026 EQ團隊組織分工藍圖">
+                    <span id="blueprint-btn-icon">🗺️</span>
+                    <span id="blueprint-btn-text">組織藍圖</span>
+                </button>
                 <button id="btn-header-install" class="btn-action primary" onclick="triggerPWAInstall()" title="將樂利EQ課程資訊安裝至手機或電腦桌面">
                     📲 安裝 APP
                 </button>
@@ -1070,13 +1355,13 @@
     <main class="info-page-container">
         
         <!-- 頁面主標題 -->
-        <h1 class="page-main-title gradient-text">
+        <h1 class="page-main-title gradient-text" id="pageMainTitle">
             <span class="title-line">115上學期 EQ線上課程資訊</span>
             <span class="title-line">（樂利國小版）</span>
         </h1>
 
         <!-- ========================================================
-             頂部頁籤切換器 (Tabs Navigation - 線上課程 / 入班時間 / 外訓時間 / 外訓名單)
+             頂部頁籤切換器 (Tabs Navigation - 線上課程 / 入班時間 / 外訓時間 / 外訓名單 / 組織藍圖)
              ======================================================== -->
         <div class="course-tabs-container">
             <nav class="course-tabs-nav" aria-label="課程資訊分類頁籤">
@@ -1091,6 +1376,9 @@
                 </button>
                 <button class="course-tab-btn" data-tab="roster" onclick="switchCourseTab('roster')">
                     <span>👥 外訓名單</span>
+                </button>
+                <button class="course-tab-btn" data-tab="blueprint" onclick="switchCourseTab('blueprint')">
+                    <span>🗺️ 組織藍圖</span>
                 </button>
             </nav>
         </div>
@@ -1637,6 +1925,276 @@
             </section>
         </div>
 
+        <!-- ========================================================
+             頁籤 5：【🗺️ 組織藍圖】2026 EQ團隊組織分工藍圖
+             （精簡現代、深色黑曜石風格、保留初衷與雙視角切換）
+             ======================================================== -->
+        <div id="pane-blueprint" class="tab-pane">
+            
+            <!-- 1. 組織任務分配的初衷 -->
+            <section class="bp-vision-section">
+                <div class="bp-vision-title">
+                    <span>💡 1. 組織任務分配的初衷</span>
+                </div>
+                <div class="bp-vision-grid">
+                    <div class="bp-vision-item bv-1">
+                        <h4 style="color:#38bdf8;">🔄 團隊永續傳承</h4>
+                        <p>建構「健康傳承系統」，不因人事異動而停擺。</p>
+                    </div>
+                    <div class="bp-vision-item bv-2">
+                        <h4 style="color:#f87171;">🛡️ 拒絕過勞陷阱</h4>
+                        <p>細分並拆解組務，避免大小事全集中在組長一人身上。</p>
+                    </div>
+                    <div class="bp-vision-item bv-3">
+                        <h4 style="color:#34d399;">🤝 適才適所、互相備援</h4>
+                        <p>依專長分配「微職務」，彼此分工、互助支援。</p>
+                    </div>
+                    <div class="bp-vision-item bv-4">
+                        <h4 style="color:#c084fc;">🤖 引入數位科技防呆</h4>
+                        <p>引入 AI 人才管理雲端「行事曆」與「知識庫」，防範開天窗。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 雙視角切換器 -->
+            <div class="bp-view-selector">
+                <div class="bp-view-tabs">
+                    <button class="bp-view-btn active" id="bp-btn-arch" onclick="switchBpView('arch')">
+                        <span>🏛️ 組織架構檢視</span>
+                    </button>
+                    <button class="bp-view-btn" id="bp-btn-roster" onclick="switchBpView('roster')">
+                        <span>📋 個人職掌名冊</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 視角 A：組織架構檢視 -->
+            <div id="bp-view-arch-content">
+                <!-- 板塊 1: 校方對接窗口 -->
+                <section class="info-card bp-card-blue">
+                    <div class="card-header-bar">
+                        <div class="card-header-left">
+                            <span class="card-icon">⚡</span>
+                            <h2 class="card-title" style="color:#7dd3fc;">校方對接窗口</h2>
+                        </div>
+                    </div>
+                    <div class="bp-section-grid">
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge lead">組長</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>陳新昱</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>組務盤點、流程梳理、撰寫組務運作 SOP。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge sublead">副組長群</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>陳怡奾</span>
+                                    <span>劉諭</span>
+                                    <span>俞縉麗</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li><strong>陳怡奾：</strong>教務處、學務處(生教)窗口。</li>
+                                    <li><strong>劉諭：</strong>家長會聯絡窗口。</li>
+                                    <li><strong>俞縉麗：</strong>擔任輔導室主要聯絡窗口，維持親校行政溝通暢通。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 板塊 2: 顧問與教學支持 -->
+                <section class="info-card bp-card-amber">
+                    <div class="card-header-bar">
+                        <div class="card-header-left">
+                            <span class="card-icon">👥</span>
+                            <h2 class="card-title" style="color:#fde68a;">顧問與教學支持</h2>
+                        </div>
+                    </div>
+                    <div class="bp-section-grid">
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge adviser">顧問群</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>呂芝錠</span>
+                                    <span>唐懿琳</span>
+                                    <span>李孟霞</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>負責全組組務的運作諮詢與經驗傳承。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge adviser" style="background:rgba(251,191,36,0.15); color:#f59e0b;">教學群</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>林經開</span>
+                                    <span>蔡幼姿</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>負責新夥伴的備課引導與教案切磋。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 板塊 3: 行政群 -->
+                <section class="info-card bp-card-emerald">
+                    <div class="card-header-bar">
+                        <div class="card-header-left">
+                            <span class="card-icon">📁</span>
+                            <h2 class="card-title" style="color:#6ee7b7;">行政群</h2>
+                        </div>
+                    </div>
+                    <div class="bp-section-grid">
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge admin">自動化流程</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>許誌顯</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>SOP流程改造、班表整理、線上課報名與入班簽到...等自動化流程。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge admin">會計財務</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>詹情雅</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>專責全組會計與財務管理。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge admin">手冊檢查</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>賴嘉玲</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>專責 4 年級與 5 年級的學生與志工手冊檢查。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge admin">AI 行事曆</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>劉亭昀</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>運用 AI、建立雲端行事曆，「提醒」組員待辦任務，避免開天窗。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 板塊 4: 道具、照片與公關推廣 -->
+                <section class="info-card bp-card-purple">
+                    <div class="card-header-bar">
+                        <div class="card-header-left">
+                            <span class="card-icon">🎨</span>
+                            <h2 class="card-title" style="color:#e9d5ff;">道具、照片與公關推廣</h2>
+                        </div>
+                    </div>
+                    <div class="bp-section-grid">
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge creative">道具群</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>謝玉琴</span>
+                                    <span>吳欣慧</span>
+                                    <span>蔡方馨</span>
+                                    <span>俞縉麗</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li><strong>共同任務：</strong>課堂教具與道具的整理與維護。</li>
+                                    <li><strong>個別專責（謝玉琴）：</strong>主理全組的視覺美編與文宣設計。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bp-subbox">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge creative">照片群</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>陳怡如</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li>專責保存活動照片，並即時提供組內所需的照片資源支援。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bp-subbox" style="grid-column: 1 / -1;">
+                            <div>
+                                <div class="bp-subbox-header">
+                                    <span class="bp-badge creative">公關群</span>
+                                </div>
+                                <div class="bp-names">
+                                    <span>祁紫涵</span>
+                                    <span>俞縉麗</span>
+                                    <span>吳欣慧</span>
+                                    <span>歐小微</span>
+                                    <span>詹情雅</span>
+                                </div>
+                                <ul class="bp-duty-list">
+                                    <li><strong>親師溝通（祁紫涵、俞縉麗、吳欣慧）：</strong>入班前的老師拜訪與親師溝通。</li>
+                                    <li><strong>形象宣傳（祁紫涵、歐小微、詹情雅、吳欣慧）：</strong>Line 群組 EQ 推廣。</li>
+                                    <li><strong>入校帶領（祁紫涵）：</strong>入班時，新夥伴入校帶領。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 視角 B：個人職掌名冊 (動態卡片) -->
+            <div id="bp-view-roster-content" style="display:none;">
+                <div class="bp-member-grid" id="bpMemberGridContainer">
+                    <!-- 由 JavaScript 自動產生 19 位夥伴個人任務彙整卡片 -->
+                </div>
+            </div>
+
+        </div>
+
 
         <!-- 底部行動操作區 (前往報名與分享本頁) -->
         <div class="bottom-cta-section">
@@ -1888,6 +2446,28 @@ A：三者相輔相成，循序漸進：
                 pane.classList.toggle('active', pane.id === `pane-${tabName}`);
             });
 
+            // 同步切換頂端列按鈕狀態與大標題
+            const bpBtn = document.getElementById('btn-toggle-blueprint');
+            const bpIcon = document.getElementById('blueprint-btn-icon');
+            const bpText = document.getElementById('blueprint-btn-text');
+            const mainTitle = document.getElementById('pageMainTitle');
+
+            if (tabName === 'blueprint') {
+                if (bpBtn) bpBtn.classList.add('is-active');
+                if (bpIcon) bpIcon.textContent = '📚';
+                if (bpText) bpText.textContent = '課程資訊';
+                if (mainTitle) {
+                    mainTitle.innerHTML = '<span class="title-line">2026 EQ團隊組織分工藍圖</span>';
+                }
+            } else {
+                if (bpBtn) bpBtn.classList.remove('is-active');
+                if (bpIcon) bpIcon.textContent = '🗺️';
+                if (bpText) bpText.textContent = '組織藍圖';
+                if (mainTitle) {
+                    mainTitle.innerHTML = '<span class="title-line">115上學期 EQ線上課程資訊</span><span class="title-line">（樂利國小版）</span>';
+                }
+            }
+
             // 支援網址 Hash 錨點（方便直接複製分享特定頁籤）
             try {
                 if (window.history && window.history.replaceState) {
@@ -1905,10 +2485,111 @@ A：三者相輔相成，循序漸進：
             }
         }
 
+        // 頂端列一鍵往返切換：課程資訊 ↔ 組織藍圖
+        function toggleBlueprintView() {
+            const blueprintPane = document.getElementById('pane-blueprint');
+            const isCurrentlyBlueprint = blueprintPane && blueprintPane.classList.contains('active');
+            if (isCurrentlyBlueprint) {
+                switchCourseTab('online');
+            } else {
+                switchCourseTab('blueprint');
+            }
+        }
+
+        // ==========================================
+        // 組織藍圖雙視角切換 (組織架構 / 個人職掌)
+        // ==========================================
+        const teamBlueprintData = [
+            { name: "陳新昱", roles: [{ group: "校方對接窗口", title: "【組長】組務盤點、流程梳理、撰寫組務運作 SOP" }] },
+            { name: "陳怡奾", roles: [{ group: "校方對接窗口", title: "【副組長】擔任教務處、學務處(生教)窗口" }] },
+            { name: "劉諭", roles: [{ group: "校方對接窗口", title: "【副組長】家長會聯絡窗口" }] },
+            { name: "俞縉麗", roles: [
+                { group: "校方對接窗口", title: "【副組長】輔導室主要聯絡窗口，維持親校行政溝通" },
+                { group: "道具群", title: "共同維護課堂教具與道具" },
+                { group: "公關群", title: "親師溝通：入班前老師拜訪與親師溝通" }
+            ]},
+            { name: "呂芝錠", roles: [{ group: "顧問群", title: "負責全組組務運作諮詢與經驗傳承" }] },
+            { name: "唐懿琳", roles: [{ group: "顧問群", title: "負責全組組務運作諮詢與經驗傳承" }] },
+            { name: "李孟霞", roles: [{ group: "顧問群", title: "負責全組組務運作諮詢與經驗傳承" }] },
+            { name: "林經開", roles: [{ group: "教學群", title: "負責新夥伴的備課引導與教案切磋" }] },
+            { name: "蔡幼姿", roles: [{ group: "教學群", title: "負責新夥伴的備課引導與教案切磋" }] },
+            { name: "許誌顯", roles: [{ group: "行政群", title: "SOP流程改造、班表整理、線上報名入班簽到自動化" }] },
+            { name: "詹情雅", roles: [
+                { group: "行政群", title: "專責全組會計與財務管理" },
+                { group: "公關群", title: "形象宣傳：Line 群組 EQ 推廣" }
+            ]},
+            { name: "賴嘉玲", roles: [{ group: "行政群", title: "專責 4 年級與 5 年級學生與志工手冊檢查" }] },
+            { name: "劉亭昀", roles: [{ group: "行政群", title: "運用 AI 建立雲端行事曆，提醒組員待辦任務避免開天窗" }] },
+            { name: "謝玉琴", roles: [{ group: "道具群", title: "主理全組視覺美編與文宣設計，共同維護教具道具" }] },
+            { name: "吳欣慧", roles: [
+                { group: "道具群", title: "共同維護課堂教具與道具" },
+                { group: "公關群", title: "親師溝通(老師拜訪) & 形象宣傳(Line群組推廣)" }
+            ]},
+            { name: "蔡方馨", roles: [{ group: "道具群", title: "課堂教具與道具的整理與維護" }] },
+            { name: "陳怡如", roles: [{ group: "照片群", title: "專責保存活動照片，即時提供全組照片資源支援" }] },
+            { name: "祁紫涵", roles: [{ group: "公關群", title: "親師溝通(老師拜訪) ｜ 形象宣傳(Line推廣) ｜ 入校帶領(新夥伴帶領)" }] },
+            { name: "歐小微", roles: [{ group: "公關群", title: "形象宣傳：Line 群組 EQ 推廣" }] }
+        ];
+
+        let bpRosterRendered = false;
+
+        function switchBpView(mode) {
+            const btnArch = document.getElementById('bp-btn-arch');
+            const btnRoster = document.getElementById('bp-btn-roster');
+            const contentArch = document.getElementById('bp-view-arch-content');
+            const contentRoster = document.getElementById('bp-view-roster-content');
+
+            if (mode === 'arch') {
+                if (btnArch) btnArch.classList.add('active');
+                if (btnRoster) btnRoster.classList.remove('active');
+                if (contentArch) contentArch.style.display = 'block';
+                if (contentRoster) contentRoster.style.display = 'none';
+            } else {
+                if (btnRoster) btnRoster.classList.add('active');
+                if (btnArch) btnArch.classList.remove('active');
+                if (contentArch) contentArch.style.display = 'none';
+                if (contentRoster) contentRoster.style.display = 'block';
+
+                if (!bpRosterRendered) {
+                    renderBlueprintRoster();
+                    bpRosterRendered = true;
+                }
+            }
+        }
+
+        function renderBlueprintRoster() {
+            const container = document.getElementById('bpMemberGridContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            teamBlueprintData.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'bp-member-card';
+
+                const rolesHtml = member.roles.map(r => `
+                    <div class="bp-member-task-item">
+                        <span class="bp-member-task-group">${r.group}</span>
+                        <div>${r.title}</div>
+                    </div>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="bp-member-card-header">
+                        <span class="bp-member-name">👤 ${member.name}</span>
+                        <span class="bp-member-tag-count">${member.roles.length} 項職務</span>
+                    </div>
+                    <div class="bp-member-tasks">
+                        ${rolesHtml}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
         // 頁面載入時根據網址 Hash 自動啟動對應頁籤
         window.addEventListener('DOMContentLoaded', () => {
             const hash = (window.location.hash || '').replace('#', '');
-            if (['online', 'volunteer', 'training', 'roster'].includes(hash)) {
+            if (['online', 'volunteer', 'training', 'roster', 'blueprint'].includes(hash)) {
                 switchCourseTab(hash);
             }
         });
@@ -1918,7 +2599,7 @@ A：三者相輔相成，循序漸進：
         // ==========================================
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js?v=3.23').catch(err => {
+                navigator.serviceWorker.register('sw.js?v=3.24').catch(err => {
                     console.log('SW registration error:', err);
                 });
             });
