@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="375">
+    
+    <!-- HTTP 防快取標頭 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>重溫初衷・攜手共好｜資深EQ志工回流企劃書</title>
+
+    <!-- LINE 內嵌瀏覽器極速逃脫腳本 -->
+    <script>
+        (function() {
+            var vp = document.querySelector('meta[name="viewport"]');
+            if (vp) {
+                vp.setAttribute('content', 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover');
+            }
+            try {
+                var ua = (navigator.userAgent || '').toLowerCase();
+                if (ua.indexOf('line') > -1 && window.location.search.indexOf('openExternalBrowser=1') === -1) {
+                    var sep = window.location.href.indexOf('?') > -1 ? '&' : '?';
+                    window.location.href = window.location.href + sep + 'openExternalBrowser=1';
+                }
+            } catch(e) {}
+        })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* 沉穩黑底 + 金黃 + 翡翠綠 */
+            --bg-deep: #0a0a0a;
+            --bg-card: rgba(20, 20, 20, 0.95); 
+            --border-glow: rgba(251, 191, 36, 0.25);
+            --border-divider: rgba(255, 255, 255, 0.15);
+            
+            --amber-gold: #fbbf24;
+            --emerald-green: #34d399;
+            --text-main: #f3f4f6;
+            --text-muted: #d1d5db;
+
+            --font-main: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            --radius-lg: 32px;
+            --shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 40px rgba(251, 191, 36, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            line-height: 1.5; 
+            background-image: 
+                radial-gradient(circle at 50% 15%, rgba(251, 191, 36, 0.05) 0%, transparent 60%);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem 6rem 1.5rem;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 1060px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-block {
+            background: var(--bg-card);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            padding: 4rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: left; 
+        }
+
+        @media (max-width: 850px) {
+            .section-block {
+                padding: 2.5rem 1.5rem;
+                gap: 1.8rem;
+            }
+        }
+
+        .title-main {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            text-align: center;
+            background: linear-gradient(135deg, #fff 20%, var(--amber-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .unified-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+        
+        .text-gold { color: var(--amber-gold); }
+        .text-emerald { color: var(--emerald-green); }
+
+        @media (max-width: 768px) {
+            .title-main { font-size: 3.2rem; }
+            .unified-text { font-size: 1.8rem; }
+        }
+
+        .audience-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem; 
+        }
+
+        .audience-list li {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .audience-list li::before {
+            content: "•";
+            color: var(--emerald-green);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2.2rem;
+        }
+
+        .explanation-text {
+            display: block;
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .bottom-lecture-title {
+            margin-top: 1rem; 
+            padding-top: 2rem;
+            border-top: 1px dashed var(--border-divider);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* LINE 逃脫 Modal */
+        .line-guide-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10, 10, 10, 0.88); backdrop-filter: blur(12px); z-index: 99999; color: #f5f5f4; display: flex; align-items: center; justify-content: center; padding: 1.5rem; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .line-guide-modal.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .line-guide-card { background: rgba(20, 20, 20, 0.96); border: 1.5px solid rgba(251, 191, 36, 0.45); border-radius: 22px; padding: 2.2rem 1.8rem; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9); }
+        .line-guide-icon { font-size: 2.6rem; margin-bottom: 0.6rem; }
+        .line-guide-title { color: var(--amber-gold); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.2rem; }
+        .line-guide-steps { font-size: 1.1rem; text-align: left; background: rgba(10, 10, 10, 0.75); padding: 1.2rem; border-radius: 14px; border: 1px dashed rgba(251, 191, 36, 0.35); margin-bottom: 1.6rem; }
+        .highlight-badge { display: inline-block; background: rgba(251, 191, 36, 0.18); color: var(--amber-gold); padding: 0.1rem 0.5rem; border-radius: 6px; font-weight: 700; }
+        .btn-guide-close { background: linear-gradient(135deg, rgba(251, 191, 36, 0.95) 0%, rgba(245, 158, 11, 0.88) 100%); border: 1px solid rgba(255, 255, 255, 0.3); color: #1c1917; font-weight: 700; font-size: 1.1rem; padding: 0.75rem 1.8rem; border-radius: 9999px; cursor: pointer; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <div id="lineGuideModal" class="line-guide-modal hidden">
+        <div class="line-guide-card">
+            <div class="line-guide-icon">🌐</div>
+            <div class="line-guide-title">建議在預設瀏覽器中開啟</div>
+            <div class="line-guide-steps">
+                為了提供最完整流暢的觀看體驗：<br><br>
+                1. 點擊右上角或右下角的 <span class="highlight-badge">[ ⋮ ]</span> 或 <span class="highlight-badge">[ ⋯ ]</span><br>
+                2. 點選 <span style="color:#fbbf24;font-weight:700;">「在預設瀏覽器中開啟」</span>
+            </div>
+            <button id="btn-close-line-guide" class="btn-guide-close" onclick="document.getElementById('lineGuideModal').classList.add('hidden')">我知道了，繼續瀏覽</button>
+        </div>
+    </div>
+
+    <main class="page-container">
+        
+        <div class="section-block">
+            <!-- 主標題區 -->
+            <div>
+                <h1 class="title-main">重溫初衷 · 攜手共好</h1>
+                <div class="unified-text" style="text-align: center; color: var(--text-muted);">資深 EQ 志工回流企劃書</div>
+            </div>
+            
+            <!-- 主協辦單位 -->
+            <div class="unified-text">
+                主辦單位：芯福里情緒教育推廣協會<br>
+                期望協辦：樂利國小
+            </div>
+
+            <!-- 效益與目標 -->
+            <div class="unified-text">
+                期望效益：<br>
+                <span class="text-emerald">為種子學校擴充更多 EQ 講師</span><br><br>
+                期望目標：<br>
+                <span class="text-gold">1. 喚回資深 EQ 講師</span><br>
+                <span class="text-gold">2. 避免流失 EQ 講師</span>
+            </div>
+
+            <!-- 經費與場地重點區 -->
+            <div class="unified-text">
+                本專案由芯福里全額補助，<span class="text-gold">校方免付任何費用</span><br>
+                期盼校方能惠予 <span class="text-emerald">免費出借場地</span><br>
+                共同推動校園 SEL 教育
+            </div>
+
+            <!-- 參與對象與規模 -->
+            <div class="unified-text">
+                預計參與人數：50 人<br>
+                參與對象：
+                <ul class="audience-list" style="margin-top: 0.5rem;">
+                    <li>樂利國小 EQ 講師</li>
+                    <li>姐妹校 EQ 講師<br>
+                        <span style="font-size: 1.8rem; color: var(--text-muted); font-weight: normal;">(如：重慶國小、裕德國小、板橋國小、安和國小......等)</span>
+                    </li>
+                    <li>新北區 11 位 EQ 督導群</li>
+                </ul>
+                
+                <div class="explanation-text" style="font-size: 1.8rem;">
+                    樂利國小長期與姐妹校 EQ 組保有良好的講師互助默契<br>
+                    期盼藉此機會邀請姐妹校 EQ 講師共同參與<br>
+                    以擴充 EQ 講師人力並促進穩定回流
+                </div>
+            </div>
+
+            <!-- 講座標題置底 -->
+            <div class="bottom-lecture-title unified-text text-gold">
+                講座主題：《腦科學教養攻略》
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const ua = (navigator.userAgent || '').toLowerCase();
+            if (ua.indexOf('line') > -1) {
+                const lineModal = document.getElementById('lineGuideModal');
+                if (lineModal) {
+                    lineModal.classList.remove('hidden');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
