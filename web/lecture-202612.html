@@ -130,20 +130,20 @@
             .unified-text { font-size: 1.8rem; }
         }
 
-        /* 講座關鍵資訊卡片 */
+        /* 借用與時間資訊卡片 */
         .info-card {
             background: rgba(251, 191, 36, 0.05);
             border: 1px solid rgba(251, 191, 36, 0.35);
             border-radius: 20px;
-            padding: 1.8rem 2.2rem;
+            padding: 1.6rem 2.2rem;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.6rem;
         }
 
         @media (max-width: 768px) {
             .info-card {
-                padding: 1.4rem 1.2rem;
+                padding: 1.2rem 1.2rem;
             }
         }
 
@@ -170,16 +170,31 @@
 
         .explanation-text {
             display: block;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             color: var(--text-muted);
-            font-weight: 600;
-            line-height: 1.6;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.65;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--emerald-green);
+            padding: 1rem 1.4rem;
+            border-radius: 0 12px 12px 0;
         }
 
-        .divider {
-            border: 0;
+        @media (max-width: 768px) {
+            .explanation-text {
+                font-size: 1.45rem;
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* 置底講座主題 */
+        .bottom-lecture-title {
+            margin-top: 0.5rem; 
+            padding-top: 2rem;
             border-top: 1px dashed var(--border-divider);
-            margin: 0.5rem 0;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* LINE 逃脫 Modal */
@@ -217,9 +232,8 @@
                 <div class="unified-text" style="text-align: center; color: var(--text-muted);">資深 EQ 志工回流增能講座企劃書</div>
             </div>
             
-            <!-- 講座與借用重點資訊 -->
+            <!-- 借用與時間重點資訊 -->
             <div class="info-card unified-text">
-                <div>講座主題：<span class="text-gold">《腦科學教養攻略》</span></div>
                 <div>舉辦時間：<span class="text-emerald">2026 年 12 月 18 日 (五) 09:00 - 12:00</span></div>
                 <div>借用地點：<span class="text-emerald">本校 2 樓會議室</span></div>
             </div>
@@ -241,8 +255,9 @@
 
             <!-- 經費與場地重點區 -->
             <div class="unified-text">
-                本專案由芯福里全額補助講師與活動開銷，<span class="text-gold">校方免付任何費用</span><br>
-                期盼校方能惠予 <span class="text-emerald">支援借用 2 樓會議室</span><br>
+                本專案由芯福里全額補助講師費與活動開銷<br>
+                <span class="text-gold">校方免付任何費用</span><br><br>
+                期盼校方惠予 <span class="text-emerald">支援借用 2 樓會議室</span><br>
                 共同攜手深耕校園 SEL 情緒素養教育
             </div>
 
@@ -258,10 +273,15 @@
                     <li>新北區 11 位專業 EQ 督導群</li>
                 </ul>
                 
-                <div class="explanation-text" style="font-size: 1.8rem;">
+                <div class="explanation-text">
                     樂利國小長年深獲鄰近姐妹校 EQ 志工團隊的大力支援與常態性入班教學協助；<br>
                     本次講座特邀這群長期為樂利孩子付出的跨校夥伴共同回流研習，深化校際師資互助默契，全面鞏固本校 EQ 教學量能。
                 </div>
+            </div>
+
+            <!-- 講座主題置底呈現 -->
+            <div class="bottom-lecture-title unified-text text-gold">
+                講座主題：《腦科學教養攻略》
             </div>
         </div>
 
