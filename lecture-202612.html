@@ -6,24 +6,20 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="MobileOptimized" content="375">
     
-    <!-- HTTP 防快取標頭 (遵循 line_escape_and_cache_buster) -->
+    <!-- HTTP 防快取標頭 -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>回航初心 攜手共好｜資深EQ志工回流增能講座場地借用企劃簡報</title>
+    <title>重溫初衷・攜手共好｜資深EQ志工回流講座企劃書</title>
 
+    <!-- LINE 內嵌瀏覽器極速逃脫腳本 -->
     <script>
-        // 1. 強制確保各類 In-App 瀏覽器載入時套用最佳 Viewport
         (function() {
             var vp = document.querySelector('meta[name="viewport"]');
             if (vp) {
                 vp.setAttribute('content', 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover');
             }
-        })();
-
-        // 2. LINE 內嵌瀏覽器極速逃脫機制
-        (function() {
             try {
                 var ua = (navigator.userAgent || '').toLowerCase();
                 if (ua.indexOf('line') > -1 && window.location.search.indexOf('openExternalBrowser=1') === -1) {
@@ -34,794 +30,271 @@
         })();
     </script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* 沉穩黑底高奢美學 (強化容器底色對比與邊框立體感) */
-            --bg-page: #070a0e;
-            --bg-card: #131b26;              /* 調亮容器底色，加強與全黑底對比 */
-            --bg-card-inner: #0d131c;        /* 內部小卡深色底 */
-            --accent-gold: #fbbf24;
-            --accent-blue: #60a5fa;
-            --accent-green: #34d399;
-            --text-title: #ffffff;
-            --text-sub: #e2e8f0;
-            --text-muted: #94a3b8;
-            --border-card: rgba(255, 255, 255, 0.22);       /* 容器邊框加強清晰度 */
-            --border-gold: rgba(251, 191, 36, 0.55);        /* 亮眼琥珀邊框 */
-            --border-blue: rgba(96, 165, 250, 0.45);
-            --border-green: rgba(52, 211, 153, 0.45);
-            --font-family: "Microsoft JhengHei", "微軟正黑體", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            /* 沉穩黑底 + 金黃 + 翡翠綠 */
+            --bg-deep: #0a0a0a;
+            --bg-card: rgba(20, 20, 20, 0.95); 
+            --border-glow: rgba(251, 191, 36, 0.25);
+            --border-divider: rgba(255, 255, 255, 0.15);
+            
+            --amber-gold: #fbbf24;
+            --emerald-green: #34d399;
+            --text-main: #f3f4f6;
+            --text-muted: #d1d5db;
+
+            --font-main: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            --radius-lg: 32px;
+            --shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 40px rgba(251, 191, 36, 0.08);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: var(--font-family);
-            background-color: var(--bg-page);
-            color: var(--text-sub);
-            line-height: 1.8;
-            padding: 40px 20px 120px;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-main);
             overflow-x: hidden;
-            word-break: normal;
-            overflow-wrap: break-word;
-        }
-
-        /* 主版心：流暢自然、垂直向下陳列 */
-        .doc-container {
-            max-width: 900px;
-            margin: 0 auto;
+            min-height: 100vh;
+            line-height: 1.5; 
+            background-image: 
+                radial-gradient(circle at 50% 15%, rgba(251, 191, 36, 0.05) 0%, transparent 60%);
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
-            gap: 48px;
+            align-items: center;
+            padding: 3rem 1.5rem 6rem 1.5rem;
         }
 
-        /* 滾動淡入動效容器 (Reveal on scroll - 支援上下滑動雙向淡入) */
-        .reveal-box {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
+        .page-container {
+            width: 100%;
+            max-width: 1060px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .reveal-box.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 區塊容器外觀 (強化邊框對比與清晰分界點) */
-        .section-box {
+        .section-block {
             background: var(--bg-card);
-            border: 1.5px solid var(--border-card);
-            border-radius: 24px;
-            padding: 44px 48px;
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
-            position: relative;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            padding: 4rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+            text-align: left; 
         }
 
-        /* ==================== 1. 封面區塊 (Hero) ==================== */
-        .hero-section {
-            border: 1.8px solid var(--border-gold);
-            background: radial-gradient(circle at 50% 15%, rgba(251, 191, 36, 0.12) 0%, #131b26 80%);
+        @media (max-width: 850px) {
+            .section-block {
+                padding: 2.5rem 1.5rem;
+                gap: 1.8rem;
+            }
+        }
+
+        .title-main {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.2;
             text-align: center;
-            padding: 56px 40px 48px;
+            background: linear-gradient(135deg, #fff 20%, var(--amber-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
 
-        /* 主辦與協辦單位分兩行，字體大且醒目 (20px) */
-        .organizer-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 28px;
-        }
-
-        .organizer-row {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--accent-gold);
-            letter-spacing: 0.5px;
-            background: rgba(251, 191, 36, 0.12);
-            border: 1px solid rgba(251, 191, 36, 0.35);
-            padding: 6px 24px;
-            border-radius: 30px;
-            display: inline-block;
-            max-width: 100%;
-        }
-
-        .main-title {
-            font-size: 52px;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 1.5px;
-            line-height: 1.25;
-            margin-bottom: 14px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-        }
-
-        .sub-title {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--accent-gold);
-            letter-spacing: 1px;
-            margin-bottom: 36px;
-        }
-
-        /* 核心參數 2x2 矩陣方塊 (大字體、寬敞不折行) */
-        .meta-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 16px;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .meta-card {
-            background: var(--bg-card-inner);
-            border: 1.2px solid rgba(255, 255, 255, 0.16);
-            border-radius: 16px;
-            padding: 22px 18px;
-            text-align: left;
-            transition: all 0.25s ease;
-        }
-
-        .meta-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-3px);
-            background: rgba(24, 34, 48, 0.95);
-        }
-
-        .meta-title {
-            font-size: 18px;
-            color: var(--text-muted);
+        .unified-text {
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .meta-content {
-            font-size: 21px;
-            font-weight: 900;
-            color: #ffffff;
-            line-height: 1.35;
-        }
-
-        /* ==================== 區塊標題樣式 ==================== */
-        .block-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 28px;
-            padding-bottom: 14px;
-            border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .block-title::before {
-            content: "";
-            display: inline-block;
-            width: 6px;
-            height: 28px;
-            background: var(--accent-gold);
-            border-radius: 3px;
-            flex-shrink: 0;
-        }
-
-        /* 網格版型 */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 26px;
-        }
-
-        /* 內容卡片 */
-        .feature-card {
-            background: var(--bg-card-inner);
-            border: 1.2px solid rgba(255, 255, 255, 0.14);
-            border-radius: 18px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .feature-card.alert-style {
-            border-color: rgba(239, 68, 68, 0.45);
-            background: linear-gradient(180deg, rgba(239, 68, 68, 0.09) 0%, #0d131c 100%);
-        }
-
-        .feature-card.solution-style {
-            border-color: var(--border-blue);
-            background: linear-gradient(180deg, rgba(96, 165, 250, 0.10) 0%, #0d131c 100%);
-        }
-
-        .feature-card.gold-style {
-            border-color: var(--border-gold);
-            background: linear-gradient(180deg, rgba(251, 191, 36, 0.09) 0%, #0d131c 100%);
-        }
-
-        .feature-card.green-style {
-            border-color: var(--border-green);
-            background: linear-gradient(180deg, rgba(52, 211, 153, 0.09) 0%, #0d131c 100%);
-        }
-
-        /* 卡片標題大字 (24px) */
-        .card-header-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* 大字項目列表 (20px) */
-        .big-point-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .big-point-list li {
-            position: relative;
-            padding-left: 32px;
-            font-size: 20px;
-            font-weight: 700;
-            color: #f1f5f9;
+            color: var(--text-main);
             line-height: 1.55;
         }
+        
+        .text-gold { color: var(--amber-gold); }
+        .text-emerald { color: var(--emerald-green); }
 
-        .big-point-list li::before {
-            content: "•";
-            position: absolute;
-            left: 8px;
-            font-size: 30px;
-            line-height: 1;
-            color: var(--accent-gold);
-        }
-
-        .big-point-list.red-dot li::before {
-            color: #f87171;
-        }
-
-        .big-point-list.blue-dot li::before {
-            color: #60a5fa;
-        }
-
-        .big-point-list.green-dot li::before {
-            color: #34d399;
-        }
-
-        /* ==================== 兩大核心目標 (上下全寬長條卡片) ==================== */
-        .goals-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-        }
-
-        .goal-row-card {
-            background: var(--bg-card-inner);
-            border-radius: 18px;
-            padding: 28px 34px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            transition: all 0.2s ease;
-        }
-
-        .goal-row-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .goal-row-title {
-            font-size: 25px;
-            font-weight: 900;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* ==================== 參與學校表格 ==================== */
-        .table-wrap-center {
-            max-width: 680px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .simple-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 20px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1.5px solid rgba(255, 255, 255, 0.16);
-            background: var(--bg-card-inner);
-        }
-
-        .simple-table th {
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            font-weight: 800;
-            padding: 16px 24px;
-            text-align: left;
-            border-bottom: 1.5px solid rgba(255, 255, 255, 0.16);
-        }
-
-        .simple-table td {
-            padding: 18px 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            color: #e2e8f0;
-            font-weight: 700;
-        }
-
-        .simple-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .simple-table tr:hover td {
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .school-main-name {
-            font-size: 20px;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .school-sub-note {
-            font-size: 18px;
-            color: var(--accent-gold);
-            font-weight: 700;
-            margin-top: 4px;
-        }
-
-        .num-badge {
-            background: rgba(251, 191, 36, 0.18);
-            color: var(--accent-gold);
-            font-weight: 800;
-            padding: 5px 18px;
-            border-radius: 30px;
-            border: 1px solid rgba(251, 191, 36, 0.45);
-            display: inline-block;
-            font-size: 19px;
-            white-space: nowrap;
-        }
-
-        /* 講師資訊條 (簡約無頭像圖形) */
-        .speaker-box {
-            background: var(--bg-card-inner);
-            border: 1.5px solid var(--border-blue);
-            border-radius: 18px;
-            padding: 24px 28px;
-            margin-bottom: 24px;
-        }
-
-        .speaker-title-text {
-            font-size: 24px;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        /* 結語區塊 (分兩行大字懇請) */
-        .appeal-box {
-            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.14) 0%, #131b26 80%);
-            border: 1.8px solid var(--border-gold);
-            border-radius: 24px;
-            padding: 44px 36px;
-            text-align: center;
-        }
-
-        .appeal-line-1 {
-            font-size: 32px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 6px;
-            line-height: 1.35;
-        }
-
-        .appeal-line-2 {
-            font-size: 30px;
-            font-weight: 900;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-            line-height: 1.35;
-        }
-
-        .appeal-sub-text {
-            font-size: 20px;
-            color: #cbd5e1;
-            font-weight: 700;
-        }
-
-        /* ==================== 📱 手機 RWD 響應式優化 ==================== */
         @media (max-width: 768px) {
-            body {
-                padding: 18px 10px 80px;
-                line-height: 1.65;
-            }
+            .title-main { font-size: 3.2rem; }
+            .unified-text { font-size: 1.8rem; }
+        }
 
-            .doc-container {
-                gap: 32px;
-            }
+        /* 借用與時間資訊卡片 */
+        .info-card {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            border-radius: 20px;
+            padding: 1.6rem 2.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
 
-            .section-box {
-                padding: 26px 16px;
-                border-radius: 18px;
-                border-width: 1.5px;
-            }
-
-            .hero-section {
-                padding: 34px 14px 28px;
-            }
-
-            .organizer-block {
-                gap: 8px;
-                margin-bottom: 20px;
-            }
-
-            .organizer-row {
-                font-size: 16px;
-                padding: 6px 14px;
-                width: 100%;
-                text-align: center;
-            }
-
-            .main-title {
-                font-size: 34px;
-                letter-spacing: 0.5px;
-                margin-bottom: 10px;
-            }
-
-            .sub-title {
-                font-size: 21px;
-                margin-bottom: 26px;
-            }
-
-            .meta-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .meta-card {
-                padding: 16px 16px;
-            }
-
-            .meta-title {
-                font-size: 16px;
-            }
-
-            .meta-content {
-                font-size: 20px;
-            }
-
-            .block-title {
-                font-size: 23px;
-                margin-bottom: 20px;
-                padding-bottom: 10px;
-            }
-
-            .block-title::before {
-                height: 22px;
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .feature-card {
-                padding: 22px 16px;
-                border-radius: 16px;
-                gap: 14px;
-            }
-
-            .card-header-title {
-                font-size: 21px;
-            }
-
-            .big-point-list {
-                gap: 12px;
-            }
-
-            .big-point-list li {
-                font-size: 18px;
-                padding-left: 28px;
-            }
-
-            .goal-row-card {
-                padding: 20px 16px;
-            }
-
-            .goal-row-title {
-                font-size: 20px;
-                flex-wrap: wrap;
-            }
-
-            .simple-table {
-                font-size: 17px;
-            }
-
-            .simple-table th, 
-            .simple-table td {
-                padding: 14px 12px;
-            }
-
-            .school-main-name {
-                font-size: 18px;
-            }
-
-            .school-sub-note {
-                font-size: 15px;
-            }
-
-            .num-badge {
-                font-size: 16px;
-                padding: 4px 12px;
-            }
-
-            .speaker-box {
-                padding: 20px 16px;
-            }
-
-            .speaker-title-text {
-                font-size: 21px;
-            }
-
-            .appeal-box {
-                padding: 28px 16px;
-            }
-
-            .appeal-line-1 {
-                font-size: 24px;
-            }
-
-            .appeal-line-2 {
-                font-size: 22px;
-            }
-
-            .appeal-sub-text {
-                font-size: 18px;
+        @media (max-width: 768px) {
+            .info-card {
+                padding: 1.2rem 1.2rem;
             }
         }
 
-        /* 超小螢幕微調 */
-        @media (max-width: 380px) {
-            .main-title {
-                font-size: 29px;
-            }
-            .sub-title {
-                font-size: 19px;
-            }
-            .organizer-row {
-                font-size: 14.5px;
+        .audience-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem; 
+        }
+
+        .audience-list li {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .audience-list li::before {
+            content: "•";
+            color: var(--emerald-green);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2.2rem;
+        }
+
+        .explanation-text {
+            display: block;
+            margin-top: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.65;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--emerald-green);
+            padding: 1rem 1.4rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        @media (max-width: 768px) {
+            .explanation-text {
+                font-size: 1.45rem;
+                padding: 0.8rem 1rem;
             }
         }
+
+        /* 置底講座主題 */
+        .bottom-lecture-title {
+            margin-top: 0.5rem; 
+            padding-top: 2rem;
+            border-top: 1px dashed var(--border-divider);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* LINE 逃脫 Modal */
+        .line-guide-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10, 10, 10, 0.88); backdrop-filter: blur(12px); z-index: 99999; color: #f5f5f4; display: flex; align-items: center; justify-content: center; padding: 1.5rem; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .line-guide-modal.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .line-guide-card { background: rgba(20, 20, 20, 0.96); border: 1.5px solid rgba(251, 191, 36, 0.45); border-radius: 22px; padding: 2.2rem 1.8rem; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9); }
+        .line-guide-icon { font-size: 2.6rem; margin-bottom: 0.6rem; }
+        .line-guide-title { color: var(--amber-gold); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.2rem; }
+        .line-guide-steps { font-size: 1.1rem; text-align: left; background: rgba(10, 10, 10, 0.75); padding: 1.2rem; border-radius: 14px; border: 1px dashed rgba(251, 191, 36, 0.35); margin-bottom: 1.6rem; }
+        .highlight-badge { display: inline-block; background: rgba(251, 191, 36, 0.18); color: var(--amber-gold); padding: 0.1rem 0.5rem; border-radius: 6px; font-weight: 700; }
+        .btn-guide-close { background: linear-gradient(135deg, rgba(251, 191, 36, 0.95) 0%, rgba(245, 158, 11, 0.88) 100%); border: 1px solid rgba(255, 255, 255, 0.3); color: #1c1917; font-weight: 700; font-size: 1.1rem; padding: 0.75rem 1.8rem; border-radius: 9999px; cursor: pointer; width: 100%; }
     </style>
 </head>
 <body>
 
-    <main class="doc-container">
+    <div id="lineGuideModal" class="line-guide-modal hidden">
+        <div class="line-guide-card">
+            <div class="line-guide-icon">🌐</div>
+            <div class="line-guide-title">建議在預設瀏覽器中開啟</div>
+            <div class="line-guide-steps">
+                為了提供最完整流暢的觀看體驗：<br><br>
+                1. 點擊右上角或右下角的 <span class="highlight-badge">[ ⋮ ]</span> 或 <span class="highlight-badge">[ ⋯ ]</span><br>
+                2. 點選 <span style="color:#fbbf24;font-weight:700;">「在預設瀏覽器中開啟」</span>
+            </div>
+            <button id="btn-close-line-guide" class="btn-guide-close" onclick="document.getElementById('lineGuideModal').classList.add('hidden')">我知道了，繼續瀏覽</button>
+        </div>
+    </div>
 
-        <!-- ==================== 1. 封面區塊 (Hero) ==================== -->
-        <section class="section-box hero-section reveal-box">
-            <!-- 主辦與協辦分兩行呈現，字級大 (20px) -->
-            <div class="organizer-block">
-                <div class="organizer-row">主辦單位：財團法人芯福里情緒教育協會</div>
-                <div class="organizer-row">協辦單位：新北市土城區樂利國民小學</div>
+    <main class="page-container">
+        
+        <div class="section-block">
+            <!-- 主標題區 -->
+            <div>
+                <h1 class="title-main">重溫初衷 · 攜手共好</h1>
+                <div class="unified-text" style="text-align: center; color: var(--text-muted);">資深 EQ 志工回流增能講座企劃書</div>
+            </div>
+            
+            <!-- 借用與時間重點資訊 -->
+            <div class="info-card unified-text">
+                <div>舉辦時間：<span class="text-emerald">2026 年 12 月 18 日 (五) 09:00 - 12:00</span></div>
+                <div>借用地點：<span class="text-emerald">本校 2 樓會議室</span></div>
             </div>
 
-            <h1 class="main-title">
-                回航初心 攜手共好
-            </h1>
-            <div class="sub-title">
-                資深EQ志工回流增能講座
+            <!-- 主協辦單位 -->
+            <div class="unified-text">
+                主辦單位：芯福里情緒教育推廣協會<br>
+                期望協辦：樂利國小
             </div>
 
-            <!-- 核心四大參數 2x2 矩陣 -->
-            <div class="meta-grid">
-                <div class="meta-card">
-                    <div class="meta-title">📅 預定日期</div>
-                    <div class="meta-content" style="color: #60a5fa;">2026年12月18日 (週五)</div>
-                </div>
-                <div class="meta-card">
-                    <div class="meta-title">⏰ 預定時間</div>
-                    <div class="meta-content">09:00 - 12:00</div>
-                </div>
-                <div class="meta-card">
-                    <div class="meta-title">🏛️ 借用教室</div>
-                    <div class="meta-content">樂利國小 階梯教室</div>
-                </div>
-                <div class="meta-card">
-                    <div class="meta-title">💰 活動經費</div>
-                    <div class="meta-content" style="color: #34d399;">零負擔 (協會專款)</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 2. 為何要辦理此場講座 ==================== -->
-        <section class="section-box reveal-box">
-            <h2 class="block-title">為何要辦理此場講座</h2>
-
-            <div class="grid-2">
-                <!-- 左欄：痛點 -->
-                <div class="feature-card alert-style">
-                    <div class="card-header-title">
-                        <span>⚠️</span> 各校面臨的人力痛點
-                    </div>
-                    <ul class="big-point-list red-dot">
-                        <li>資深主講暫離</li>
-                        <li>培力耗時長</li>
-                        <li>各校人力吃緊</li>
-                    </ul>
-                </div>
-
-                <!-- 右欄：溫暖解方 -->
-                <div class="feature-card solution-style">
-                    <div class="card-header-title">
-                        <span>💡</span> 協會專款辦理增能回流
-                    </div>
-                    <ul class="big-point-list blue-dot">
-                        <li>深具吸引力心理講座</li>
-                        <li>喚起EQ舊夥伴初心</li>
-                        <li>全校教職員工共同參與</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 3. 兩大核心目標 ==================== -->
-        <section class="section-box reveal-box">
-            <h2 class="block-title">本次講座的兩大核心目標</h2>
-
-            <div class="goals-stack">
-                <!-- 目標一 -->
-                <div class="goal-row-card gold-style" style="border: 1.2px solid var(--border-gold);">
-                    <div class="goal-row-title">
-                        <span>🎯</span> 重燃志工熱忱・促成主講回流
-                    </div>
-                    <ul class="big-point-list">
-                        <li>溫暖回娘家充電，感念過去奉獻</li>
-                        <li>觸動投入服務初心，重返入班師資</li>
-                    </ul>
-                </div>
-
-                <!-- 目標二 -->
-                <div class="goal-row-card green-style" style="border: 1.2px solid var(--border-green);">
-                    <div class="goal-row-title">
-                        <span>🤝</span> 構築大新北跨校互助接應圈
-                    </div>
-                    <ul class="big-point-list green-dot">
-                        <li>結合各校力量，壯大專業師資群</li>
-                        <li>遇缺主講跨校互相接應，免開天窗</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 4. 參與學校與預估人數 ==================== -->
-        <section class="section-box reveal-box">
-            <h2 class="block-title">參與學校與預估人數</h2>
-
-            <div class="table-wrap-center">
-                <table class="simple-table">
-                    <thead>
-                        <tr>
-                            <th>學校 / 來源單位</th>
-                            <th style="width: 35%; text-align: right;">預估人數</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="school-main-name">🏫 樂利國小</div>
-                                <div class="school-sub-note">歡迎本校教職員工 一同參與</div>
-                            </td>
-                            <td style="text-align: right;"><span class="num-badge">10 ~ 15 人</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="school-main-name">🏫 裕德國小</div>
-                            </td>
-                            <td style="text-align: right;"><span class="num-badge">10 ~ 15 人</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="school-main-name">🏫 重慶國小</div>
-                            </td>
-                            <td style="text-align: right;"><span class="num-badge">8 ~ 10 人</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="school-main-name">🏫 板橋國小</div>
-                            </td>
-                            <td style="text-align: right;"><span class="num-badge">8 ~ 10 人</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="school-main-name">🌟 新北督導群</div>
-                            </td>
-                            <td style="text-align: right;"><span class="num-badge">5 ~ 10 人</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ==================== 5. 特聘講師與講座規劃 ==================== -->
-        <section class="section-box reveal-box">
-            <h2 class="block-title">特聘講師與講座規劃</h2>
-
-            <!-- 講師資訊框 (簡潔無圖案、謝明慧 心理師) -->
-            <div class="speaker-box">
-                <div class="speaker-title-text">特聘講師：謝明慧 心理師</div>
+            <!-- 效益與目標 -->
+            <div class="unified-text">
+                期望效益：<br>
+                <span class="text-emerald">為種子學校充實並擴充更多優質 EQ 講師</span><br><br>
+                期望目標：<br>
+                <span class="text-gold">1. 喚回資深 EQ 講師，重燃服務熱忱</span><br>
+                <span class="text-gold">2. 凝聚團隊向心力，避免優秀師資流失</span>
             </div>
 
-            <!-- 講座方向 -->
-            <div class="feature-card solution-style">
-                <div class="card-header-title">
-                    <span>🌱</span> 講座方向：
-                </div>
-                <ul class="big-point-list blue-dot">
-                    <li>初心重燃與志工自我照顧</li>
-                    <li>家庭與校園情緒正向對話</li>
-                    <li>跨校同行與團隊互助滋養</li>
+            <!-- 經費與場地重點區 -->
+            <div class="unified-text">
+                本專案由芯福里全額補助講師與活動開銷，<span class="text-gold">校方免付任何費用</span><br>
+                期盼校方能惠予 <span class="text-emerald">支援借用 2 樓會議室</span><br>
+                共同攜手深耕校園 SEL 情緒素養教育
+            </div>
+
+            <!-- 參與對象與規模 -->
+            <div class="unified-text">
+                預計參與人數：約 50 人<br>
+                參與對象：
+                <ul class="audience-list" style="margin-top: 0.5rem;">
+                    <li>樂利國小 EQ 志工講師</li>
+                    <li>常態支援本校之姐妹校 EQ 講師<br>
+                        <span style="font-size: 1.8rem; color: var(--text-muted); font-weight: normal;">(如：重慶國小、裕德國小、板橋國小、安和國小......等)</span>
+                    </li>
+                    <li>新北區 11 位專業 EQ 督導群</li>
                 </ul>
+                
+                <div class="explanation-text">
+                    樂利國小長年深獲鄰近姐妹校 EQ 志工團隊的大力支援與常態性入班教學協助；<br>
+                    本次講座特邀這群長期為樂利孩子付出的跨校夥伴共同回流研習，深化校際師資互助默契，全面鞏固本校 EQ 教學量能。
+                </div>
             </div>
-        </section>
 
-        <!-- ==================== 6. 結語與懇請支持 ==================== -->
-        <section class="section-box appeal-box reveal-box">
-            <div class="appeal-line-1">
-                懇請 樂利國小
+            <!-- 講座主題置底呈現 -->
+            <div class="bottom-lecture-title unified-text text-gold">
+                講座主題：《腦科學教養攻略》
             </div>
-            <div class="appeal-line-2">
-                惠予支持借用階梯教室
-            </div>
-            <div class="appeal-sub-text">
-                財團法人芯福里情緒教育協會 敬呈
-            </div>
-        </section>
+        </div>
 
     </main>
 
-    <!-- 雙向滾動淡入動效腳本 -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const reveals = document.querySelectorAll('.reveal-box');
-            
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -20px 0px',
-                threshold: 0.08
-            };
-
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    } else {
-                        entry.target.classList.remove('is-visible');
-                    }
-                });
-            }, observerOptions);
-
-            reveals.forEach(el => revealObserver.observe(el));
+        window.addEventListener('DOMContentLoaded', () => {
+            const ua = (navigator.userAgent || '').toLowerCase();
+            if (ua.indexOf('line') > -1) {
+                const lineModal = document.getElementById('lineGuideModal');
+                if (lineModal) {
+                    lineModal.classList.remove('hidden');
+                }
+            }
         });
     </script>
 </body>

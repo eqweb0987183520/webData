@@ -11,7 +11,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>重溫初衷・攜手共好｜資深EQ志工回流企劃書</title>
+    <title>重溫初衷・攜手共好｜資深EQ志工回流講座企劃書</title>
 
     <!-- LINE 內嵌瀏覽器極速逃脫腳本 -->
     <script>
@@ -93,7 +93,7 @@
             padding: 4rem 3.5rem;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 2.2rem;
             text-align: left; 
         }
 
@@ -119,7 +119,7 @@
             font-size: 2.2rem;
             font-weight: 700;
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.55;
         }
         
         .text-gold { color: var(--amber-gold); }
@@ -128,6 +128,23 @@
         @media (max-width: 768px) {
             .title-main { font-size: 3.2rem; }
             .unified-text { font-size: 1.8rem; }
+        }
+
+        /* 借用與時間資訊卡片 */
+        .info-card {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            border-radius: 20px;
+            padding: 1.6rem 2.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-card {
+                padding: 1.2rem 1.2rem;
+            }
         }
 
         .audience-list {
@@ -153,17 +170,31 @@
 
         .explanation-text {
             display: block;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             color: var(--text-muted);
-            font-weight: 600;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.65;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--emerald-green);
+            padding: 1rem 1.4rem;
+            border-radius: 0 12px 12px 0;
         }
 
+        @media (max-width: 768px) {
+            .explanation-text {
+                font-size: 1.45rem;
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* 置底講座主題 */
         .bottom-lecture-title {
-            margin-top: 1rem; 
+            margin-top: 0.5rem; 
             padding-top: 2rem;
             border-top: 1px dashed var(--border-divider);
             text-align: center;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         /* LINE 逃脫 Modal */
@@ -198,9 +229,15 @@
             <!-- 主標題區 -->
             <div>
                 <h1 class="title-main">重溫初衷 · 攜手共好</h1>
-                <div class="unified-text" style="text-align: center; color: var(--text-muted);">資深 EQ 志工回流企劃書</div>
+                <div class="unified-text" style="text-align: center; color: var(--text-muted);">資深 EQ 志工回流增能講座企劃書</div>
             </div>
             
+            <!-- 借用與時間重點資訊 -->
+            <div class="info-card unified-text">
+                <div>舉辦時間：<span class="text-emerald">2026 年 12 月 18 日 (五) 09:00 - 12:00</span></div>
+                <div>借用地點：<span class="text-emerald">本校 2 樓會議室</span></div>
+            </div>
+
             <!-- 主協辦單位 -->
             <div class="unified-text">
                 主辦單位：芯福里情緒教育推廣協會<br>
@@ -210,39 +247,38 @@
             <!-- 效益與目標 -->
             <div class="unified-text">
                 期望效益：<br>
-                <span class="text-emerald">為種子學校擴充更多 EQ 講師</span><br><br>
+                <span class="text-emerald">為種子學校充實並擴充更多優質 EQ 講師</span><br><br>
                 期望目標：<br>
-                <span class="text-gold">1. 喚回資深 EQ 講師</span><br>
-                <span class="text-gold">2. 避免流失 EQ 講師</span>
+                <span class="text-gold">1. 喚回資深 EQ 講師，重燃服務熱忱</span><br>
+                <span class="text-gold">2. 凝聚團隊向心力，避免優秀師資流失</span>
             </div>
 
             <!-- 經費與場地重點區 -->
             <div class="unified-text">
-                本專案由芯福里全額補助，<span class="text-gold">校方免付任何費用</span><br>
-                期盼校方能惠予 <span class="text-emerald">免費出借場地</span><br>
-                共同推動校園 SEL 教育
+                本專案由芯福里全額補助講師與活動開銷，<span class="text-gold">校方免付任何費用</span><br>
+                期盼校方能惠予 <span class="text-emerald">支援借用 2 樓會議室</span><br>
+                共同攜手深耕校園 SEL 情緒素養教育
             </div>
 
             <!-- 參與對象與規模 -->
             <div class="unified-text">
-                預計參與人數：50 人<br>
+                預計參與人數：約 50 人<br>
                 參與對象：
                 <ul class="audience-list" style="margin-top: 0.5rem;">
-                    <li>樂利國小 EQ 講師</li>
-                    <li>姐妹校 EQ 講師<br>
+                    <li>樂利國小 EQ 志工講師</li>
+                    <li>常態支援本校之姐妹校 EQ 講師<br>
                         <span style="font-size: 1.8rem; color: var(--text-muted); font-weight: normal;">(如：重慶國小、裕德國小、板橋國小、安和國小......等)</span>
                     </li>
-                    <li>新北區 11 位 EQ 督導群</li>
+                    <li>新北區 11 位專業 EQ 督導群</li>
                 </ul>
                 
-                <div class="explanation-text" style="font-size: 1.8rem;">
-                    樂利國小長期與姐妹校 EQ 組保有良好的講師互助默契<br>
-                    期盼藉此機會邀請姐妹校 EQ 講師共同參與<br>
-                    以擴充 EQ 講師人力並促進穩定回流
+                <div class="explanation-text">
+                    樂利國小長年深獲鄰近姐妹校 EQ 志工團隊的大力支援與常態性入班教學協助；<br>
+                    本次講座特邀這群長期為樂利孩子付出的跨校夥伴共同回流研習，深化校際師資互助默契，全面鞏固本校 EQ 教學量能。
                 </div>
             </div>
 
-            <!-- 講座標題置底 -->
+            <!-- 講座主題置底呈現 -->
             <div class="bottom-lecture-title unified-text text-gold">
                 講座主題：《腦科學教養攻略》
             </div>
